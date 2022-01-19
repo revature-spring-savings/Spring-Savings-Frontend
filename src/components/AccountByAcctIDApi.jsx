@@ -6,7 +6,7 @@ export const AccountByAcctID =()=>{
     const [account, setAccount] = useState([]);
 
     const fetchAccount=()=>{
-        var uaccountID = 1;
+        var accountID = 1;
         axios.get(`http://3.14.3.79:9090/accounts/${accountID}`).then(res =>{
             console.log(res);
             setAccount(res.data);
