@@ -7,7 +7,7 @@ export const AccountByUserID =()=>{
 
     const fetchAccount=()=>{
         var userID = 1;
-        axios.get(`http://3.14.3.79:9090/accounts/${userID}/all-accounts`).then(res =>{
+        axios.get(`http://localhost:8081/accounts/${userID}/all-accounts`).then(res =>{
             console.log(res);
             setAccount(res.data);
         });
