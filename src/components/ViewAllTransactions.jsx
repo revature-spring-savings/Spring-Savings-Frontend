@@ -1,17 +1,20 @@
+import axios from "axios";
+
 export default function ViewAllTransactions() {
     //instead of showing description, can show green or red according to whether it is deposit or withdraw
     //list by most recent date
     const transactionsAPI = 'http://localhost:8081/transactions/'
 
-    axios.get(inventoryAPI)
+    axios.get(transactionsAPI)
         .then((response) => {
-            displayTransactions(response.data);
+            element(response.data);
         })
 
-    function displayTransactions(data) {
+   // function displayTransactions(data) {
 
-        const element = (
-
+    const element = (data) => {
+        <>
+        <p>hello</p>
             <table>
                 <thead>
                     <tr>
@@ -39,14 +42,15 @@ export default function ViewAllTransactions() {
             )         
         })}
             </table>
-                );
-        ReactDOM.render(element, document.getElementById('datahere'));
-}
+</>
+               }
+    
+//}
 
 
 return(
     <>
-        <div id="datahere"></div>
+      {element}
     </>
 )
 
