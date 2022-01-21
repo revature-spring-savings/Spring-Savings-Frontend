@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 
-export const AccountByAcctID =()=>{
+export const AccountByAcctIDConst =()=>{
 
     const [account, setAccount] = useState([]);
 
@@ -17,16 +17,13 @@ export const AccountByAcctID =()=>{
         fetchAccount();
     },[]);
 
-    return account.map((account, index) =>{
-        return (
-            <div key={index}>
-                
+    return (
+        <>  
+            <div>
                 <h3>Account: {account.accountID}</h3>
                 <p>Type: {account.accountType}</p>
                 <p>Balance: {account.accountBalance}</p>
-               
-            </div>
+            </div> 
+        </>
         )
-    });
-
 }
