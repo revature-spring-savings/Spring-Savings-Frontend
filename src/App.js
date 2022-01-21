@@ -1,7 +1,8 @@
-
 import './App.css';
-import CreateNewTransaction from './components/CreateSingleTransaction';
-import CreateTransfer from './components/CreateTransfer';
+import AccountByUserID from './components/AccountByUserID';
+import AccountByAcctID from './components/AccountByAcctID';
+import { TransactionsDetail } from './components/transaction/Transactions';
+import CreateNewTransaction from './components/CreateNewTransaction';
 import ViewAllWithdrawTransactions from './components/ViewAllWithdrawTransactions';
 import ViewOneTransaction from './components/ViewOneTransaction';
 
@@ -14,7 +15,12 @@ console.log(today);
   return (
     <div className="App">
       <header className="App-header">
-        <CreateTransfer />
+
+
+
+     
+
+ 
       </header>
     </div>
   );
