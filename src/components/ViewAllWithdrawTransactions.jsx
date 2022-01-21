@@ -1,20 +1,28 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-export default function ViewAllTransactions() {
+export default function ViewAllWithdrawTransactions() {
     //instead of showing description, can show green or red according to whether it is deposit or withdraw
     //list by most recent date
 
     //i would really like to set this up as a modularization component
     //pass in any transactions JSON as props and format it as table
-    const transactionsAPI = 'http://localhost:8081/transactions';
+    const transactionsAPI = 'http://localhost:8081/transactions/withdraw';
     const [transactions, setTransactions] = useState([]);
-
+    const axios = require('axios');
+  //  const [accountID, setTransactions] = useState([]);
+    const num = 1;
     useEffect(() => {
-        axios.get(transactionsAPI)
+        axios.post(transactionsAPI, {
+                accountID: num
+        })
             .then((response) => {
-                console.log(response.data);
+                console.log(response);
                 setTransactions(response.data);
+                console.log(transactions);
+            })
+            .catch(function(error){
+                console.log(error);
             })
     }, []);
 
