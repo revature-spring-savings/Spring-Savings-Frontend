@@ -48,11 +48,4 @@ export default function ViewAllTransactions() {
             </table>
         </>
     )
-
-
-
-
-
-
-
 }

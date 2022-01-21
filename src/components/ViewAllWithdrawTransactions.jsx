@@ -10,24 +10,24 @@ export default function ViewAllWithdrawTransactions() {
     const transactionsAPI = 'http://localhost:8081/transactions/withdraw';
     const [transactions, setTransactions] = useState([]);
     const axios = require('axios');
-  //  const [accountID, setTransactions] = useState([]);
+    //  const [accountID, setTransactions] = useState([]);
     const num = 1;
     useEffect(() => {
         axios.post(transactionsAPI, {
-                accountID: num
+            accountID: num
         })
             .then((response) => {
                 console.log(response);
                 setTransactions(response.data);
                 console.log(transactions);
             })
-            .catch(function(error){
+            .catch(function (error) {
                 console.log(error);
             })
     }, []);
 
-    return (
-        <>
+    const TransactionTable = () => {
+        return (
             <table>
                 <thead>
                     <tr>
@@ -54,6 +54,12 @@ export default function ViewAllWithdrawTransactions() {
                     )
                 })}
             </table>
+        )
+    }
+
+    return (
+        <>
+            <TransactionTable />
         </>
     )
 
