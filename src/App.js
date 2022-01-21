@@ -5,10 +5,15 @@ import ViewAllWithdrawTransactions from './components/ViewAllWithdrawTransaction
 import ViewOneTransaction from './components/ViewOneTransaction';
 
 function App() {
+  let newDate = new Date()
+let month = newDate.getMonth() + 1;
+let today = `${month<10?`0${month}`:`${month}`}/${newDate.getDate()}/${newDate.getFullYear()}`;
+
+console.log(today);
   return (
     <div className="App">
       <header className="App-header">
-        <ViewAllWithdrawTransactions />
+        <CreateNewTransaction accountID='2' userID='1' amount='1800.00' transactionType='DEPOSIT' transactionNote='tax return' transactionDate={today} />
       </header>
     </div>
   );
