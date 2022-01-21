@@ -1,6 +1,7 @@
 
 import './App.css';
-import CreateNewTransaction from './components/CreateNewTransaction';
+import CreateNewTransaction from './components/CreateSingleTransaction';
+import CreateTransfer from './components/CreateTransfer';
 import ViewAllWithdrawTransactions from './components/ViewAllWithdrawTransactions';
 import ViewOneTransaction from './components/ViewOneTransaction';
 
@@ -13,7 +14,7 @@ console.log(today);
   return (
     <div className="App">
       <header className="App-header">
-        <CreateNewTransaction accountID='2' userID='1' amount='1800.00' transactionType='DEPOSIT' transactionNote='tax return' transactionDate={today} />
+        <CreateTransfer />
       </header>
     </div>
   );
