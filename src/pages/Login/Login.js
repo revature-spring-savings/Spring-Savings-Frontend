@@ -12,7 +12,7 @@ export default function Login() {
     function submit(){
       const a = uname
       const  b = upassword
-      //  axios.post(`http://localhost:9090/users/lsogin/${a}/${b}`) this will be where we make our api call
+      //  axios.post(`http://localhost:3000/login /${a}/${b}`) this will be where we make our api call
          .then(response =>{
            const newName = response.data;
            sessionStorage.setItem('name', newName);
