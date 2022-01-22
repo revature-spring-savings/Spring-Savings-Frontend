@@ -7,34 +7,33 @@ import { useState, useEffect } from "react";
 export default function CreateTransfer() {
     const transactionsAPI = 'http://localhost:8081/transactions'
 
-    const [transactionType, setTransactionType] = useState('');
-    const [transactionNote, setTransactionNote] = useState('');
+  //  const [transactionType, setTransactionType] = useState('');
+  //  const [transactionNote, setTransactionNote] = useState('');
     const [acctSrc, setAcctSrc] = useState(1);
     const [acctDest, setAcctDest] = useState(2);
-    const [userID, setUserID] = useState(1);
-
+  //  const [userID, setUserID] = useState(1);
     const [amount, setAmount] = useState(0);
-    const [transactionBtn, setTransactionBtn] = useState(false);
 
     let newDate = new Date();
     let month = newDate.getMonth() + 1;
     let today = `${month < 10 ? `0${month}` : `${month}`}/${newDate.getDate()}/${newDate.getFullYear()}`;
-  
-    //get userID and accountID from useContext
-        function changeTheValue(e){
-            setTransactionType(e);
-            setTransactionBtn(!transactionBtn);
-        }
-
 
     function createNewTransaction() {
         axios.post(transactionsAPI, [{
             accountID: acctSrc,
-            userID: this.userID,
+            userID: 1,
             amount: amount,
             transactionDate: today,
             transactionNote: `Transfer from acct ${acctSrc} to acct ${acctDest}`,
             transactionType: 'WITHDRAW'
+        },
+        {
+            accountID: acctDest,
+            userID: 1,
+            amount: amount,
+            transactionDate: today,
+            transactionNote: `Transfer from acct ${acctSrc} to acct ${acctDest}`,
+            transactionType: 'DEPOSIT'
         }])
             .then((response) => {
                 console.log(response.data);
@@ -46,11 +45,21 @@ export default function CreateTransfer() {
     }
     return (
         <>
-            <form>
-                Transfer <br />
+  
+                Transfer <br/><br/>
 
+                Transfer From<br/>
+                <input
+                    type="number"
+                    value={acctSrc}
+                    onChange={(e) => setAcctSrc(e.target.value)} /><br /><br />
 
-                <br /><br />
+                    Transfer To<br/>
+                <input
+                    type="number"
+                    value={acctDest}
+                    onChange={(e) => setAcctDest(e.target.value)} /><br /><br />
+                    
                 Amount<br/>
                 <input
                     type="number"
@@ -58,15 +67,10 @@ export default function CreateTransfer() {
                     onChange={(e) => setAmount(e.target.value)} /><br /><br />
 
                 Note<br/>
-                <input
-                    type="text"
-                    value={transactionNote}
-                    onChange={(e) => setTransactionNote(e.target.value)}
-                    placeholder="Note" /><br /><br />
+                <div>Transfer from acct {acctSrc} to acct {acctDest}</div>
 
-                <button onClick={createNewTransaction}>{transactionBtn ? "WITHDRAW" : "DEPOSIT"}</button>
+                <button onClick={createNewTransaction}>Complete Transfer</button>
 
-            </form>
         </>
     )
 }

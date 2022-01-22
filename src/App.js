@@ -1,10 +1,6 @@
 import './App.css';
-import AccountByUserID from './components/AccountByUserID';
-import AccountByAcctID from './components/AccountByAcctID';
-import { TransactionsDetail } from './components/transaction/Transactions';
-import CreateNewTransaction from './components/CreateNewTransaction';
-import ViewAllWithdrawTransactions from './components/ViewAllWithdrawTransactions';
-import ViewOneTransaction from './components/ViewOneTransaction';
+import CreateTransfer from './components/CreateTransfer';
+
 
 function App() {
   let newDate = new Date()
@@ -16,7 +12,7 @@ console.log(today);
     <div className="App">
       <header className="App-header">
 
-
+      <CreateTransfer />
 
      
 
