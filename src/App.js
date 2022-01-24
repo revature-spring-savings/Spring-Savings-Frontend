@@ -1,4 +1,7 @@
 import './App.css';
+
+import Dashboard from './pages/Dashboard';
+
 import Navbar from "./components/navbar/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import BottomNavbar from "./components/navbar/bottomNavbar";
@@ -16,6 +19,7 @@ console.log(today);
   return (
     <>
     <div className="App">
+       
         <Router>
           <Navbar />
           <BottomNavbar />
@@ -30,6 +34,8 @@ console.log(today);
             <Route path="/withdraw" element={<Withdraw />} /> */}
           </Routes>
         </Router>
+
+        <Dashboard /><br/><br/><br/>
     </div>
     </>
   );
