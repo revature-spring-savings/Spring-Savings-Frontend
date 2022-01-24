@@ -1,4 +1,4 @@
-import { AccountByUserIDConst } from "../components/AccountByUserIDApi";
+import { AccountByUserID } from "../components/account/AccountByAcctID";
 import '../scss/dashboard.css'
 
 export default function Dashboard(){
@@ -10,7 +10,7 @@ export default function Dashboard(){
         <>
             <div id="acctCards">
                 <h1 class="pageTitle">View Accounts</h1>
-                <AccountByUserIDConst />
+                <AccountByUserID />
                 <br/><br/>
                 
             </div>
