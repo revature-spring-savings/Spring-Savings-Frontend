@@ -19,6 +19,7 @@ console.log(today);
         <Router>
           <Navbar />
           <BottomNavbar />
+          <CreateAccount />
           <Routes>
             <Route path="/Home" element={<Home />} />
             {/* <Route path="/Information" element={<Information />} />

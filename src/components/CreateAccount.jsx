@@ -60,8 +60,9 @@ export default function CreateAccount(props) {
                     onChange={(e) => setAmount(e.target.value)} /><br /><br />
 
 
-                <button className="create-button" onClick={createNewAccount}>Create a new {accountType.toLowerCase()} Account</button>
-
+                <button className="create-button" onClick={createNewAccount}>Create a new {accountType.toLowerCase()} account</button>
+                <br/>
+                <button className="viewall-button" onClick={createNewAccount}>View All Accounts</button>
 
         
                 {/* <button onClick={createNewAccount}>{accountBtn ? "Create a Savings Accounts" : "Create a Checking Account"}</button> */}
