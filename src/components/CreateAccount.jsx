@@ -48,7 +48,7 @@ export default function CreateAccount(props) {
                 <input name="type" type="radio" id="checking" value="CHECKING" onClick={(e) => changeTheValue(e.target.value)} />
                 <label htmlFor="checking" checked="checked">Checking</label>
 
-                <input name="type" type="radio" id="savings" value="SAVINGS" onClick={(e) => changeTheValue(e.target.value)} />
+                <input className="savings-button" name="type" type="radio" id="savings" value="SAVINGS" onClick={(e) => changeTheValue(e.target.value)} />
                 <label htmlFor="savings">Savings</label>
 
 
@@ -60,7 +60,7 @@ export default function CreateAccount(props) {
                     onChange={(e) => setAmount(e.target.value)} /><br /><br />
 
 
-                <button onClick={createNewAccount}>Create a new {accountType.toLowerCase()} Account</button>
+                <button className="create-button" onClick={createNewAccount}>Create a new {accountType.toLowerCase()} Account</button>
 
 
         
