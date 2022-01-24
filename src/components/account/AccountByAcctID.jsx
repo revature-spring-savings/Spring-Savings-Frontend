@@ -1,20 +1,15 @@
 import axios from 'axios';
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
-export const AccountByAcctIDConst =()=>{
-
+export const AccountByAcctIDConst = () => {
     const [account, setAccount] = useState([]);
 
-    const fetchAccount=()=>{
-        var accountID = 1;
+    useEffect(()=>{
+        var accountID = 5;
         axios.get(`http://localhost:8081/accounts/${accountID}`).then(res =>{
             console.log(res);
             setAccount(res.data);
         });
-    }
-
-    useEffect(()=>{
-        fetchAccount();
     },[]);
 
     return (
