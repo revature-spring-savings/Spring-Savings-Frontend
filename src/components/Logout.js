@@ -12,7 +12,6 @@ function Logout() {
     return (
        <>
        <Navbar/>
-
        <LogoutVideo/>
        <Button/>
        </>
