@@ -1,8 +1,8 @@
 import './App.css';
-import { AccountByAcctIDConst } from './components/account/AccountByAcctID';
-import { AccountByUserIDConst } from './components/account/AccountByUserID';
-import CreateAccount from './components/account/CreateAccount';
-import { TransactionsDetail } from './components/transaction';
+import Navbar from "./components/navbar/Navbar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import BottomNavbar from "./components/navbar/bottomNavbar";
+import Home from "./components/navbar/Home";
 
 function App() {
   let newDate = new Date()
@@ -11,17 +11,24 @@ function App() {
 
 console.log(today);
   return (
+    <>
     <div className="App">
-      <header className="App-header">
-
-
-     {/* <TransactionsDetail/> */}
-    {/* <AccountByAcctIDConst/> */}
-    {/* <AccountByUserIDConst/> */}
-    <CreateAccount/>
- 
-      </header>
+        <Router>
+          <Navbar />
+          <BottomNavbar />
+          <Routes>
+            <Route path="/Home" element={<Home />} />
+            {/* <Route path="/Information" element={<Information />} />
+            <Route path="/Logout" element={<Logout />} />
+            <Route path="/Login"element={<Login />} />
+            <Route path="/Accounts" element={<Accounts />} />
+            <Route path="/PayOrTransfer" element={<PayOrTransfer/>} />
+            <Route path="/Deposit" element={<Deposit />} />
+            <Route path="/Withdraw" element={<Withdraw />} /> */}
+          </Routes>
+        </Router>
     </div>
+    </>
   );
 }
 
