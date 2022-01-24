@@ -1,4 +1,7 @@
 import './App.css';
+
+import Dashboard from './pages/Dashboard';
+
 import Navbar from "./components/navbar/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import BottomNavbar from "./components/navbar/bottomNavbar";
@@ -13,6 +16,14 @@ console.log(today);
   return (
     <>
     <div className="App">
+      
+
+      <Dashboard /><br/><br/><br/>
+    
+
+     
+
+ 
         <Router>
           <Navbar />
           <BottomNavbar />
