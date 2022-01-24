@@ -1,6 +1,7 @@
 import './App.css';
 import CreateTransfer from './components/CreateTransfer';
 import CreateAccount from './components/CreateAccount';
+import Dashboard from './pages/Dashboard';
 
 
 function App() {
@@ -11,14 +12,14 @@ let today = `${month<10?`0${month}`:`${month}`}/${newDate.getDate()}/${newDate.g
 console.log(today);
   return (
     <div className="App">
-      <header className="App-header">
+      
 
+      <Dashboard /><br/><br/><br/>
       <CreateAccount />
 
      
 
  
-      </header>
     </div>
   );
 }
