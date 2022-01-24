@@ -1,5 +1,6 @@
 import './App.css';
 import CreateTransfer from './components/CreateTransfer';
+import CreateAccount from './components/CreateAccount';
 
 
 function App() {
@@ -12,7 +13,7 @@ console.log(today);
     <div className="App">
       <header className="App-header">
 
-      <CreateTransfer />
+      <CreateAccount />
 
      
 
