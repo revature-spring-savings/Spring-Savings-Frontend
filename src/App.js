@@ -4,6 +4,7 @@ import Navbar from "./components/navbar/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import BottomNavbar from "./components/navbar/bottomNavbar";
 import Home from "./components/navbar/Home";
+import CreateAccount from './components/CreateAccount';
 
 
 function App() {
