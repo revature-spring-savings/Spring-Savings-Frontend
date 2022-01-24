@@ -5,6 +5,7 @@ import BottomNavbar from "./components/navbar/bottomNavbar";
 import Home from "./pages/Home";
 import Information from "./pages/Information";
 import Accounts from './pages/Accounts';
+import Logout from './pages/Logout';
 
 function App() {
   let newDate = new Date()
@@ -19,14 +20,14 @@ console.log(today);
           <Navbar />
           <BottomNavbar />
           <Routes>
-            <Route path="/Home" element={<Home />} />
-            <Route path="/Information" element={<Information />} />
-            {/* <Route path="/Logout" element={<Logout />} />
-            <Route path="/Login"element={<Login />} /> */}
-            <Route path="/Accounts" element={<Accounts />} />
-            {/* <Route path="/PayOrTransfer" element={<PayOrTransfer/>} />
-            <Route path="/Deposit" element={<Deposit />} />
-            <Route path="/Withdraw" element={<Withdraw />} /> */}
+            <Route path="/home" element={<Home />} />
+            <Route path="/information" element={<Information />} />
+            <Route path="/logout" element={<Logout />} />
+            {/* <Route path="/Login"element={<Login />} /> */}
+            <Route path="/accounts" element={<Accounts />} />
+            {/* <Route path="/pay-or-transfer" element={<PayOrTransfer/>} />
+            <Route path="/deposit" element={<Deposit />} />
+            <Route path="/withdraw" element={<Withdraw />} /> */}
           </Routes>
         </Router>
     </div>

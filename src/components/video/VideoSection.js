@@ -1,23 +1,20 @@
 import React from 'react';
-import { Button } from '../buttons/Button';
+import { ButtonVideo } from '../video/ButtonVideo';
 import './VideoSection.css';
-import '../../App.css';
-import { Link } from 'react-router-dom';
 
 function VideoSection() {
     return (
-        <div>
-            <video src="video.mp4" autoPlay loop muted></video>
-            <div id='textOverlay'>
-                <h1 id='videoH1'>ThymeCrunch</h1>
-                <p id='videoP'>No thyme for complicated recipies? No Worries, We'll make it easy!</p>
+        <div className='video-container'>
+            <video src="./assests/video.mp4" autoPlay loop muted></video>
+            <div className='textOverlay'>
+                <h1 className='videoH1'>Spring Banking</h1>
+                <p className='videoP'>Let's Spark it up with some Spring Banking!</p>
                 <div className='video-btns'>
-                    <Button 
+                    <ButtonVideo 
                         className='btns' buttonStyle='btn--outline' 
                         buttonSize='btn--large'>
-                        Thyme to Cook!
-                    </Button>
-                   
+                        Thyme to Bank!
+                    </ButtonVideo>
                 </div>
             </div>
         </div>

@@ -10,7 +10,7 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
-    background-color: beige;
+    background: $nav-bar-color;
 
     .left-navbar {
         float: left;
@@ -34,7 +34,7 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
-    background-color: beige;
+    background: $nav-bar-color;
 
     .left-bottomNavbar {
         padding: 14px;
@@ -49,11 +49,11 @@
 
 .active {
     text-decoration: none;
-    color: rgb(240, 156, 0);
+    color: $rev-orange;
 }
 .non-active {
     text-decoration: none;
-    color: black;
+    color: $rev-lightgrey;
 }
 
 

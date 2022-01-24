@@ -8,16 +8,16 @@ export default function BottomNavbar() {
     return (
         <ul className="bottom-navbar">
             <li className="left-bottomNavbar">
-                <Link className={location.pathname === "/Accounts" ? "active" : "non-active"} to="/Accounts">Accounts</Link>
+                <Link className={location.pathname === "/accounts" ? "active" : "non-active"} to="/accounts">Accounts</Link>
             </li>
             <li className="left-bottomNavbar">
-                <Link className={location.pathname === "/PayOrTransfer" ? "active" : "non-active"} to="/PayOrTransfer">Pay & transfer</Link>
+                <Link className={location.pathname === "/pay-or-transfer" ? "active" : "non-active"} to="/pay-or-transfer">Pay & transfer</Link>
             </li>
             <li className="left-bottomNavbar">
-                <Link className={location.pathname === "/Deposit" ? "active" : "non-active"} to="/Deposit">Deposit</Link>
+                <Link className={location.pathname === "/deposit" ? "active" : "non-active"} to="/deposit">Deposit</Link>
             </li>
             <li className="left-bottomNavbar">
-                <Link className={location.pathname === "/Withdraw" ? "active" : "non-active"} to="/Withdraw">Withdraw</Link>
+                <Link className={location.pathname === "/withdraw" ? "active" : "non-active"} to="/withdraw">Withdraw</Link>
             </li>
         </ul>
     )
