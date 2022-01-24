@@ -16,14 +16,7 @@ console.log(today);
   return (
     <>
     <div className="App">
-      
-
-      <Dashboard /><br/><br/><br/>
-    
-
-     
-
- 
+       
         <Router>
           <Navbar />
           <BottomNavbar />
@@ -38,6 +31,8 @@ console.log(today);
             <Route path="/Withdraw" element={<Withdraw />} /> */}
           </Routes>
         </Router>
+
+        <Dashboard /><br/><br/><br/>
     </div>
     </>
   );

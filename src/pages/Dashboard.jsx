@@ -1,4 +1,6 @@
-import { AccountByUserID } from "../components/account/AccountByAcctID";
+
+import { AccountByUserID } from '../components/account/AccountByUserID'
+import  ViewAllTransactions  from '../components/transaction/ViewAllTransactions'
 import '../scss/dashboard.css'
 
 export default function Dashboard(){
@@ -11,11 +13,14 @@ export default function Dashboard(){
             <div id="acctCards">
                 <h1 class="pageTitle">View Accounts</h1>
                 <AccountByUserID />
+                
+
                 <br/><br/>
                 
             </div>
             <div id="latestTransactions">
                 <h3 class="title">view latest transactions here</h3>
+                <ViewAllTransactions />
             </div>
 
         </>

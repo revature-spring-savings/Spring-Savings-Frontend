@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 
-export const AccountByAcctIDConst = () => {
+export const AccountByAcctID = () => {
     const [account, setAccount] = useState([]);
 
     useEffect(()=>{
