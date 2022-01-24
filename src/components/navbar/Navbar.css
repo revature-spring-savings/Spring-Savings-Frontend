@@ -1,0 +1,30 @@
+li {
+    padding: 14px;
+}
+
+#page-title {
+    font-size: 2rem;
+    font-style: italic;
+}
+
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: beige;
+    
+}
+
+.navbar li {
+    list-style: none;
+    display:inline-block;
+    margin:auto;
+    }
+
+.left-navbar {
+    float: left;
+}
+
+.right-navbar {
+    float: right;
+}
