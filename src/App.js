@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-
-// Util
-import Login from './pages/Login/Login';
-import Signup from './pages/Signup/Signup';
+import LoginSignUp from "./pages/loginSignup/loginSignup";
+import {
+  BrowserRouter,
+  Route,
+  Routes
+} from "react-router-dom";
 import './App.css';
 
 function App() {
+  
   return (
-    
-    <>
-    <Router>
-      <Routes>
-        <Route path ="/login" element={<Login/>}/>
-        <Route path ="/signup" element={<Signup/>}/>
-      </Routes>
-    </Router>
-    </>
-   
-  );
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<LoginSignUp/>} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  )
 }
 
 export default App;
