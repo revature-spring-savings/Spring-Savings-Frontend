@@ -3,6 +3,8 @@ import Navbar from "./components/navbar/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import BottomNavbar from "./components/navbar/bottomNavbar";
 import Home from "./pages/Home";
+import Information from "./pages/Information";
+import Accounts from './pages/Accounts';
 
 function App() {
   let newDate = new Date()
@@ -18,11 +20,11 @@ console.log(today);
           <BottomNavbar />
           <Routes>
             <Route path="/Home" element={<Home />} />
-            {/* <Route path="/Information" element={<Information />} />
-            <Route path="/Logout" element={<Logout />} />
-            <Route path="/Login"element={<Login />} />
+            <Route path="/Information" element={<Information />} />
+            {/* <Route path="/Logout" element={<Logout />} />
+            <Route path="/Login"element={<Login />} /> */}
             <Route path="/Accounts" element={<Accounts />} />
-            <Route path="/PayOrTransfer" element={<PayOrTransfer/>} />
+            {/* <Route path="/PayOrTransfer" element={<PayOrTransfer/>} />
             <Route path="/Deposit" element={<Deposit />} />
             <Route path="/Withdraw" element={<Withdraw />} /> */}
           </Routes>
