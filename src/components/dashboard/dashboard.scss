@@ -1,6 +1,11 @@
 @use "../../scss/colors" as *;
 @use "../../scss/font" as *;
 
+@font-face{
+    font-family: "Future-Std-Bold";
+    src: url(../../../public/fonts/Futura-Std-Bold.otf);
+  }
+
 .acctCard{
     border-radius: 20px;
     background-color: beige;
@@ -9,6 +14,7 @@
     width: 350px;
     border: $rev-orange 3px solid;
     box-shadow: 0 0 6px 3px rgb(65, 64, 64);
+    font-family: "Futura-Std-Bold";
 }
 
 .acctCardHeader{
@@ -30,12 +36,15 @@
 
 .acctCardHeader h3{
     font-size: large;  
+    font-family: "Futura-Std-Bold";
 }
 
 .acctCard p{
     font-size: medium;
     padding: 2px;
-    margin: 0px;
+    margin: 0px; 
+    font-family: "Futura-Std-Bold";
+
 }
 
 .viewMore{
