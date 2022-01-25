@@ -9,12 +9,21 @@ function App() {
   let month = newDate.getMonth() + 1;
   let today = `${month<10?`0${month}`:`${month}`}/${newDate.getDate()}/${newDate.getFullYear()}`;
 
+  // test state 
+  const currentUser = {
+    "user_id": 1,
+    "first_name": "Louis",
+    "last_name": "Lydia",
+    "email": "testing@gmail.com",
+    "phone_number": "501301231"
+  }
+
 console.log(today);
   return (
     <>
     <div className="App">
         <Router>
-          <Navbar />
+          <Navbar currentUser={currentUser}/>
           <BottomNavbar />
           <Routes>
             <Route path="/Home" element={<Home />} />
