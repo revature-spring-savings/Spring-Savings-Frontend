@@ -1,5 +1,5 @@
 import React from 'react';
-import { ButtonVideo } from '../video/ButtonVideo';
+import { ButtonVideo } from './ButtonVideo';
 import './VideoSection.css';
 
 function VideoSection() {
