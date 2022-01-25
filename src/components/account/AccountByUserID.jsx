@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import React, {useState, useEffect} from 'react';
+import CloseButton from '../dashboard/CloseButton';
 
 export const AccountByUserID = () => {
     const [account, setAccount] = useState([]);
@@ -15,6 +16,9 @@ export const AccountByUserID = () => {
 
     function closerLook(accountID){
         console.log(accountID+" was clicked");
+        document.getElementById(accountID).innerHTML = accountID;
+        <CloseButton accountID={this.accountID} />
+
     }
 
     return (
@@ -29,10 +33,12 @@ export const AccountByUserID = () => {
                     <p>Type: {accountType}</p>
                     <p>Balance: ${accountBalance}</p>
 
-                    <div className="acctCardFooter" onClick={function(e){closerLook(accountID)}} id={accountID}>
+                    <div className="acctCardFooter" onClick={function(e){closerLook(accountID)}} >
                         {/* <button class="viewMore" id={accountID}>View More</button> */}
                         <p>View Recent Transactions</p>
                     </div>
+                    <div className="moreDetails" id={accountID}></div>
+                    {/* <div className="moreDetails" id={accountID}><CloseButton accountID={accountID} /></div> */}
 
                 </div>
             )
