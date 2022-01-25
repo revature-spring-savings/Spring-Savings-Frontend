@@ -6,11 +6,18 @@
     font-style: italic;
 }
 
+.navbar-container {
+    // position: fixed;
+    // top: 0%;
+    width: 100%;
+}
+
 .navbar {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    background-color: beige;
+    background: $nav-bar-color;
+    width: 100%;
 
     .left-navbar {
         float: left;
@@ -24,6 +31,9 @@
         display:inline-block;
         margin:auto;
         padding: 14px;
+        a {
+            text-decoration: none;
+        }
     }
 }
 
@@ -31,14 +41,28 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
-    background-color: beige;
+    background: $nav-bar-color;
+    width: 100%;
 
     .left-bottomNavbar {
         padding: 14px;
         list-style: none;
         display:inline-block;
-        margin:auto;
+        margin: auto;
+        a {
+            text-decoration: none;
+        }
     }
 }
+
+.active {
+    text-decoration: none;
+    color: $rev-orange;
+}
+.non-active {
+    text-decoration: none;
+    color: $rev-lightgrey;
+}
+
 
 

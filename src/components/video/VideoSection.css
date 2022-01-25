@@ -6,24 +6,25 @@ video{
     z-index: -4;
 }
 
-#textOverlay{
+.textOverlay{
     position: absolute;
     top: 50%;
-    left: 32%;
+    /* left: 32%; */
     z-index: 1;
     color:#fff;
 }
 
 .video-container{
     /* background: url('/Frontend/app-app/public/cupcake.png') center center/cover no-repeat; */
-    height: 100vh;
-    width: 100%;
+    /* height: 100vh;
+    width: 100%; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.2);
     object-fit: contain;
+    position: relative;
 }
 
 .video-container >h1{
@@ -79,16 +80,16 @@ video{
         width: 100%;
     }
 
-    #videoH1{
+    .videoH1{
         color: #fff;
     }
 
-    #videoP{
+    .videoP{
         color: #fff;
         
     }
     
-    #thyme{
+    .thyme{
         color:rgb(57, 192, 147)
     }
     
