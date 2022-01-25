@@ -1,5 +1,21 @@
 @use "../../scss/colors" as *;
 @use "../../scss/font" as *;
+@use "../../scss/mixins" as *;
+
+#dashboard-container {
+    display: flex;
+    flex-direction: column;
+
+    #acctCards{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    #latestTransactions{
+        display: flex;
+        flex-direction: column;
+    }
+}
 
 .acctCard{
     border-radius: 20px;
@@ -8,33 +24,33 @@
     margin: 20px;
     width: 350px;
     box-shadow: 0 0 6px 6px black;
+
+    p {
+        font-size: medium;
+        margin: 5px;
+    }
+    
 }
 
 .acctCardHeader{
     background-color: #F26925;
-    color: black;  
+    color: black;
     border-radius: 20px 20px 0px 0px;
     padding: 1px 0px; 
     margin-bottom: 30px;
+
+    h3{
+        font-size: large;
+    }
 }
 
 .acctCardFooter{
     background-color: #FCB414;
     color: black;  
     border-radius: 0px 0px 20px 20px ;
-    padding: 2.5px;
+    padding: 0.25px 0;
     margin-top: 30px;
-    cursor: pointer;
-}
-
-.acctCardHeader h3{
-    font-size: large;  
-}
-
-.acctCard p{
-    font-size: medium;
-    padding: 2px;
-    margin: 0px;
+    height: 100%;
 }
 
 .viewMore{
@@ -52,8 +68,8 @@
 
 .transactionsTable th{
     background-color: $rev-blue;
-    padding:5px 10px;
-    position: fi;
+    padding: 5px 10px;
+    position: fixed;
 }
 
 .transactionsTable td{
