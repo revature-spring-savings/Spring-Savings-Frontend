@@ -20,14 +20,14 @@ export const FormContainer = styled.form`
 
 export const MutedLink = styled.a`
   font-size: 11px;
-  color: rgba(200, 200, 200, 0.8);
+  color: rgba(29, 26, 26, 0.8);
   font-weight: 500;
   text-decoration: none;
 `;
 
 export const BoldLink = styled.a`
   font-size: 11px;
-  color: #ee7a0d;
+  color: #f37535;
   font-weight: 500;
   text-decoration: none;
   margin: 0 4px;
@@ -74,7 +74,7 @@ export const SubmitButton = styled.button`
   border-radius: 100px;
   cursor: pointer;
   transition: all, 240ms ease-in-out;
-  background: rgb(236, 121, 14);
+  background: rgb(243, 117, 53);
     background: linear-gradient(90deg,
          #e49217 0%, 
          #e6b927 49%, 

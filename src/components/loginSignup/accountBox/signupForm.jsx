@@ -69,8 +69,10 @@ export function SignupForm(props) {
         <Input type="username" name="username" onChange={handleUsername} placeholder="Username..." value={values.username} />
         <Input type="password" name="password" onChange={handlePassword} placeholder="Password..." value={values.password} />
         <Input type="phoneNumber" name="PhoneNumber" onChange={handlePhoneNumber} placeholder="Phone Number..." value={values.phoneNumber} />
-        <Input type="dob" name="dob" onChange={handleDob} placeholder="DOB..." value={values.dob} />
+        
+        <Input type="date" name="dob" onChange={handleDob} placeholder="DOB..." value={values.dob} />
       </FormContainer>
+
       <Marginer direction="vertical" margin={10} />
       <SubmitButton type="submit" onClick={registerFormData}>Sign up</SubmitButton>
       <Marginer direction="vertical" margin="1em" />
