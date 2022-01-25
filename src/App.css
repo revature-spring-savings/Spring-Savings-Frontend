@@ -1,5 +1,8 @@
 body{
   background-color: #272c35;
+  background-image: url("../public/images/jellyfish.jpg");
+  object-fit: cover;
+  background-size: cover;
 }
 .App {
   text-align: center;
