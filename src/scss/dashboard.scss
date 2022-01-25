@@ -1,0 +1,67 @@
+@use "../../scss/colors" as *;
+@use "../../scss/font" as *;
+
+.acctCard{
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+    /* padding-bottom: 10px; */
+    margin: 20px;
+    width: 350px;
+
+}
+
+.acctCardHeader{
+    background-color: #F26925;
+    color: black;  
+    border-radius: 20px 20px 0px 0px;
+    padding: 1px 0px; 
+    margin-bottom: 30px;
+}
+
+.acctCardFooter{
+    background-color: #FCB414;
+    color: black;  
+    border-radius: 0px 0px 20px 20px ;
+    padding: 2.5px;
+    margin-top: 30px;
+  
+}
+
+.acctCardHeader h3{
+    font-size: large;
+   
+}
+
+.acctCard p{
+    font-size: medium;
+    padding: 2px;
+    margin: 0px;
+}
+
+.viewMore{
+    background-color: #72A4C2;
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 17px;
+}
+
+.transactionsTable{
+    background-color: #72A4C2;
+    border:  #B9B9BA 2px solid;
+
+}
+
+
+.transactionsTable th{
+    background-color: #B9B9BA;
+    border: none;
+
+}
+
+.transactionsTable tr{
+
+    border: 1px solid black;
+
+}
