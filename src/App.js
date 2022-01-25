@@ -1,4 +1,4 @@
-import './App.css';
+import './scss/App.scss';
 import Navbar from "./components/navbar/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
@@ -20,7 +20,7 @@ function App() {
           <Navbar/>
           {/* <Landing/> */}
           <Routes>
-            <Route path="/landing" element={<Landing />} />
+            <Route path="/" element={<Landing />} />
             <Route path="/home" element={<Home />} />
             <Route path="/information" element={<Information />} />
             <Route path="/logout" element={<Logout />} />

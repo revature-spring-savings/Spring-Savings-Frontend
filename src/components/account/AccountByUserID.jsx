@@ -29,7 +29,6 @@ export const AccountByUserID = () => {
                         {/* <button class="viewMore" id={accountID}>View More</button> */}
                         <p>View Recent Transactions</p>
                     </div>
-
                 </div>
             )
         })}

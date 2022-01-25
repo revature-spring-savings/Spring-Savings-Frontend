@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./navbar.scss"
 
-export default function BottomNavbar() {
+export default function AccountNavbar() {
     const location = useLocation();
 
     return (

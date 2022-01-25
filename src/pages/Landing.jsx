@@ -3,8 +3,11 @@ import VideoSection from '../components/video/VideoSection';
 
 export const Landing = () => {
   return (
-    <>
-        <VideoSection/>
-    </>
+    <div className='page-container'>
+      <VideoSection />
+
+
+    </div>
+
   )
 };

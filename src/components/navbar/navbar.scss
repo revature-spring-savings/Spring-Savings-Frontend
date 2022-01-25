@@ -1,41 +1,6 @@
 @use "../../scss/colors" as *;
 @use "../../scss/font" as *;
-
-#page-title {
-    font-size: 2rem;
-    font-style: italic;
-}
-
-.navbar-container {
-    // position: fixed;
-    // top: 0%;
-    width: 100%;
-}
-
-.navbar {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    background: $nav-bar-color;
-    width: 100%;
-
-    .left-navbar {
-        float: left;
-    }
-    
-    .right-navbar {
-        float: right;
-    }
-    li {
-        list-style: none;
-        display:inline-block;
-        margin:auto;
-        padding: 14px;
-        a {
-            text-decoration: none;
-        }
-    }
-}
+@use "../../scss/mixins" as *;
 
 .bottom-navbar {
     list-style-type: none;
@@ -49,12 +14,107 @@
         list-style: none;
         display:inline-block;
         margin: auto;
+
         a {
             text-decoration: none;
         }
     }
 }
 
+.nav-bar {
+    width: 100%;
+    height: 55px;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 999;
+    top: 0%;
+    background-color: $nav-bar-color;
+
+    @media (max-width: 768px) {
+        background-color:transparent;
+    }
+
+    .logo {
+        // font-family: font.$logo-font;
+        font-size: 1.5em;
+        margin-left: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        @media (max-width: 768px) {
+            display: none;
+        }
+    }
+
+    .burger {
+        width: 2rem;
+        height: 2rem;
+        position: fixed;
+        top: 15px;
+        right: 20px;
+        display: flex;
+        justify-content: space-around;
+        flex-flow: column nowrap;
+        z-index: 20;
+        display: none;
+    
+        @media (max-width: 768px) {
+            display: flex;
+            justify-content: space-around;
+            flex-flow: column nowrap;
+        }
+
+        .lines {
+            width: 2rem;
+            height: 0.25rem;
+            border-radius: 10px;
+            transform-origin: 1px;
+            transition: all 0.3s linear;
+            // background-color is in the Burger.jsx
+        }
+    }
+
+    img {
+        width: 100px;
+        height: auto;
+    }
+
+    ul {
+        list-style: none;
+        text-decoration: none;
+        display: flex;
+        flex-flow: row nowrap;
+        margin: 0;
+        padding: 0;
+        transition: transform 0.3s ease-in-out;
+    
+        li {
+            padding: 18px 10px;
+
+            a {
+                text-decoration: none;
+                @include animate-underline-left;
+            }
+        }
+
+        @media (max-width: 768px) {
+            flex-flow: column nowrap;
+            background: rgba($color: #dddddd, $alpha: 1.0);
+            color: #fff;
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100vh;
+            width: 150px;
+            padding: 3.5rem 0rem 0rem 2rem;
+            // transform is used in the RightNav.jsx file
+        }
+    }
+}
+
+// switch classes between active pages and non-active pages
 .active {
     text-decoration: none;
     color: $rev-orange;
@@ -63,6 +123,3 @@
     text-decoration: none;
     color: $rev-lightgrey;
 }
-
-
-

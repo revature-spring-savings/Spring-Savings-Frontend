@@ -4,10 +4,12 @@ import LogoutVideo from '../components/video/LogoutVideo';
 
 function Logout() {
     return (
-       <>
-       <LogoutVideo/>
-       {/* <Button/> */}
-       </>
+        <div className='page-container'>
+            <LogoutVideo />
+            {/* <Button/> */}
+        </div>
+
+
     )
 }
 

@@ -1,0 +1,29 @@
+@use "./colors" as *;
+@use "./font" as *;
+@use "./mixins" as *;
+
+body{
+  background-color: $backgroundcolor;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.pageTitle, .title{
+  color: white;
+}
+
+.page-container {
+  margin-top: 55px;
+  @media (max-width: 768px) {
+    margin-top: 0rem;
+  }
+}
