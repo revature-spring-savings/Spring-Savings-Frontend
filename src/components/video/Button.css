@@ -7,9 +7,10 @@
  * Availability: https://youtu.be/I2UBjN5ER4s
  *********************************************************************************/
 
- :root{
+:root{
     --primary: #fff;
 }
+
 .btn{
     padding: 8px 20 px;
     border-radius: 2px;
