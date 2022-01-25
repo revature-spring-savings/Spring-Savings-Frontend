@@ -22,10 +22,10 @@ function App() {
           <Navbar />
           {/* {<Landing/>} */}
           <Routes>
-            <Route path="/landing" element={<Landing />} />
+            <Route path="/" element={<Landing />} />
             <Route path="/home" element={<Home />} />
             <Route path="/information" element={<Information />} />
-            <Route path="/" element={<LoginSignUp/>} />
+            <Route path="/login" element={<LoginSignUp/>} />
             <Route path="/logout" element={<Logout />} />
              {/* {<Route path="/Login"element={<Login />} />} */}
             <Route path="/accounts" element={<Accounts />} />
