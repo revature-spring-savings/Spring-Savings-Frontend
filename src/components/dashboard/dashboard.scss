@@ -3,11 +3,12 @@
 
 .acctCard{
     border-radius: 20px;
-    background-color: white;
+    background-color: beige;
     color: black;
     margin: 20px;
     width: 350px;
-    box-shadow: 0 0 6px 6px black;
+    border: $rev-orange 3px solid;
+    box-shadow: 0 0 6px 3px rgb(65, 64, 64);
 }
 
 .acctCardHeader{
@@ -46,12 +47,12 @@
 }
 
 .transactionsTable{
-    background-color: $rev-lightgrey;
-    border:  black 5px solid;
+    background-color: beige;
+    border: $rev-orange 5px solid;
 }
 
 .transactionsTable th{
-    background-color: $rev-blue;
+    background-color: $rev-yellow;
     padding:5px 10px;
     position: fi;
 }
@@ -66,7 +67,11 @@
     border: 1px solid black;
 }
 
-.moredetails{
-    display: hidden;
+.moreDetails{
+    display: none;
+}
+
+.moreDetailsShown{
+    display: block;
 }
 
