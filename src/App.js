@@ -1,11 +1,11 @@
 import './App.css';
-
-import Dashboard from './pages/Dashboard';
-
 import Navbar from "./components/navbar/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import BottomNavbar from "./components/navbar/bottomNavbar";
 import Home from "./pages/Home";
+import Information from "./pages/Information";
+import Accounts from './pages/Accounts';
+import Logout from './pages/Logout';
+import { Landing } from './pages/Landing';
 
 function App() {
   let newDate = new Date()
@@ -15,29 +15,23 @@ function App() {
   console.log(today);
   return (
     <>
-      <div className="App">
-
+    <div className="App">
         <Router>
-          <Navbar />
-          <BottomNavbar />
-
-          <Dashboard /><br /><br /><br />
-
-
-
+          <Navbar/>
+          {/* <Landing/> */}
           <Routes>
-            <Route path="/Home" element={<Home />} />
-            {/* <Route path="/Information" element={<Information />} />
-            <Route path="/Logout" element={<Logout />} />
-            <Route path="/Login"element={<Login />} />
-            <Route path="/Accounts" element={<Accounts />} />
-            <Route path="/PayOrTransfer" element={<PayOrTransfer/>} />
-            <Route path="/Deposit" element={<Deposit />} />
-            <Route path="/Withdraw" element={<Withdraw />} /> */}
+            <Route path="/landing" element={<Landing />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/information" element={<Information />} />
+            <Route path="/logout" element={<Logout />} />
+            {/* <Route path="/Login"element={<Login />} /> */}
+            <Route path="/accounts" element={<Accounts />} />
+            {/* <Route path="/pay-or-transfer" element={<PayOrTransfer/>} />
+            <Route path="/deposit" element={<Deposit />} />
+            <Route path="/withdraw" element={<Withdraw />} /> */}
           </Routes>
         </Router>
-
-      </div>
+    </div>
     </>
   );
 }

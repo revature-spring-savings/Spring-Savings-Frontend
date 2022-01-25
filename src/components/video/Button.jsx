@@ -13,7 +13,7 @@ const STYLES = ['btn--primary', 'btn--outline'];
 
 const SIZES = ['btn--medium', 'btn--large'];
 
-export const ButtonVideo = ({
+export const Button = ({
     children,
     type,
     onClick,
@@ -25,7 +25,7 @@ export const ButtonVideo = ({
         const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
 
         return(
-            <Link to="/" className='btn-mobile'>
+            <Link to="/login" className='btn-mobile'>
                 <button
                 className={`btn ${checkButtonStyle} ${checkButtonSize}`}
                 onClick={onClick}
@@ -35,6 +35,5 @@ export const ButtonVideo = ({
                 </button>
             </Link>
         )
-        
 
 }
