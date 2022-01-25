@@ -1,4 +1,4 @@
-import  ViewAllTransactions  from '../components/transaction/ViewAllTransactionsByUserID'
+import  ViewAllTransactions  from '../transaction/ViewAllTransactionsByUserID'
 import { AccountByUserID } from "../account/AccountByUserID"
 import './dashboard.scss'
 

@@ -17,7 +17,7 @@ export default function ViewAllTransactionsByUserID() {
         <>
             <table class="transactionsTable">
                 <thead>
-                    <tr >
+                    <tr>
                         <th>Account #</th>
                         <th>Transaction #</th>
                         <th>Amount</th>
