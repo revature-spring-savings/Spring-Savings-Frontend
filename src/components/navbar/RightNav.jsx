@@ -35,6 +35,13 @@ const RightNav = ({ open }) => {
             </li>
             <li className="label">
                 <Link
+                    to="/login"
+                    className={location.pathname === "/login" ? "active" : "non-active"}>
+                    Login
+                </Link>
+            </li>
+            <li className="label">
+                <Link
                     to="/logout"
                     className={location.pathname === "/logout" ? "active" : "non-active"}>
                     Logout

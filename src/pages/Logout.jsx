@@ -4,7 +4,7 @@ import LogoutVideo from '../components/video/LogoutVideo';
 
 function Logout() {
     return (
-        <div className='page-container'>
+        <div>
             <LogoutVideo />
             {/* <Button/> */}
         </div>

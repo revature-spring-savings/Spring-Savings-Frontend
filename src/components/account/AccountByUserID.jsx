@@ -13,6 +13,10 @@ export const AccountByUserID = () => {
         });   
     },[]);
 
+    function closerLook(accountID){
+        console.log(accountID+" was clicked");
+    }
+
     return (
     <>  
         {account.map(({accountID, accountType, accountBalance}, index) =>{
@@ -25,7 +29,7 @@ export const AccountByUserID = () => {
                     <p>Type: {accountType}</p>
                     <p>Balance: ${accountBalance}</p>
 
-                    <div class="acctCardFooter">
+                    <div className="acctCardFooter" onClick={function(e){closerLook(accountID)}} id={accountID}>
                         {/* <button class="viewMore" id={accountID}>View More</button> */}
                         <p>View Recent Transactions</p>
                     </div>
@@ -35,3 +39,5 @@ export const AccountByUserID = () => {
     </>
     )
 }
+
+

@@ -1,13 +1,15 @@
+import  ViewAllTransactions  from '../transaction/ViewAllTransactionsByUserID'
 import { AccountByUserID } from "../account/AccountByUserID"
-import  ViewAllTransactions  from '../transaction/ViewAllTransactions'
 import './dashboard.scss'
+
 
 export default function Dashboard(){
 
     return(
         <div id="dashboard-container">
             <div id="acctCards">
-                <h1 class="pageTitle">View Accounts</h1>
+                <h1 class="pageTitle">Dashboard</h1>
+                <h3 class="title">Hello, User 2!</h3>
                 <AccountByUserID />
                 <br/><br/>
             </div>

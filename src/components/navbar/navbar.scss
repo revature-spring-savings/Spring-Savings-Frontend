@@ -101,7 +101,7 @@
 
         @media (max-width: 768px) {
             flex-flow: column nowrap;
-            background: rgba($color: #dddddd, $alpha: 1.0);
+            background-color: $nav-bar-color;
             color: #fff;
             position: fixed;
             top: 0;

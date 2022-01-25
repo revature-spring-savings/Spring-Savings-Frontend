@@ -2,8 +2,13 @@
 @use "./font" as *;
 @use "./mixins" as *;
 
+// Anything Global goes here
+
 body{
-  background-color: $backgroundcolor;
+  // background-color: $backgroundcolor;
+  background-image: url("../../public/assests/image/jellyfish.jpg");
+  object-fit: cover;
+  background-size: cover;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -23,6 +28,7 @@ body{
 
 .page-container {
   margin-top: 55px;
+  padding: 50px;
   @media (max-width: 768px) {
     margin-top: 0rem;
   }
