@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-export default function ViewAllTransactions() {
+export default function ViewAllTransactionsByUserID() {
     const [transactions, setTransactions] = useState([]);
+    const [userID, setUserID] = useState(2);
 
     useEffect(() => {
-        axios.get("http://localhost:8081/transactions")
+        axios.get(`http://localhost:8081/transactions/userID/${userID}`)
             .then((response) => {
                 console.log(response.data);
                 setTransactions(response.data);
@@ -14,12 +15,11 @@ export default function ViewAllTransactions() {
 
     return (
         <>
-            <table>
+            <table class="transactionsTable">
                 <thead>
-                    <tr>
-                        <th>Transaction #</th>
-                        <th>User</th>
+                    <tr >
                         <th>Account #</th>
+                        <th>Transaction #</th>
                         <th>Amount</th>
                         <th>Date</th>
                         <th>Type</th>
@@ -29,9 +29,8 @@ export default function ViewAllTransactions() {
                 {transactions.map(d => {
                     return (
                         <tr>
-                            <td>{d.transactionID}</td>
-                            <td>{d.userID}</td>
                             <td>{d.accountID}</td>
+                            <td>{d.transactionID}</td>
                             <td>${d.amount}</td>
                             <td>{d.transactionDate}</td>
                             <td>{d.transactionType}</td>

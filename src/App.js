@@ -10,16 +10,21 @@ import Home from "./pages/Home";
 function App() {
   let newDate = new Date()
   let month = newDate.getMonth() + 1;
-  let today = `${month<10?`0${month}`:`${month}`}/${newDate.getDate()}/${newDate.getFullYear()}`;
+  let today = `${month < 10 ? `0${month}` : `${month}`}/${newDate.getDate()}/${newDate.getFullYear()}`;
 
-console.log(today);
+  console.log(today);
   return (
     <>
-    <div className="App">
-       
+      <div className="App">
+
         <Router>
           <Navbar />
           <BottomNavbar />
+
+          <Dashboard /><br /><br /><br />
+
+
+
           <Routes>
             <Route path="/Home" element={<Home />} />
             {/* <Route path="/Information" element={<Information />} />
@@ -32,8 +37,7 @@ console.log(today);
           </Routes>
         </Router>
 
-        <Dashboard /><br/><br/><br/>
-    </div>
+      </div>
     </>
   );
 }

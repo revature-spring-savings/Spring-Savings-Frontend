@@ -1,7 +1,7 @@
 
 import { AccountByUserID } from '../components/account/AccountByUserID'
-import  ViewAllTransactions  from '../components/transaction/ViewAllTransactions'
-import '../scss/dashboard.css'
+import  ViewAllTransactions  from '../components/transaction/ViewAllTransactionsByUserID'
+import '../scss/dashboard.scss'
 
 export default function Dashboard(){
 
@@ -11,7 +11,8 @@ export default function Dashboard(){
     return(
         <>
             <div id="acctCards">
-                <h1 class="pageTitle">View Accounts</h1>
+                <h1 class="pageTitle">Dashboard</h1>
+                <h3 class="title">Hello, User 2!</h3>
                 <AccountByUserID />
                 
 
@@ -19,7 +20,7 @@ export default function Dashboard(){
                 
             </div>
             <div id="latestTransactions">
-                <h3 class="title">view latest transactions here</h3>
+                <h3 class="title">Recent Transactions</h3>
                 <ViewAllTransactions />
             </div>
 

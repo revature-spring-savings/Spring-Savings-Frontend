@@ -20,7 +20,7 @@
     background-color: #FCB414;
     color: black;  
     border-radius: 0px 0px 20px 20px ;
-    padding-top: 0.25px;
+    padding: 2.5px;
     margin-top: 30px;
   
 }
@@ -32,6 +32,8 @@
 
 .acctCard p{
     font-size: medium;
+    padding: 2px;
+    margin: 0px;
 }
 
 .viewMore{
@@ -40,4 +42,23 @@
     border: none;
     padding: 10px 15px;
     border-radius: 17px;
+}
+
+.transactionsTable{
+    background-color: #72A4C2;
+    border:  #B9B9BA 2px solid;
+
+}
+
+
+.transactionsTable th{
+    background-color: #B9B9BA;
+    border: none;
+
+}
+
+.transactionsTable tr{
+
+    border: 1px solid black;
+
 }
