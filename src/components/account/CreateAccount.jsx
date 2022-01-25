@@ -1,6 +1,8 @@
 import { tab } from "@testing-library/user-event/dist/tab";
 import axios from "axios";
 import { useState } from "react";
+import ViewAllAccounts from "./ViewAllAccounts";
+import "./CreateAccount.scss"
 
 export default function CreateAccount() {
     const [accountType, setAccountType] = useState('');
@@ -8,9 +10,9 @@ export default function CreateAccount() {
     const [accountBtn, setAccountBtn] = useState(false);
     
     var userID = 1;
-    let newDate = new Date();
-    let month = newDate.getMonth() + 1;
-    let today = `${month < 10 ? `0${month}` : `${month}`}/${newDate.getDate()}/${newDate.getFullYear()}`;
+    // let newDate = new Date();
+    // let month = newDate.getMonth() + 1;
+    // let today = `${month < 10 ? `0${month}` : `${month}`}/${newDate.getDate()}/${newDate.getFullYear()}`;
 
     //get userID and accountID from useContext
     function changeTheValue(e) {
@@ -50,10 +52,10 @@ export default function CreateAccount() {
 
                 <button className="create-button" onClick={createNewAccount}>Create a new {accountType.toLowerCase()} account</button>
                 <br/>
-                <button className="viewall-button" onClick={createNewAccount}>View All Accounts</button>
+                <button className="viewall-button" onClick={ViewAllAccounts}>View All Accounts</button>
 
         
-                <button onClick={createNewAccount}>Create a new {accountType.toLowerCase()} Account</button>
+                {/* <button onClick={createNewAccount}>Create a new {accountType.toLowerCase()} Account</button> */}
                 {/* <button onClick={createNewAccount}>{accountBtn ? "Create a Savings Accounts" : "Create a Checking Account"}</button> */}
 
             </form>
