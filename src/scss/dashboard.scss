@@ -5,9 +5,10 @@
     border-radius: 20px;
     background-color: white;
     color: black;
+    /* padding-bottom: 10px; */
     margin: 20px;
     width: 350px;
-    box-shadow: 0 0 6px 6px black;
+
 }
 
 .acctCardHeader{
@@ -24,11 +25,12 @@
     border-radius: 0px 0px 20px 20px ;
     padding: 2.5px;
     margin-top: 30px;
-    cursor: pointer;
+  
 }
 
 .acctCardHeader h3{
-    font-size: large;  
+    font-size: large;
+   
 }
 
 .acctCard p{
@@ -46,22 +48,20 @@
 }
 
 .transactionsTable{
-    background-color: $rev-lightgrey;
-    border:  black 5px solid;
+    background-color: #72A4C2;
+    border:  #B9B9BA 2px solid;
+
 }
+
 
 .transactionsTable th{
-    background-color: $rev-blue;
-    padding:5px 10px;
-    position: fi;
-}
-
-.transactionsTable td{
+    background-color: #B9B9BA;
     border: none;
-    padding: 0px 4px;
-    margin: 0px !important;
+
 }
 
 .transactionsTable tr{
+
     border: 1px solid black;
+
 }

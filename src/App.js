@@ -10,7 +10,7 @@ import { Landing } from './pages/Landing';
 function App() {
   let newDate = new Date()
   let month = newDate.getMonth() + 1;
-  let today = `${month<10?`0${month}`:`${month}`}/${newDate.getDate()}/${newDate.getFullYear()}`;
+  let today = `${month < 10 ? `0${month}` : `${month}`}/${newDate.getDate()}/${newDate.getFullYear()}`;
 
   console.log(today);
   return (
