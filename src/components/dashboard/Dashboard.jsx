@@ -1,6 +1,6 @@
 import { AccountByUserID } from "../account/AccountByUserID"
 import  ViewAllTransactions  from '../transaction/ViewAllTransactions'
-import './dashboard.css'
+import './dashboard.scss'
 
 export default function Dashboard(){
 
