@@ -1,4 +1,5 @@
 import './scss/App.scss';
+import Chat from './components/chat/chat.js';
 import Navbar from "./components/navbar/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
@@ -49,7 +50,14 @@ console.log(today);
             <Route path="/create" element={<CreateAccount />} />
           </Routes>
         </Router>
+        <div style={{width:'100vw', height:'100vh', position:'absolute'}}
+> 
+        <Chat/>
+        </div>
+      
+       
     </div>
+    
   );
 }
 
