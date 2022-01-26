@@ -9,6 +9,8 @@ body{
   background-image: url("../../public/assests/image/jellyfish.jpg");
   object-fit: cover;
   background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
