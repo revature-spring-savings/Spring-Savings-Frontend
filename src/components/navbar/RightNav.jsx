@@ -16,7 +16,7 @@ const RightNav = ({ open }) => {
         <Ul open={open}>
             <li className="label">
                 <Link to="/home" className={location.pathname === "/home" ? "active" : "non-active"}>
-                    Home
+                    Dashboard
                 </Link>
             </li>
             <li className="label">
@@ -30,7 +30,7 @@ const RightNav = ({ open }) => {
                 <Link
                     to="/accounts"
                     className={location.pathname === "/accounts" ? "active" : "non-active"}>
-                    Accounts
+                    Profile
                 </Link>
             </li>
             <li className="label">
