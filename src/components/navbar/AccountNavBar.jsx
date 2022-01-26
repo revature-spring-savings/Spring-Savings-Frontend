@@ -19,6 +19,9 @@ export default function AccountNavbar() {
             <li className="left-bottomNavbar">
                 <Link className={location.pathname === "/withdraw" ? "active" : "non-active"} to="/withdraw">Withdraw</Link>
             </li>
+            <li className="left-bottomNavbar">
+                <Link className={location.pathname === "/create" ? "active" : "non-active"} to="/create">Create Account</Link>
+            </li>
         </ul>
     )
 } 
