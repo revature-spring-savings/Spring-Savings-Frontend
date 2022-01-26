@@ -14,7 +14,6 @@ export const FormContainer = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  //box-shadow: 0px 0px 2.5px rgba(15, 15, 15, 0.19);
   }
 `;
 
@@ -37,32 +36,20 @@ export const Input = styled.input`
   width: 100%;
   height: 30px;
   outline: none;
-  //border: 1px solid rgba(200, 200, 200, 0.3);
   border: none;
   padding: 1px 9px;
-  /* margin: 5px 0; */
-  /* border-radius: 5px; */
-  /* background-color: rgba(130, 130, 130, 0.104); */
-  // background-color: transparent;
   border-bottom: 1px solid rgba(238, 238, 238, 0.104);
   transition: all 200ms ease-in-out;
   font-size: 12px;
   &::placeholder {
     color: rgba(200, 200, 200, 1);
   }
-  /* &:not(:last-of-type) {
-    border-bottom: 1.5px solid rgba(200, 200, 200, 0.4);
-  } */
+
   &:focus {
     outline: none;
     border-bottom: 2px solid rgb(230, 155, 69);
   }
-  /* background: linear-gradient(to right, rgb(240, 240, 240) 50%, rgb(124, 124, 124) 50%) left;
-  background-size: 200%;
-  &:hover, &:active {
-      background-position: right;
-      color: white;
-  } */
+
 `;
 
 export const SubmitButton = styled.button`
