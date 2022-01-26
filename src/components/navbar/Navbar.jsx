@@ -1,29 +1,33 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import BottomNavbar from "./bottomNavbar";
 import "./navbar.scss";
 
 // when user is logged in?
-export default function Navbar(props) {
-    console.log(props.currentUser);
+export default function Navbar() {
+    const location = useLocation();
 
-    const displayUserName = () => {
-        return (
-            <li>props.currentUser.first_name</li>
-        )
-    }
     return (
-        <ul className="navbar">
-            <li className="left-navbar">
-                <Link to="/Home">Home</Link>
-            </li>
-            <li className="left-navbar">
-                <Link to="/Information">Information</Link>
-            </li>
-            <li id="page-title">Spring Savings</li>
-            <li className="right-navbar">
-                {/*When user is logged in remove logout and login*/}
-                <Link to="/Logout">Logout</Link>
-            </li>
-        </ul>
+        <>
+            <div className="navbar-container">
+                <ul className="navbar">
+                    <li className="left-navbar">
+                        <Link className={location.pathname === "/home" ? "active" : "non-active"} to="/home">Home</Link>
+                    </li>
+                    <li className="left-navbar">
+                        <Link className={location.pathname === "/information" ? "active" : "non-active"} to="/information">Information</Link>
+                    </li>
+                    <li id="page-title">Spring Banking</li>
+                    <li className="right-navbar">
+                        {/*When user is logged in remove logout and login*/}
+                        <Link className={location.pathname === "/logout" ? "active" : "non-active"} to="/logout">Logout</Link>
+                    </li>
+                    <li className="right-navbar">
+                        <Link className={location.pathname === "/login" ? "active" : "non-active"} to="/login">Login</Link>
+                    </li>
+                </ul>
+                <BottomNavbar />
+            </div>
+        </>
     )
 }

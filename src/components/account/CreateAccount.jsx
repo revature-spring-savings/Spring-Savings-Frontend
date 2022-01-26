@@ -8,10 +8,7 @@ export default function CreateAccount() {
     const [accountBtn, setAccountBtn] = useState(false);
     
     var userID = 1;
-    let newDate = new Date();
-    let month = newDate.getMonth() + 1;
-    let today = `${month < 10 ? `0${month}` : `${month}`}/${newDate.getDate()}/${newDate.getFullYear()}`;
-
+   
     //get userID and accountID from useContext
     function changeTheValue(e) {
         setAccountType(e);
@@ -22,8 +19,6 @@ export default function CreateAccount() {
         axios.post(`http://localhost:8081/accounts/createAccount/${userID}`, {
             userID: 1,
             accountBalance: amount,
-            // accountDate: today,
-            // accountNote: transactionNote,
             accountType: accountType
         })
         .then((response) => {
