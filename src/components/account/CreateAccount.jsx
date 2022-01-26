@@ -49,6 +49,7 @@ export default function CreateAccount() {
             }
         }
         if (isValid) {
+            setCurrType("SUCCESS"); // if account creation successful, render sucess page
             axios.post(`http://localhost:8081/accounts/createAccount/${userID}`, {
                 userID: 1,
                 accountBalance: amount,
@@ -94,7 +95,6 @@ export default function CreateAccount() {
 
                 <div id="AJvalidation"></div>
                 <button className="create-button" onClick={submit}>Create a new {accountType.toLowerCase()} account</button>
-                {renderModal ? <Modal modalState={setRenderModal} accountType={currType}/> : ""}
                 <br/>
                 {/* <button className="viewall-button" onClick={ViewAllAccounts}>View All Accounts</button> */}
 
@@ -103,6 +103,7 @@ export default function CreateAccount() {
                 {/* <button onClick={createNewAccount}>{accountBtn ? "Create a Savings Accounts" : "Create a Checking Account"}</button> */}
 
             </form>   
+                {renderModal ? <Modal modalState={setRenderModal} accountType={currType}/> : ""}
         </>
     )
 }
