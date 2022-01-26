@@ -6,7 +6,7 @@ import Burger from "./Burger";
 export default function Navbar() {
     return (
         <div className="nav-bar">
-            <h1 className="logo">Spring Banking</h1>
+            <h1 className="logo">Spring Saving</h1>
             <Burger />
         </div>
     )
