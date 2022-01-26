@@ -5,7 +5,7 @@ import './VideoSection.css';
 function LogoutVideo() {
     return (
         <div className='video-container'>
-            <video src="./assests/videolog.mp4" autoPlay loop muted></video>
+            <video src="./assests/video/videolog.mp4" autoPlay loop muted></video>
             <div className='textOverlay'>
                 <h1 className='videoH1'>Saving money like my cookies!</h1>
                 <p className='videoP'>Checkmate said my wallet.</p>

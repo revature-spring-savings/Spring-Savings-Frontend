@@ -11,8 +11,6 @@ import {
 } from "./common";
 import { Marginer } from "../marginer/Marginer";
 import { AccountContext } from "./accountContext";
-//import { RestoreTwoTone } from "@material-ui/icons";
-
 
 export function LoginForm(props) {
   const { switchToSignup } = useContext(AccountContext);

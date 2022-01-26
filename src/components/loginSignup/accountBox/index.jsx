@@ -57,9 +57,9 @@ const BackDrop = styled(motion.div)`
   transform: rotate(60deg);
   top: -300px;
   left: -80px;
-  background: rgba(255, 145, 0, 0.637);
+  background: #F26925;
   background: linear-gradient(
-      90deg, rgba(255, 145, 0, 0.548) 0%, 
+      90deg, #F26925 0%, 
       rgb(211, 134, 19) 49%, 
       rgb(209, 126, 31) 100%);
   );
@@ -93,7 +93,6 @@ const InnerContainer = styled.div`
   width: 80%;
   display: flex;
   flex-direction: column;
-  /* padding: 0 1.8em; */
   margin: 1em auto 0;
   //iphone 6
   @media only screen and (min-width: 375px) {
