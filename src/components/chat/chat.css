@@ -1,6 +1,6 @@
 .mainCont {
-    background-color: #282c34;
-    min-height: 100vh;
+    /* background-color: #282c34; */
+    min-height: 100%;
     position: relative;
     color: white;
     overflow: hidden;
@@ -14,7 +14,7 @@
     resize: none;
     border: none;
     outline: none;
-    width: 445px;
+    width: 345px;
     height: 100%;
     cursor:text;
     position: relative;
@@ -66,8 +66,8 @@
    
   
   .chatWrap {
-    width: 450px;
-    height: 500px;
+    width: 350px;
+    height: 400px;
     position: absolute;
     bottom: 0;
     right: 200px;
@@ -77,8 +77,8 @@
   
   
   .chatIconWrap{
-    width: 120px;
-    height: 120px;
+    width: 90px;
+    height: 90px;
     transform: rotateY(180deg);
     position: absolute;
     bottom: 10px;

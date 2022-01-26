@@ -4,7 +4,7 @@ import {MdTextsms} from 'react-icons/md'
 import {AiFillBank} from 'react-icons/ai'
 import {RiCloseCircleLine} from 'react-icons/ri'
 import Fade from 'react-reveal/Fade';
-import Rotate from 'react-reveal/Rotate';
+import Slide from 'react-reveal/Slide';
 import React,{useState, useRef, useEffect} from 'react';
 import * as SockJS from "sockjs-client";
 import * as Stomp from "stompjs";
@@ -14,14 +14,14 @@ import * as Stomp from "stompjs";
 
 
 // function App() {
-function chat() {
+function Chat() {
 
   const [showTextBox, setShowTextBox] = useState(false)
   const [showX, setShowX] = useState(false)
   const [stompClient, setStompClient] = useState(null);
   const [transcript, setTranscript] = useState([])
   const [chatType, setChatType] = useState()
-  const [userName, setUserName] = useState("vpoghosyan")
+  const [userName, setUserName] = useState("mzere")
   const [sendText, setSendText] = useState(true)
 
   const [chatWrapHeight, setChatWrapHeight] = useState('50px')
@@ -51,7 +51,7 @@ function chat() {
     let stompClient = Stomp.over(socket.current);
 
     stompClient.connect(
-      { username: "vp" },
+      { username: "mzere" },
       function (frame) {
         stompClient.subscribe("/users/queue/messages", function (greeting) {
           const messageSender = JSON.parse(greeting.body).from;
@@ -87,11 +87,18 @@ function chat() {
   const getTime = () => {
     let today = new Date();
     
+    // let minute = today.getMinutes()>=0 && today.getMinutes()<10? '0'+today.getMinutes():
+    // today.getMinutes();
+    // console.log(minute);
+    
+    // let time = today.getHours() + ":" + minute ;
+
     let minute = today.getMinutes()>=0 && today.getMinutes()<10? '0'+today.getMinutes():
     today.getMinutes();
-    console.log(minute);
-    
-    let time = today.getHours() + ":" + minute ;
+    let hour = today.getHours()%12==0 ? 12 : today.getHours()%12;    
+    let suffix = today.getHours()<12 ? " AM" : " PM"
+    let time = hour + ":" + minute + suffix;
+
     
     return time;
   }
@@ -101,7 +108,7 @@ function chat() {
         
       <div className='chatWrap' style={{height:chatWrapHeight, }}>
 
-    <Rotate  left unmountOnExit={true} mountOnEnter={true} when={showTextBox} appear={true} 
+    <Slide  bottom unmountOnExit={true} mountOnEnter={true} when={showTextBox} appear={true} 
     onReveal={ () => setTimeout(() => {
       setShowX(true)
     }, 1000) }>
@@ -158,8 +165,9 @@ function chat() {
                         <div style={{wordBreak:'break-word', borderRadius:'5px',
                         marginLeft:t.who===userName? '30px':'7px',
                         marginRight: t.who===userName? '7px':'30px',
-                        backgroundColor:t.who===userName?'rgba(52, 225, 235)':
-                        'rgba(105, 255, 206,0.8)', padding:'8px'}}>
+                        backgroundColor:t.who===userName?'rgba(252, 100, 47, 0.8)'
+                        :
+                        'rgba(255, 177, 56,0.8)' , padding:'8px'}}>
                         {t.message}
                         </div>
 
@@ -200,7 +208,7 @@ function chat() {
             </Fade>
            </div>
         </div>
-     </Rotate>
+     </Slide>
 
     
           <div style={{pointerEvents: showTextBox? 'none':'' }} 
@@ -210,10 +218,10 @@ function chat() {
               setChatWrapHeight('500px')
             }, 500);
           }}>
-     <Rotate  right unmountOnExit={true}  mountOnEnter={true} when={!showTextBox} appear={true}>
+     <Slide  bottom unmountOnExit={true}  mountOnEnter={true} when={!showTextBox} appear={true}>
             
           <MdTextsms style={{width:'100%', height:'100%',cursor:'pointer'}}/>
-     </Rotate>
+     </Slide>
           </div>
 
    
@@ -223,7 +231,7 @@ function chat() {
   );
 }
 
-export default chat;
+export default Chat;
 
 
 
