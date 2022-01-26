@@ -41,7 +41,7 @@ console.log(today);
             <Route path="/login" element={<Login/>} />
             <Route path="/logout" element={<Logout />} />
              {/* {<Route path="/Login"element={<Login />} />} */}
-            <Route path="/accounts" element={<Accounts />} />
+            {/* <Route path="/accounts" element={<Accounts />} /> */}
             <Route path="/transactions" element={<TransactionPage />} />
              {/* {<Route path="/pay-or-transfer" element={<PayOrTransfer/>} /> */}
              {/* <Route path="/deposit" element={<Deposit />} /> */}
