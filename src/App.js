@@ -1,5 +1,4 @@
-import LoginSignUp from "./pages/loginSignup/loginSignup";
-import './App.css';
+import './scss/App.scss';
 import Navbar from "./components/navbar/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
@@ -7,6 +6,7 @@ import Information from "./pages/Information";
 import Accounts from './pages/Accounts';
 import Logout from './pages/Logout';
 import { Landing } from './pages/Landing';
+import Login from "./pages/Login"
 
 function App() {
   let newDate = new Date()
@@ -32,10 +32,10 @@ console.log(today);
           <Navbar />
           {/* {<Landing/>} */}
           <Routes>
-            <Route path="/landing" element={<Landing />} />
+            <Route path="/" element={<Landing />} />
             <Route path="/home" element={<Home />} />
             <Route path="/information" element={<Information />} />
-            <Route path="/" element={<LoginSignUp/>} />
+            <Route path="/login" element={<Login/>} />
             <Route path="/logout" element={<Logout />} />
              {/* {<Route path="/Login"element={<Login />} />} */}
             <Route path="/accounts" element={<Accounts />} />
