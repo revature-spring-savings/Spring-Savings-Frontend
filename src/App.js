@@ -22,7 +22,7 @@ function App() {
     <div className="App">
         <Router>
           <Navbar />
-          <BottomNavbar />
+          {/* <BottomNavbar /> */}
           <CreateAccount />
           <ViewAllAccounts />
           {/* {<Landing/>} */}

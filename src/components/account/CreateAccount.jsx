@@ -1,18 +1,67 @@
-import { tab } from "@testing-library/user-event/dist/tab";
+// import { tab } from "@testing-library/user-event/dist/tab";
 import axios from "axios";
 import { useState } from "react";
 import ViewAllAccounts from "./ViewAllAccounts";
 import "./CreateAccount.scss"
+// import ValidationPopUp from "./ValidationPopup";
 
 export default function CreateAccount() {
     const [accountType, setAccountType] = useState('');
     const [amount, setAmount] = useState(0);
     const [accountBtn, setAccountBtn] = useState(false);
+    let isValid =false;
     
     var userID = 1;
     // let newDate = new Date();
     // let month = newDate.getMonth() + 1;
     // let today = `${month < 10 ? `0${month}` : `${month}`}/${newDate.getDate()}/${newDate.getFullYear()}`;
+
+    // validation
+    const submit = (e) => {
+        e.preventDefault()
+        document.getElementById("AJvalidation").innerHTML = "";
+        if(accountType === "CHECKING") {
+            
+            if(amount < 100) {
+                // const popup = document.getElementById("AJvalidation");
+                // console.log(<ValidationPopUp />);
+                // document.getElementById("AJvalidation").append(<ValidationPopUp />); 
+                document.getElementById("AJvalidation").append("Checking requires $100 minimum to open");
+                console.log("Checking requires $100 minimum to open");
+            } else {
+                isValid = true;
+            }
+            
+        } else if(accountType ==="SAVINGS") {
+            if(amount < 50) {
+                document.getElementById("AJvalidation").append("Saving requires $50 minimum to open");
+                console.log("Saving requires $50 minimum to open");
+            } else {
+                isValid = true;
+            }
+        }
+        if (isValid) {
+            axios.post(`http://localhost:8081/accounts/createAccount/${userID}`, {
+                userID: 1,
+                accountBalance: amount,
+                accountType: accountType
+            })
+            .then((response) => {
+                console.log(response.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+        }
+
+        // window.location.reload(true);
+     
+ }
+
+//  const resetVal = (e) => {
+//      e.preventDefault();
+//      document.getElementById("AJvalidation").innerHTML = "";
+//  }
 
    
     //get userID and accountID from useContext
@@ -21,19 +70,6 @@ export default function CreateAccount() {
         setAccountBtn(!accountBtn);
     }
 
-    function createNewAccount() {
-        axios.post(`http://localhost:8081/accounts/createAccount/${userID}`, {
-            userID: 1,
-            accountBalance: amount,
-            accountType: accountType
-        })
-        .then((response) => {
-            console.log(response.data);
-        })
-        .catch(function (error) {
-            console.log(error);
-        })
-    }
 
     return (
         <>
@@ -45,11 +81,13 @@ export default function CreateAccount() {
                 <input className="savings-button" name="type" type="radio" id="savings" value="SAVINGS" onClick={(e) => changeTheValue(e.target.value)} />
                 <label htmlFor="savings">Savings</label>
 
+
                 <br /><br />
                 Initial Balance<br />
                 <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} /><br /><br />
 
-                <button className="create-button" onClick={createNewAccount}>Create a new {accountType.toLowerCase()} account</button>
+                <div id="AJvalidation"></div>
+                <button className="create-button" onClick={submit}>Create a new {accountType.toLowerCase()} account</button>
                 <br/>
                 <button className="viewall-button" onClick={ViewAllAccounts}>View All Accounts</button>
 
