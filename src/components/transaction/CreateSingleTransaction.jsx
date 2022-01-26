@@ -10,6 +10,7 @@ import ReactDOM from 'react-dom';
 export default function CreateNewTransaction(props) {
     const [transactionType, setTransactionType] = useState('');
     const [transactionNote, setTransactionNote] = useState('');
+    const [accountID, setAccountID] = useState(props.accountID);
     const [amount, setAmount] = useState(0);
     const [transactionBtn, setTransactionBtn] = useState(false);
 
@@ -26,7 +27,7 @@ export default function CreateNewTransaction(props) {
     function createNewTransaction() {
         console.log(props.amount);
         axios.post("http://localhost:8081/transactions", [{
-            accountID: 3,
+            accountID: accountID,
             userID: 1,
             amount: amount,
             transactionDate: today,
