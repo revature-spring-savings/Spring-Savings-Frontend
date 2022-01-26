@@ -8,6 +8,8 @@ import Logout from './pages/Logout';
 import { Landing } from './pages/Landing';
 import Login from "./pages/Login"
 import CreateAccount from './components/account/CreateAccount';
+import ViewAllTransactionsByUserID from './components/transaction/ViewAllTransactionsByUserID';
+import TransactionPage from './pages/TransactionPage';
 
 function App() {
   let newDate = new Date()
@@ -40,6 +42,7 @@ console.log(today);
             <Route path="/logout" element={<Logout />} />
              {/* {<Route path="/Login"element={<Login />} />} */}
             <Route path="/accounts" element={<Accounts />} />
+            <Route path="/transactions" element={<TransactionPage />} />
              {/* {<Route path="/pay-or-transfer" element={<PayOrTransfer/>} /> */}
              {/* <Route path="/deposit" element={<Deposit />} /> */}
              {/* <Route path="/withdraw" element={<Withdraw />} */}

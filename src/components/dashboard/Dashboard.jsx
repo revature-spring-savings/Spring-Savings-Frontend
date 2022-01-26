@@ -9,7 +9,7 @@ export default function Dashboard(){
     return(
         <div id="dashboard-container">
             <div id="acctCards">    
-                <AccountNavbar /><br/>
+
             
                 <div id="dashTitle">
                 <h1 class="pageTitle">Dashboard</h1>
@@ -17,7 +17,7 @@ export default function Dashboard(){
                 </div>
                 <AccountByUserID />
                 <br/><br/>
-                <button>Create new account button!</button>
+              
             </div>
             {/* <div id="latestTransactions">
                 <h3 class="title">view latest transactions here</h3>
