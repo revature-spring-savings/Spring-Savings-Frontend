@@ -7,6 +7,7 @@ import Accounts from './pages/Accounts';
 import Logout from './pages/Logout';
 import { Landing } from './pages/Landing';
 import Login from "./pages/Login"
+import CreateAccount from './components/account/CreateAccount';
 
 function App() {
   let newDate = new Date()
@@ -42,6 +43,7 @@ console.log(today);
              {/* {<Route path="/pay-or-transfer" element={<PayOrTransfer/>} /> */}
              {/* <Route path="/deposit" element={<Deposit />} /> */}
              {/* <Route path="/withdraw" element={<Withdraw />} */}
+            <Route path="/create" element={<CreateAccount />} />
           </Routes>
         </Router>
     </div>
