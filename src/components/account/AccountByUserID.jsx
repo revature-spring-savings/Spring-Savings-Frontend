@@ -2,7 +2,6 @@ import axios from 'axios';
 
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-
 import CloseButton from '../dashboard/CloseButton';
 import {AccountByAcctID} from './AccountByAcctID';
 
