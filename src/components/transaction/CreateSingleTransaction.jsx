@@ -2,6 +2,11 @@ import { tab } from "@testing-library/user-event/dist/tab";
 import axios from "axios";
 import { useState } from "react";
 
+import {AccountByAcctID} from '../account/AccountByAcctID';
+import CreateTransfer from '../transaction/CreateTransfer';
+
+import ReactDOM from 'react-dom';
+
 export default function CreateNewTransaction(props) {
     const [transactionType, setTransactionType] = useState('');
     const [transactionNote, setTransactionNote] = useState('');
@@ -36,9 +41,20 @@ export default function CreateNewTransaction(props) {
         })
     }
 
+    function moreDetails(accountID){
+        ReactDOM.render(<AccountByAcctID accountID={accountID} />, document.getElementById(accountID));
+    }
+
+    function transfer(accountID){
+        ReactDOM.render(<CreateTransfer accountID={accountID}/>, document.getElementById(accountID));
+    }
+
     return (
         <>
-            <form>
+         <button  className="gray-btn" onClick={(e) => moreDetails(props.accountID)}>Go back</button>
+         <button  className="gray-btn"  onClick={(e)=>transfer(props.accountID)}>Transfer</button>
+        <br/><br/>
+            {/* <form> */}
                 Transaction <br />
                 <input name="type" type="radio" id="withdraw" value="WITHDRAW" onClick={(e) => changeTheValue(e.target.value)} />
                 <label for="withdraw">Withdrawal</label>
@@ -53,9 +69,9 @@ export default function CreateNewTransaction(props) {
                 Note<br />
                 <input type="text" value={transactionNote} onChange={(e) => setTransactionNote(e.target.value)} placeholder="Note" /><br /><br />
 
-                <button onClick={createNewTransaction}>{transactionBtn ? "WITHDRAW" : "DEPOSIT"}</button>
+                <button  className="complete-btn" onClick={createNewTransaction}>{transactionBtn ? "WITHDRAW" : "DEPOSIT"}</button>
 
-            </form>
+            {/* </form> */}
         </>
     )
 }
