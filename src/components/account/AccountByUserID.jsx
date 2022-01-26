@@ -1,14 +1,13 @@
 import axios from 'axios';
 
 import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import { isBlock } from 'typescript';
 import CloseButton from '../dashboard/CloseButton';
+import {AccountByAcctID} from './AccountByAcctID';
 
 export const AccountByUserID = () => {
     const [account, setAccount] = useState([]);
-    const [showMoreInfo, setShowMoreInfo] = useState(true);
-
-    const handleShowMoreInfo = () => setShowMoreInfo(!showMoreInfo);
 
     useEffect(() => {
         var userID = 2;
@@ -18,6 +17,10 @@ export const AccountByUserID = () => {
         });
     }, []);
 
+    function moreDetails(accountID){
+        ReactDOM.render(<AccountByAcctID accountID={accountID} />, document.getElementById(accountID));
+    }
+    
 
     const accountMap = account.map(({ accountID, accountType, accountBalance }, index) => {
 
@@ -30,20 +33,15 @@ export const AccountByUserID = () => {
                 <p>Type: {accountType}</p>
                 <p>Balance: ${accountBalance}</p>
 
-                <div className="acctCardFooter" onClick={handleShowMoreInfo}>
-                     {/* <button class="viewMore" id={accountID} onClick={setShowMoreInfo(accountID)}>View More</button> */}
-                  {/*  onClick => add className to hide and unhide
-                    */}
-                    <p>View More Details</p>
-                    {/* <div className="moreDetails" id={accountID} > */}
-                    {showMoreInfo ? <></> :
-                        <p>accountID is {accountID}</p>
-                    } 
-                 {/* </div> */}
+                <div className="acctCardFooter">
+                    
+                    <p  onClick={(e) => moreDetails(accountID)}>View More Details</p>
+                    <div id={accountID}>
+                    
+                    </div>
+                   
                 </div>
-                {/* <div className="moreDetails" id={accountID}></div> */}
-                {/* <div className="moreDetails" id={accountID}><CloseButton accountID={accountID} /></div> */}
-
+              
             </div>
         )
     })
