@@ -1,11 +1,19 @@
+.form-container {
 
-.update-info-form {
-   display: flex;
-   flex-direction: column;
-   text-align: left;
+   margin-top: 5px;
 
-   .update-form-input {
+  .update-info-form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+
+    .update-form-input {
       margin-left: 5.5px;
       margin-top: 3px;
-   }
+    }
+  }
+
+  .update-form-button {
+    margin: 5px 3px
+  }
 }

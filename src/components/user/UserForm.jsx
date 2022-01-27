@@ -46,17 +46,6 @@ export default function UserForm(props) {
         setDob(e.target.value);
     }
 
-    const newUserInfo = {
-        userID: 1,
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        username: username,
-        pass: password,
-        phoneNumber: phoneNum,
-        dob: dob
-    }
-
     const handleClickShowPassword = (e) => {
         e.preventDefault();
         setShowPassword(!showPassword);
