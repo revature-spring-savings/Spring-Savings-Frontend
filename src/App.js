@@ -10,7 +10,6 @@ import Logout from './pages/Logout';
 import { Landing } from './pages/Landing';
 import Login from "./pages/Login"
 
-
 function App() {
   let newDate = new Date()
   let month = newDate.getMonth() + 1;

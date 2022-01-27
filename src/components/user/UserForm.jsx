@@ -3,6 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import "./userForm.scss"
 import UpdateAccountModal from "../modal/UpdateAccountModal";
+
 export default function UserForm(props) {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastname] = useState('');
@@ -17,7 +18,6 @@ export default function UserForm(props) {
     const editForm = props.formState;
     const currentUser = props.currentUser;
 
-
     const handleFirstName = (e) => {
         setFirstName(e.target.value);
     }
@@ -26,11 +26,11 @@ export default function UserForm(props) {
         setLastname(e.target.value);
     }
 
-    const handleEmail= (e) => {
+    const handleEmail = (e) => {
         setEmail(e.target.value);
     }
 
-    const handleUsername= (e) => {
+    const handleUsername = (e) => {
         setUsername(e.target.value);
     }
 
@@ -63,7 +63,7 @@ export default function UserForm(props) {
     }
 
     // update user information
-    
+
     const updateUserInformation = () => {
         axios.put(`http://localhost:8081/users/update/1`, {
             userID: 1,
@@ -78,9 +78,9 @@ export default function UserForm(props) {
             console.log(res.data)
         }).catch(err =>
             console.log(`Error occurred while updating ${err}`)
-            )
+        )
     }
-    
+
     return (
         <div className="form-container">
             <form className="update-info-form">
@@ -114,9 +114,9 @@ export default function UserForm(props) {
                     <input className="update-form-input" placeholder={currentUser.dob} value={dob} onChange={handleDob} type="text" name="name" />
                 </label>
             </form>
-            <button className="update-form-button" onClick={() => {updateUserInformation(); setRenderModal(!renderModal)}}>Submit</button>
+            <button className="update-form-button" onClick={() => { updateUserInformation(); setRenderModal(!renderModal) }}>Submit</button>
             <button className="update-form-button" onClick={() => editForm(false)}>Cancel</button>
-            {renderModal ? <UpdateAccountModal close={setRenderModal}/> : ""}
+            {renderModal ? <UpdateAccountModal close={setRenderModal} /> : ""}
         </div>
 
     )
