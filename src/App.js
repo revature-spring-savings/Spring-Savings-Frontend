@@ -33,11 +33,12 @@ function App() {
 
 console.log(today);
   return (
-
+<>
     <div className="App">
+    
         <Router>
           <Navbar />
-
+         
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/home" element={<Home />} />
@@ -49,13 +50,18 @@ console.log(today);
             <Route path="/transactions" element={<TransactionPage />} />
             <Route path="/create" element={<CreateAccount />} />
           </Routes>
+          <div style={{width:'100vw', height:'100vh', position:'absolute'}}> 
+        <Chat/>
+        </div>
         </Router>
-        {/* <div style={{width:'100vw', height:'100vh', position:'absolute'}}>  */}
-        {/* <Chat/> */}
-        {/* </div> */}
+       
       
        
     </div>
+
+    
+    </>
+
     
   );
 }
