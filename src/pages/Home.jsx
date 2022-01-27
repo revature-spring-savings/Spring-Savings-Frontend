@@ -5,14 +5,10 @@ import AccountNavbar from "../components/navbar/AccountNavBar";
 // can delete this component; Only used to check if routing worked.
 export default function Home() {
     return (
-        <>
-         
-        <div className='page-container'>     
-        <AccountNavbar /><br/><br/>      
+        <div className='page-container'>
+            <AccountNavbar /><br /><br />
             <Dashboard />
         </div>
-        </>
-
 
     )
 }
