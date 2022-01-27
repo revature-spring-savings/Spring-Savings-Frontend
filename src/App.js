@@ -2,14 +2,14 @@ import './scss/App.scss';
 import Chat from './components/chat/chat.js';
 import Navbar from "./components/navbar/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
+import {Home, TransactionPage, Accounts } from "./pages/Home";
 import CreateAccount from './components/account/CreateAccount';
 import Information from "./pages/Information";
-import Accounts from './pages/Accounts';
+// import Accounts from './pages/Accounts';
 import Logout from './pages/Logout';
 import { Landing } from './pages/Landing';
 import Login from "./pages/Login"
-import TransactionPage from './pages/TransactionPage';
+// import TransactionPage from './pages/TransactionPage';
 
 
 function App() {
@@ -33,15 +33,15 @@ function App() {
     <div className="App">
       <Router>
         <Navbar />
-        {/* {<Landing/>} */}
+
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/home" element={<Home />} />
+            <Route path="/accounts" element={<Accounts />} />
+            <Route path="/transactions" element={<TransactionPage />} />
           <Route path="/information" element={<Information />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/accounts" element={<Accounts />} />
-          <Route path="/transactions" element={<TransactionPage />} />
           <Route path="/create" element={<CreateAccount />} />
         </Routes>
       </Router>

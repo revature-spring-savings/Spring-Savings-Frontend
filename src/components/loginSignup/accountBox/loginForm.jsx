@@ -60,7 +60,6 @@ export function LoginForm(props) {
   }
   console.log("Outside Axios:" + values.username)
 
-
   return (
     <BoxContainer>
       <FormContainer>
@@ -79,6 +78,5 @@ export function LoginForm(props) {
         </BoldLink>
       </MutedLink>
     </BoxContainer>
-    
   );
 }

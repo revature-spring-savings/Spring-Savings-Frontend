@@ -20,7 +20,6 @@ export const AccountByUserID = () => {
     function moreDetails(accountID){
         ReactDOM.render(<AccountByAcctID accountID={accountID} />, document.getElementById(accountID));
     }
-    
 
     const accountMap = account.map(({ accountID, accountType, accountBalance }, index) => {
 
