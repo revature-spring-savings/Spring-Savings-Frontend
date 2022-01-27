@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-//import { isBlock } from 'typescript';
+// import { isBlock } from 'typescript';
 import CloseButton from '../dashboard/CloseButton';
 import {AccountByAcctID} from './AccountByAcctID';
 

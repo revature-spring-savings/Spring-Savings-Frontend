@@ -2,6 +2,12 @@ import React from 'react';
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import "./navbar.scss";
+import Dashboard from "../../assets/icons/dashboard.png"
+import Profile from "../../assets/icons/profile.png"
+import Logout from "../../assets/icons/logout.png"
+import Login from "../../assets/icons/login.png"
+
+
 
 const Ul = styled.ul`
     padding-left: 1rem;
@@ -12,9 +18,11 @@ const Ul = styled.ul`
 
 const RightNav = ({ open }) => {
     const location = useLocation();
+
     return (
         <Ul open={open}>
             <li className="label">
+                <img src={Dashboard} className="navbar-icon" alt="" />
                 <Link to="/home" className={location.pathname === "/home" ? "active" : "non-active"}>
                     Dashboard
                 </Link>
@@ -27,6 +35,7 @@ const RightNav = ({ open }) => {
                 </Link>
             </li>
             <li className="label">
+                <img src={Profile} className="navbar-icon" alt="" />
                 <Link
                     to="/profile"
                     className={location.pathname === "/profile" ? "active" : "non-active"}>
@@ -34,6 +43,7 @@ const RightNav = ({ open }) => {
                 </Link>
             </li>
             <li className="label">
+                <img src={Login} className="navbar-icon" alt="" />
                 <Link
                     to="/login"
                     className={location.pathname === "/login" ? "active" : "non-active"}>
@@ -41,6 +51,7 @@ const RightNav = ({ open }) => {
                 </Link>
             </li>
             <li className="label">
+                <img src={Logout} className="navbar-icon" alt="" />
                 <Link
                     to="/logout"
                     className={location.pathname === "/logout" ? "active" : "non-active"}>

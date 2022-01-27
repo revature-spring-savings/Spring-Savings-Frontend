@@ -1,13 +1,16 @@
 import './scss/App.scss';
+import Chat from './components/chat/chat.js';
 import Navbar from "./components/navbar/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
+import CreateAccount from './components/account/CreateAccount';
 import Information from "./pages/Information";
 import Profile from './pages/Profile';
 import Logout from './pages/Logout';
 import { Landing } from './pages/Landing';
 import Login from "./pages/Login"
-import CreateAccount from './components/account/CreateAccount';
+import TransactionPage from './pages/TransactionPage';
+
 
 function App() {
   let newDate = new Date()
@@ -28,27 +31,27 @@ function App() {
     "phone_number": "501301231"
   }
 
-console.log(today);
+  console.log(today);
   return (
     <div className="App">
-        <Router>
-          <Navbar />
-          {/* {<Landing/>} */}
-          <Routes>
-            <Route path="/" element={<Landing />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/information" element={<Information />} />
-            <Route path="/login" element={<Login/>} />
-            <Route path="/logout" element={<Logout />} />
-             {/* {<Route path="/Login"element={<Login />} />} */}
-            <Route path="/profile" element={<Profile currentUser = {currentUser} />} />
-             {/* {<Route path="/pay-or-transfer" element={<PayOrTransfer/>} /> */}
-             {/* <Route path="/deposit" element={<Deposit />} /> */}
-             {/* <Route path="/withdraw" element={<Withdraw />} */}
-            <Route path="/create" element={<CreateAccount />} />
-          </Routes>
-        </Router>
+      <Router>
+        <Navbar />
+        {/* {<Landing/>} */}
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/information" element={<Information />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<Profile currentUser = {currentUser} />} />
+          <Route path="/transactions" element={<TransactionPage />} />
+          <Route path="/create" element={<CreateAccount />} />
+        </Routes>
+      </Router>
+
+      <Chat />
     </div>
+
   );
 }
 
