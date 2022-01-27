@@ -9,9 +9,13 @@
     background: $nav-bar-color;
     width: 100%;
     position: fixed;
-    z-index: 999;
+    z-index: 990;
     top: 0%;
-    border-top: 1px $rev-lightgrey solid ;
+    border-top: 1px $rev-lightgrey solid;
+
+    @media (max-width: 768px) {
+        margin: 0;
+    }
 
     .left-bottomNavbar {
         padding: 14px;
@@ -38,6 +42,7 @@
     @media (max-width: 768px) {
         background-color: transparent;
     }
+
     #logo-bar {
         display: flex;
         flex-direction: row;

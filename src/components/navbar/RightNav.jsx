@@ -6,8 +6,7 @@ import Dashboard from "../../assets/icons/dashboard.png"
 import Profile from "../../assets/icons/profile.png"
 import Logout from "../../assets/icons/logout.png"
 import Login from "../../assets/icons/login.png"
-
-
+import Info from "../../assets/icons/information.png"
 
 const Ul = styled.ul`
     padding-left: 1rem;
@@ -28,6 +27,7 @@ const RightNav = ({ open }) => {
                 </Link>
             </li>
             <li className="label">
+                <img src={Info} className="navbar-icon" alt="" />
                 <Link
                     to="/information"
                     className={location.pathname === "/information" ? "active" : "non-active"}>
