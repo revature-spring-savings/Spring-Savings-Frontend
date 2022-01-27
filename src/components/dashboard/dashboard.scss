@@ -11,9 +11,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
     margin: 0 auto;
     //please add a margin to the top 
-   
+
+   // justify-content: center;
+  //  margin: 55px 0 0 0;
+
 
     #dashTitle{
         background-color: $rev-orange;
@@ -29,7 +33,11 @@
         flex-direction: row;
         flex-wrap: wrap;
         align-items: center;
+
         overflow: hidden;
+
+       // justify-content: center;
+
     }
     
     #latestTransactions{
