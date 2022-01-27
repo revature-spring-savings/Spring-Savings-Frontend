@@ -24,6 +24,11 @@
         display: flex;
         flex-direction: column;
     }
+
+    #more-details-here{
+        background-color: #FCB414;
+        box-shadow: 0 0 9px 3px rgb(58, 58, 58);
+    }
 }
 
 @font-face{

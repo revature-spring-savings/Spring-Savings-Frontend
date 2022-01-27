@@ -11,6 +11,10 @@ export default function Dashboard(){
                 <h1 class="pageTitle">Dashboard</h1>
                 <h3 class="title">Hello, User 2!</h3>          
             </div>
+
+            <div id="more-details-here">
+                
+            </div>
             </div>
 
             <div id="acctCards">                              

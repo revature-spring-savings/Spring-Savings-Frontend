@@ -8,7 +8,7 @@ export default function Home() {
         <>
          
         <div className='page-container'>     
-        <AccountNavbar /><br/><br/>      
+            <AccountNavbar /><br/><br/>      
             <Dashboard />
         </div>
         </>

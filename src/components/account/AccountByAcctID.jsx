@@ -16,20 +16,21 @@ export const AccountByAcctID = (props) => {
     },[]);
 
     function hideDetails(accountID){
-        ReactDOM.render('', document.getElementById(accountID));
+        ReactDOM.render('', document.getElementById("more-details-here"));
     }
 
     function withDep(accountID){
-        ReactDOM.render(<CreateSingleTransaction accountID={accountID}/>, document.getElementById(accountID));
+        ReactDOM.render(<CreateSingleTransaction accountID={accountID}/>, document.getElementById("more-details-here"));
     }
 
     function transfer(accountID){
-        ReactDOM.render(<CreateTransfer accountID={accountID}/>, document.getElementById(accountID));
+        ReactDOM.render(<CreateTransfer accountID={accountID}/>, document.getElementById("more-details-here"));
     }
 
     return (
         <>  
             <div>
+                <h2>Account {props.accountID}</h2>
                 <button  className="gray-btn" onClick={(e)=>withDep(account.accountID)}>Withdraw/Deposit</button>
                 <button  className="gray-btn" onClick={(e)=>transfer(account.accountID)}>Transfer</button>
                 {/* <h3>Account: {account.accountID}</h3> */}

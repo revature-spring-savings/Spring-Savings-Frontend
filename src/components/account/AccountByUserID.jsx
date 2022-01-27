@@ -16,7 +16,7 @@ export const AccountByUserID = () => {
     }, []);
 
     function moreDetails(accountID){
-        ReactDOM.render(<AccountByAcctID accountID={accountID} />, document.getElementById(accountID));
+        ReactDOM.render(<AccountByAcctID accountID={accountID} />, document.getElementById("more-details-here"));
     }
     
 

@@ -42,19 +42,17 @@ console.log(today);
             <Route path="/" element={<Landing />} />
             <Route path="/home" element={<Home />} />
             <Route path="/information" element={<Information />} />
-           
+           {/* <Route path="/profile" element={<Profile />} /> */}
              <Route path="/Login"element={<Login />} />
              <Route path="/logout" element={<Logout />} />
-            {/* <Route path="/profile" element={<Profile />} /> */}
+            
             <Route path="/transactions" element={<TransactionPage />} />
-
             <Route path="/create" element={<CreateAccount />} />
           </Routes>
         </Router>
-        <div style={{width:'100vw', height:'100vh', position:'absolute'}}
-> 
-        <Chat/>
-        </div>
+        {/* <div style={{width:'100vw', height:'100vh', position:'absolute'}}>  */}
+        {/* <Chat/> */}
+        {/* </div> */}
       
        
     </div>
