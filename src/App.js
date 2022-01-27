@@ -37,22 +37,17 @@ console.log(today);
     <div className="App">
         <Router>
           <Navbar />
-          {/* <BottomNavbar /> */}
-          {/* <CreateAccount />
-          <ViewAllAccounts /> */}
-          {/* {<Landing/>} */}
+
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/home" element={<Home />} />
             <Route path="/information" element={<Information />} />
-            {/* <Route path="/login" element={<Login/>} /> */}
-            <Route path="/logout" element={<Logout />} />
-             {/* {<Route path="/Login"element={<Login />} />} */}
-            {/* <Route path="/accounts" element={<Accounts />} /> */}
+           
+             <Route path="/Login"element={<Login />} />
+             <Route path="/logout" element={<Logout />} />
+            {/* <Route path="/profile" element={<Profile />} /> */}
             <Route path="/transactions" element={<TransactionPage />} />
-             {/* {<Route path="/pay-or-transfer" element={<PayOrTransfer/>} /> */}
-             {/* <Route path="/deposit" element={<Deposit />} /> */}
-             {/* <Route path="/withdraw" element={<Withdraw />} */}
+
             <Route path="/create" element={<CreateAccount />} />
           </Routes>
         </Router>

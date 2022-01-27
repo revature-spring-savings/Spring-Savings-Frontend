@@ -3,12 +3,21 @@
 @use "../../scss/mixins" as *;
 
 #dashboard-container {
-    display: flex;
-    flex-direction: column;
+     display: flex;
+     flex-direction: column;
 
     #acctCards{
+         display: flex;
+         flex-direction: column;
+        float: left;
+        overflow-y:auto;
+    }
+
+    #main-area{
+        float: right;
         display: flex;
         flex-direction: column;
+        
     }
     
     #latestTransactions{
