@@ -5,8 +5,8 @@ const Profile = (props) => {
   const currentUser = props.currentUser;
   return (
     <>
-      <div className="page-container">
         <AccountNavbar />
+      <div className="page-container">
         <div className="user-information">
           <UserInformation currentUser = {currentUser} />
         </div>
