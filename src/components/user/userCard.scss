@@ -1,0 +1,38 @@
+.c-container {
+  display: flex;
+  width: 500px;
+  height: 200px;
+  overflow: hidden;
+  box-shadow: 0px 15px 15px -5px;
+  background-color: rgb(255, 255, 255);
+  margin: auto;
+
+  .img-container img {
+    padding: 15px;
+    overflow: hidden;
+    height: 150px;
+  }
+
+  .c-name {
+      flex-grow: 1;
+    padding: 15px;
+    ul {
+      text-align: left;
+      margin: 0;
+      padding-left: 0pt;
+      li {
+        padding: 5px;
+        padding-left: 5px;
+        list-style-type: none;
+      }
+      #list-name {
+          font-size: 30px;
+          font-weight: bold;
+      }
+    }
+  }
+
+  #update-button {
+     margin: 5px;
+  }
+}
