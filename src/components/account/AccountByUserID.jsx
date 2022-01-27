@@ -27,13 +27,14 @@ export const AccountByUserID = () => {
                 <div className="acctCardHeader">
                     <h3>Account: {accountID}</h3>
                 </div>
-
-                <p>Type: {accountType}</p>
+            <div id="accountDeets">
+                <p>Type: {accountType}</p><br/>
                 <p>Balance: ${accountBalance}</p>
+            </div>
 
                 <div className="acctCardFooter">
                     
-                    <p  onClick={(e) => moreDetails(accountID)}>View More Details</p>
+                    <h5  onClick={(e) => moreDetails(accountID)}>View More Details</h5>
                     <div id={accountID}>
                     
                     </div>
