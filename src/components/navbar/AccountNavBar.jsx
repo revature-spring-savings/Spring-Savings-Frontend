@@ -8,7 +8,7 @@ export default function AccountNavbar() {
     return (
         <ul className="bottom-navbar">
             <li className="left-bottomNavbar">
-                <Link className={location.pathname === "/profile" ? "active" : "non-active"} to="/profile">Profile</Link>
+                <Link className={location.pathname === "/home" ? "active" : "non-active"} to="/home">Accounts</Link>
             </li>
             <li className="left-bottomNavbar">
                 <Link className={location.pathname === "/transactions" ? "active" : "non-active"} to="/transactions">Recent Transactions</Link>
