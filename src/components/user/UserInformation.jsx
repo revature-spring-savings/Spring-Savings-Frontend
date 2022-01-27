@@ -20,7 +20,7 @@ export default function UserInformation (props) {
                     <div>
                         <div>
                         <div>
-                        <h1 id="t2">Profile & Settings</h1>
+                        <h1 id="t2">Profile</h1>
                         < UserCard currUser={currUser}/>
                         </div>
                         
