@@ -9,12 +9,6 @@ import Profile from './pages/Profile';
 import Logout from './pages/Logout';
 import { Landing } from './pages/Landing';
 import Login from "./pages/Login"
-<<<<<<< HEAD
-import ViewAllTransactionsByUserID from './components/transaction/ViewAllTransactionsByUserID';
-import TransactionPage from './pages/TransactionPage';
-=======
-// import TransactionPage from './pages/TransactionPage';
->>>>>>> origin/team-1
 
 
 function App() {
