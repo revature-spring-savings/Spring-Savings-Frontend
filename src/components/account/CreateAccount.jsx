@@ -5,6 +5,7 @@ import { useState } from "react";
 import "./CreateAccount.scss"
 // import ValidationPopUp from "./ValidationPopup";
 import Modal from "../modal/Modal";
+import AccountNavbar from "../navbar/AccountNavBar";
 
 export default function CreateAccount() {
     const [accountType, setAccountType] = useState('');
@@ -83,6 +84,8 @@ export default function CreateAccount() {
 
     return (
         <>
+        <div className="page-container">
+            <AccountNavbar /><br/>
             <form className="create-account-form">
                 Create a new Banking Account <br />
                 <input name="type" type="radio" id="checking" value="CHECKING" onClick={(e) => changeTheValue(e.target.value)} />
