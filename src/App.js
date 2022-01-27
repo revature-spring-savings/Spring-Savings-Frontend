@@ -7,7 +7,7 @@ import Information from "./pages/Information";
 import Accounts from './pages/Accounts';
 import Logout from './pages/Logout';
 import { Landing } from './pages/Landing';
-// import Login from "./pages/Login"
+import Login from "./pages/Login"
 // import CreateAccount from './components/account/CreateAccount';
 
 function App() {
@@ -42,7 +42,7 @@ console.log(today);
             <Route path="/information" element={<Information />} />
             {/* <Route path="/login" element={<Login/>} /> */}
             <Route path="/logout" element={<Logout />} />
-             {/* {<Route path="/Login"element={<Login />} />} */}
+             {<Route path="/Login"element={<Login />} />}
             <Route path="/accounts" element={<Accounts />} />
              {/* {<Route path="/pay-or-transfer" element={<PayOrTransfer/>} /> */}
              {/* <Route path="/deposit" element={<Deposit />} /> */}
