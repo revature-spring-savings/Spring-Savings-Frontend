@@ -16,7 +16,7 @@ export default function UserCard(props) {
         <img src={icon} alt="person-icon" />
       </div>
       {editForm ? (
-        <UserForm currentUser={currentUser} />
+        <UserForm currentUser={currentUser} formState = {setEditForm} />
       ) : (
         <>
           <div className="c-name">
