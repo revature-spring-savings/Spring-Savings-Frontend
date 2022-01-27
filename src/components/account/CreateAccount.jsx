@@ -108,6 +108,8 @@ export default function CreateAccount() {
 
             </form>   
                 {renderModal ? <Modal modalState={setRenderModal} accountType={currType} setAmount={setAmount}/> : ""}
+                </div>
         </>
+      
     )
 }
