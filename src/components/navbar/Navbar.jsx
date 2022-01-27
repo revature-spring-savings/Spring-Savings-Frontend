@@ -8,7 +8,7 @@ export default function Navbar() {
     return (
         <div className="nav-bar">
             <h1 className="logo">Spring Savings</h1>
-            {/* <img src={logo} /> */}
+            {/* <img src={require('../../../public/assests/image/jellyfish.jpg')} /> */}
             <Burger />
         </div>
     )
