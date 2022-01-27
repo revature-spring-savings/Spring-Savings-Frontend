@@ -2,13 +2,31 @@
 @use "../../scss/font" as *;
 @use "../../scss/mixins" as *;
 
+@font-face{
+    font-family: "Future-Std-Bold";
+    src: url(../../../public/assets/fonts/Futura-Std-Bold.otf);
+}
+
 #dashboard-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+
+    #dashTitle{
+        background-color: $rev-orange;
+        opacity: 85%;
+        box-shadow: 0 0 9px 3px rgb(58, 58, 58);
+        margin-bottom: 20px;
+        border-radius: 20px;
+        min-width: 400px;
+    }
 
     #acctCards{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
     }
     
     #latestTransactions{
@@ -16,20 +34,6 @@
         flex-direction: column;
     }
 }
-
-@font-face{
-    font-family: "Future-Std-Bold";
-    src: url(../../../public/assets/fonts/Futura-Std-Bold.otf);
-  }
-
-  #dashTitle{
-      background-color: $rev-orange;
-      opacity: 85%;
-      box-shadow: 0 0 9px 3px rgb(58, 58, 58);
-      margin-bottom: 20px;
-      border-radius: 20px;
-      min-width: 400px;
-  }
 
 .acctCard{
     border-radius: 20px;
@@ -47,7 +51,6 @@
         font-size: medium;
         margin: 5px;
     }
-    
 }
 
 .acctCardHeader{
@@ -101,12 +104,6 @@
 
 .transactionsTable tr{
     border: 1px solid black;
-}
-
-#dashboard-container, #acctCards{
-
-    align-items: center;
-
 }
 
 .complete-btn{

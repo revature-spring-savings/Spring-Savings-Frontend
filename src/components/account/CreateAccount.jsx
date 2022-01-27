@@ -81,8 +81,8 @@ export default function CreateAccount() {
 
     return (
         <>
+            <AccountNavbar />
             <div className="page-container">
-                <AccountNavbar /><br />
                 <form className="create-account-form">
                     Create a new Banking Account <br />
                     <input name="type" type="radio" id="checking" value="CHECKING" onClick={(e) => changeTheValue(e.target.value)} />
