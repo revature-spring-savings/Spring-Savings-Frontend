@@ -37,8 +37,8 @@ const RightNav = ({ open }) => {
             <li className="label">
                 <img src={Profile} className="navbar-icon" alt="" />
                 <Link
-                    to="/accounts"
-                    className={location.pathname === "/accounts" ? "active" : "non-active"}>
+                    to="/profile"
+                    className={location.pathname === "/profile" ? "active" : "non-active"}>
                     Profile
                 </Link>
             </li>
