@@ -4,10 +4,14 @@
 
 .bottom-navbar {
     list-style-type: none;
-    margin: 0;
+    margin: 55px 0 0 0;
     padding: 0;
     background: $nav-bar-color;
     width: 100%;
+    position: fixed;
+    z-index: 999;
+    top: 0%;
+    border-top: 1px $rev-lightgrey solid ;
 
     .left-bottomNavbar {
         padding: 14px;
@@ -32,19 +36,27 @@
     background-color: $nav-bar-color;
 
     @media (max-width: 768px) {
-        background-color:transparent;
+        background-color: transparent;
     }
-
-    .logo {
-        // font-family: font.$logo-font;
-        font-size: 1.5em;
-        margin-left: 1em;
+    #logo-bar {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: center;
         align-items: center;
-        @media (max-width: 768px) {
-            display: none;
+        
+        img {
+            width: 80px;
+            height: auto;
+        }
+        .logo {
+            font-size: 1.5em;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            @media (max-width: 768px) {
+                display: none;
+            }
         }
     }
 
@@ -76,24 +88,32 @@
         }
     }
 
-    img {
-        width: 100px;
-        height: auto;
-    }
-
     ul {
         list-style: none;
         text-decoration: none;
         display: flex;
         flex-flow: row nowrap;
-        margin: 0;
+        margin: 0 20px 0 0;
         padding: 0;
         transition: transform 0.3s ease-in-out;
+
+        .label {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
     
+        .navbar-icon {
+            width: 20px !important;
+            height: 20px !important;
+        }  
+
         li {
             padding: 18px 10px;
 
             a {
+                margin-left: 5px;
                 text-decoration: none;
                 @include animate-underline-left;
             }
@@ -101,6 +121,7 @@
 
         @media (max-width: 768px) {
             flex-flow: column nowrap;
+            align-items: flex-start;
             background-color: $nav-bar-color;
             color: #fff;
             position: fixed;

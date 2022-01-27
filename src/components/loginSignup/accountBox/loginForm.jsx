@@ -60,7 +60,6 @@ export function LoginForm(props) {
   }
   console.log("Outside Axios:" + values.username)
 
-
   return (
     <BoxContainer>
       <FormContainer>
@@ -75,10 +74,9 @@ export function LoginForm(props) {
       <MutedLink href="#">
         Don't have an account?{" "}
         <BoldLink href="#" onClick={switchToSignup}>
-          Sign up
+          SIGN UP
         </BoldLink>
       </MutedLink>
     </BoxContainer>
-    
   );
 }
