@@ -1,6 +1,5 @@
 .form-container {
-
-   margin-top: 5px;
+  margin-top: 5px;
 
   .update-info-form {
     display: flex;
@@ -11,9 +10,19 @@
       margin-left: 5.5px;
       margin-top: 3px;
     }
+
+    .visibility-image-container {
+      display: inline-block;
+      .visibility-image {
+        margin-bottom: -5px;
+        margin-left: -25px;
+        max-width: 20px;
+        max-height: 20px;
+      }
+    }
   }
 
   .update-form-button {
-    margin: 5px 3px
+    margin: 5px 3px;
   }
 }
