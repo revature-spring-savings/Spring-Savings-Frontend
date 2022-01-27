@@ -4,7 +4,7 @@
 
 .bottom-navbar {
     list-style-type: none;
-    margin: 0;
+    margin: 55px 0 0 0;
     padding: 0;
     background: $nav-bar-color;
     width: 100%;
@@ -32,7 +32,8 @@
     background-color: $nav-bar-color;
 
     @media (max-width: 768px) {
-        background-color:transparent;
+        background-color: transparent;
+        
     }
 
     .logo {
@@ -76,24 +77,38 @@
         }
     }
 
-    img {
-        width: 100px;
-        height: auto;
-    }
+    
+    // img {
+    //     width: 100px;
+    //     height: auto;
+    // }
 
     ul {
         list-style: none;
         text-decoration: none;
         display: flex;
         flex-flow: row nowrap;
-        margin: 0;
+        margin: 0 20px 0 0;
         padding: 0;
         transition: transform 0.3s ease-in-out;
+
+        .label {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
     
+        .navbar-icon {
+            width: 20px !important;
+            height: 20px !important;
+        }  
+
         li {
             padding: 18px 10px;
 
             a {
+                margin-left: 5px;
                 text-decoration: none;
                 @include animate-underline-left;
             }
@@ -101,6 +116,7 @@
 
         @media (max-width: 768px) {
             flex-flow: column nowrap;
+            align-items: flex-start;
             background-color: $nav-bar-color;
             color: #fff;
             position: fixed;
@@ -113,6 +129,7 @@
         }
     }
 }
+
 
 // switch classes between active pages and non-active pages
 .active {
