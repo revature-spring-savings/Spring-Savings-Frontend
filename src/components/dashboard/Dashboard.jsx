@@ -1,9 +1,11 @@
 import  ViewAllTransactions  from '../transaction/ViewAllTransactionsByUserID'
 import { AccountByUserID } from "../account/AccountByUserID"
 import './dashboard.scss'
+import IdleTime from '../IdleTime'
 
 
 export default function Dashboard(){
+    
 
     return(
         <>
@@ -16,6 +18,8 @@ export default function Dashboard(){
             <div id="latestTransactions">
                 <h3 class="title">Recent Transactions</h3>
                 <ViewAllTransactions />
+                <IdleTime/>
+                
             </div>
         </>
     )

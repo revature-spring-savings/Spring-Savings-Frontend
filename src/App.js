@@ -8,6 +8,7 @@ import Accounts from './pages/Accounts';
 import Logout from './pages/Logout';
 import { Landing } from './pages/Landing';
 
+
 function App() {
   let newDate = new Date()
   let month = newDate.getMonth() + 1;
@@ -20,8 +21,10 @@ function App() {
     <div className="App">
         <Router>
           <Navbar />
+
           {/* {<Landing/>} */}
           <Routes>
+            
             <Route path="/landing" element={<Landing />} />
             <Route path="/home" element={<Home />} />
             <Route path="/information" element={<Information />} />
