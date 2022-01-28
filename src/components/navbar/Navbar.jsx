@@ -11,7 +11,6 @@ export default function Navbar() {
                 <img src={Logo} alt="logo" />
                 <h1 className="logo">Spring Savings</h1>
             </div>
-
             <Burger />
         </div>
     )
