@@ -50,7 +50,7 @@ export default function CreateAccount() {
             setCurrType("SUCCESS"); // if account creation successful, render sucess page
             setRenderModal(true);
             axios.post(`http://localhost:8081/accounts/createAccount/${userID}`, {
-                userID: 1,
+                userID: 2,
                 accountBalance: amount,
                 accountType: accountType
             })
