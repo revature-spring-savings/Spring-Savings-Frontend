@@ -162,8 +162,7 @@ function Chat() {
             <div className='textInputContainer'>
               <Fade bottom opposite when={sendText} distance={'30px'}>
                 <textarea id='tArea' onChange={(e) => setChatType(e.target.value)} value={chatType}
-                  onKeyPress={submitMessage} className='chatBoxText'
-                  placeholder="Type your message..."></textarea>
+                  onKeyPress={submitMessage} className='chatBoxText' placeholder="Type your message..."></textarea>
               </Fade>
             </div>
           </div>
