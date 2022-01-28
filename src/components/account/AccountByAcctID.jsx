@@ -49,16 +49,16 @@ export const AccountByAcctID = (props) => {
                 <h2>Account {props.accountID}</h2>
                 <button  className="gray-btn" onClick={(e)=>withDep(account.accountID)}>Withdraw/Deposit</button>
                 <button  className="gray-btn" onClick={(e)=>transfer(account.accountID)}>Transfer</button>
-                {/* <h3>Account: {account.accountID}</h3> */}
-                {/* <p>Type: {account.accountType}</p> */}
+
                 <h3>Balance: {account.accountBalance}</h3>
 
                 <p>Recent Transactions</p>
                 <button className="dark-gray-btn"  onClick={(e)=>viewAll(account.accountID)}>View All</button>
                 <button className="dark-gray-btn"  onClick={(e)=>viewIncoming(account.accountID)}>View Incoming</button>
                 <button className="dark-gray-btn"  onClick={(e)=>viewOutgoing(account.accountID)}>View Outgoing</button>
-                <div id="transactions-pagination"><center>  
-                    <ViewAllTransactionsByAccountID accountID={props.accountID}/>
+                <div id="transactions-pagination">
+                    <center>  
+                        <ViewAllTransactionsByAccountID accountID={props.accountID}/>
                     </center>  
                 </div>
                 <button   className="close-btn" onClick={(e)=>hideDetails(account.accountID)}>Close</button>
