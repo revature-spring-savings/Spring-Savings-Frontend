@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import "./createaccount.scss"
+import "./CreateAccount.scss"
 import Modal from "../modal/Modal";
 import AccountNavbar from "../navbar/AccountNavBar";
 

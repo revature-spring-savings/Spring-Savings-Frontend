@@ -53,7 +53,7 @@ return (
             <Route path="/transactions" element={<TransactionPage />} />
           <Route path="/information" element={<Information />} />
           <Route path="/logout" element={<Logout />} />
-          <Route path="/login" element={<Login />} />
+          {/* <Route path="/login" element={<Login />} /> */}
           <Route path="/profile" element={<Profile currentUser = {currentUser} />} />
           <Route path="/transactions" element={<TransactionPage />} />
           <Route path="/create" element={<CreateAccount />} />
