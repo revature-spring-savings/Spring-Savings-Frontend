@@ -1,26 +1,45 @@
 import React from 'react';
+import "./information.scss";
 
 //be sure to add a div and use the orange, beige, and yellow color schemes from the other pages
 
 const Information = () => {
   return (
-    <div>
-        <h3 class="pageTitle">Store hours</h3>
-        <p>Monday: closed</p>
-        <p>Tues-Thurs: 10am-6pm</p>
-        <p>Fri-Sun: 10am-8pm</p>
-        <hr/>
-        <h3>Address</h3>
-        <p>123 Fake St.</p>
-        <p>Townsburg VA, 12345</p>
-        <hr/>
-        <h3>Phone Number</h3>
-        <p>(123) 123-1234</p>
-        <hr/>
-        <h3>Email</h3>
-        <p>admin@thecookiejar.com</p>
+    <>
+      <div className='content-spring'>
+
+        <h1 className='content-springTitle'>Spring Savings</h1>
+        <h2 className='content-spring-Cards'>Revature's Latest Banking Application!</h2>
+
+        <p className="content-spring-area">
+          Spring Savings is a mobile-responsive banking application designed to be both convenient
+          and appealing.<br />
+          Our mission is to supply target customers with a sleek,
+          intuitive application to meet their financial needs.
+        </p>
+
+        <ul className="latestContent-spring">
+          <li>Secured and Tested features</li>
+          <li>Simple and Safe Banking</li>
+          <li>Flexible and Creative</li>
+          <li>Desktop and Mobile Responsive</li>
+          <li>Always Ready to help, with 24/7 Chats</li>
+        </ul>
+
+        <div className="springinfo"><span >
+          Spring Savings LLC. </span>
+          <p>7777 Spring Savings St.<br />
+            Flushing, NY 11355<br />
+
+            888-151-7474</p>
+
+          Copyright &copy; 2022 Revature - Spring Savings<br />
+          <a href="mailto:springsavings@revature.com">springsavings@revature.com</a>
+        </div>
       </div>
+
+    </>
   )
-};
+}
 
 export default Information;
