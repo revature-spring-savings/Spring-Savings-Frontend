@@ -8,7 +8,7 @@ import "./accountPagination.scss";
 export const AccountByUserID = () => {
   const [account, setAccount] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
-  const [accountPageId, setAccountPageI] = useState(false);
+  //const [accountPageId, setAccountPageI] = useState(false);
 
   const accountsPerPage = 3;
   const pageVisited = pageNumber * accountsPerPage;
