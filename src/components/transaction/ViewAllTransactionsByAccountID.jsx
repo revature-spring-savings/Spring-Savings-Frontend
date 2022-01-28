@@ -1,10 +1,22 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import ReactPaginate from "react-paginate";
 
 export default function ViewAllTransactionsByAccountID(props) {
     const [transactions, setTransactions] = useState([]);
     const [userID, setUserID] = useState(2);
     const [accountID, setAccountID] = useState(props.accountID);
+    const [pageNumber, setPageNumber] = useState(0);
+
+    // change this to view more transactions per page
+    const transactionsPerPage = 5;
+    const pageVisited = pageNumber * transactionsPerPage;
+
+    const changePage = ({ selected }) => {
+        setPageNumber(selected);
+    };
+
+    const pageCount = Math.ceil(transactions.length / transactionsPerPage);
 
     useEffect(() => {
         axios.get(`http://localhost:8081/transactions/accountID/${accountID}`)
@@ -26,7 +38,7 @@ export default function ViewAllTransactionsByAccountID(props) {
                         <th>Note</th>
                     </tr>
                 </thead>
-                {transactions.map(d => {
+                {transactions.slice(pageVisited, pageVisited + transactionsPerPage).map(d => {
                     return (
                         <tr>
                             <td>{d.transactionID}</td>
@@ -38,6 +50,19 @@ export default function ViewAllTransactionsByAccountID(props) {
                     )
                 })}
             </table>
+            <div>
+            <ReactPaginate
+            previousLabel={"Previous"}
+            nextLabel={"Next"}
+            pageCount={pageCount}
+            onPageChange={changePage}
+            containerClassName={"paginationButtons"}
+            previousLinkClassName={"previousButton"}
+            nextLinkClassName={"nextButton"}
+            disabledClassName={"paginationDisable"}
+            activeClassName={"paginationActive"}
+        />
+            </div>
         </>
     )
 }
