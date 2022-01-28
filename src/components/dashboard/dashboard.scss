@@ -1,40 +1,135 @@
 @use "../../scss/colors" as *;
 @use "../../scss/font" as *;
+@use "../../scss/mixins" as *;
+
+@font-face{
+    font-family: "Future-Std-Bold";
+    src: url(../../../public/assets/fonts/Futura-Std-Bold.otf);
+}
+
+#dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 0 auto;
+    //please add a margin to the top 
+
+   // justify-content: center;
+  //  margin: 55px 0 0 0;
+
+
+    #dashTitle{
+        background-color: $rev-orange;
+        opacity: 85%;
+        box-shadow: 0 0 9px 3px rgb(58, 58, 58);
+        margin-bottom: 20px;
+        border-radius: 20px;
+        min-width: 400px;
+    }
+
+    #acctCards{
+         display: flex;
+         flex-direction: column;
+        float: left;
+        overflow-y:auto;
+    }
+
+    #main-area{
+        float: right;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+
+        overflow: hidden;
+
+       // justify-content: center;
+
+    }
+    
+    #latestTransactions{
+        display: flex;
+        flex-direction: row;
+    }
+
+    #more-details-here{
+        background-color: #FCB414;
+        box-shadow: 0 0 9px 3px rgb(58, 58, 58);
+    }
+}
 
 .acctCard{
     border-radius: 20px;
-    background-color: white;
+    background-color: beige;
     color: black;
     margin: 20px;
-    width: 350px;
-    box-shadow: 0 0 6px 6px black;
+    overflow: hidden;
+    // align-items: center;
+    // justify-content: center;
+    // width: 350px;
+    // border: $rev-orange 3px solid;
+    // box-shadow: 0 0 6px 3px rgb(65, 64, 64);
+    width: fit-content;
+    min-width: 350px;
+    box-shadow: 0 0 9px 3px rgb(58, 58, 58);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    #accountDeets{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding: 10px;
+        justify-content: center;
+    }
+    p {
+        font-size: medium;
+        margin: 5px;
+    }
 }
 
 .acctCardHeader{
     background-color: #F26925;
-    color: black;  
-    border-radius: 20px 20px 0px 0px;
-    padding: 1px 0px; 
-    margin-bottom: 30px;
+    color: white;
+    // border-radius: 20px 20px 0px 0px;
+    padding: 0px 20px; 
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    // height: 100%;
+
+    
+    // margin-bottom: 30px;s
+
+    h3{
+        font-size: large;
+        color: beige;
+    }
 }
 
 .acctCardFooter{
     background-color: #FCB414;
     color: black;  
-    border-radius: 0px 0px 20px 20px ;
-    padding: 2.5px;
-    margin-top: 30px;
+    // border-radius: 0px 0px 18px 18px ;
+    padding: 0.25px 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+    // margin-top: 30px;
+    // height: 100%;
+    
+    p{
     cursor: pointer;
-}
-
-.acctCardHeader h3{
-    font-size: large;  
-}
-
-.acctCard p{
-    font-size: medium;
-    padding: 2px;
-    margin: 0px;
+   
+    
+    }
 }
 
 .viewMore{
@@ -46,14 +141,14 @@
 }
 
 .transactionsTable{
-    background-color: $rev-lightgrey;
-    border:  black 5px solid;
+    background-color: beige;
+    border: $rev-orange 5px solid;
+    margin: 10px;
 }
 
 .transactionsTable th{
     background-color: $rev-blue;
-    padding:5px 10px;
-    position: fi;
+    padding: 5px 10px;
 }
 
 .transactionsTable td{
@@ -64,4 +159,40 @@
 
 .transactionsTable tr{
     border: 1px solid black;
+}
+
+.complete-btn{
+    background-color: $rev-orange;
+    border: 1px solid #b84e19;
+    padding: 12px 15px;
+    border-radius: 24px;
+    margin: 10px;
+    font-weight: bold;
+}
+
+.gray-btn {
+    background-color: $rev-lightgrey;
+    border: 1px solid #888;
+    padding: 4px 8px;
+    border-radius: 15px;
+    margin: 5px;
+    color: black;
+}
+
+.dark-gray-btn {
+    background-color: $rev-yellow;
+    border: 1px solid $rev-orange;
+    padding: 4px 8px;
+    border-radius: 15px;
+    margin: 5px;
+    color: #cb561c;
+}
+
+.close-btn {
+    background-color: beige;
+    border: 1px solid #888;
+    padding: 3px 6px;
+    border-radius: 12px;
+    margin: 5px;
+    color: black;
 }
