@@ -12,6 +12,7 @@ import { Landing } from './pages/Landing';
 import LoginButton from "./pages/LoginButton";
 import LogoutButton from "./pages/LogoutButton";
 
+
 function App() {
   let newDate = new Date()
   let month = newDate.getMonth() + 1;
@@ -41,8 +42,10 @@ return (
     <div className="App">
         <Router>
           <Navbar />
+
           {/* {<Landing/>} */}
           <Routes>
+            
             <Route path="/landing" element={<Landing />} />
             <Route path="/home" element={<Home />} />
             <Route path="/information" element={<Information />} />
