@@ -11,6 +11,8 @@ import {
 } from "./common";
 import { Marginer } from "../marginer/Marginer";
 import { AccountContext } from "./accountContext";
+import IdleTime from "../../IdleTime";
+//import { RestoreTwoTone } from "@material-ui/icons";
 
 export function LoginForm(props) {
   const { switchToSignup } = useContext(AccountContext);
@@ -61,6 +63,8 @@ export function LoginForm(props) {
   console.log("Outside Axios:" + values.username)
 
   return (
+    <div className="image">
+      <IdleTime/>
     <BoxContainer>
       <FormContainer>
         <Input type="username" placeholder="Enter your Username" onChange={handleUsername} value={values.username} />
@@ -78,5 +82,7 @@ export function LoginForm(props) {
         </BoldLink>
       </MutedLink>
     </BoxContainer>
+    </div>
+
   );
 }
