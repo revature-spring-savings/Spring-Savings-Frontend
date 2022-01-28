@@ -103,7 +103,7 @@ export default function UserForm(props) {
                 </label>
                 <label>
                     Date of Birth:
-                    <input className="update-form-input" placeholder={currentUser.dob} value={dob} onChange={handleDob} type="text" name="name" />
+                    <input className="update-form-input" placeholder={currentUser.dob} value={dob} onChange={handleDob} type="date" name="name" />
                 </label>
             </form>
             <button className="update-form-button" onClick={() => {updateUserInformation(); setRenderModal(!renderModal)}}>Update</button>

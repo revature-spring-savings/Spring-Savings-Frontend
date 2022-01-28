@@ -4,7 +4,7 @@ import "./userCard.scss";
 import icon from "./user-images/icon.png";
 import UserForm from "./UserForm";
 import { filterProps } from "framer-motion";
-import anonpig from "./user-images/anonymous-pig.png";
+import anonpig from "./user-images/pigsavings.png";
 
 export default function UserCard(props) {
   const currentUser = props.currUser;
