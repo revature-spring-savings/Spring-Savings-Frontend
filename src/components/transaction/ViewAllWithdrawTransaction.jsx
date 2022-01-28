@@ -12,11 +12,11 @@ export const ViewAllWithdrawTransaction = () => {
         axios.post(`http://localhost:8081/transactions/withdraw`, {
             accountID: accountNum
         })
-            .then(res => {
-                console.log(res.data);
-                setWithdraw(res.data);
-            })
-            .catch(err => console.log(err));
+        .then(res => {
+            console.log(res.data);
+            setWithdraw(res.data);
+        })
+        .catch(err => console.log(err));
     }, [])
 
     const withdrawTransaction = withdraw.map(withdraws => {

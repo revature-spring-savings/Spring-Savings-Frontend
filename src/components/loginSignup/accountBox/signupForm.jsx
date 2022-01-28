@@ -79,7 +79,7 @@ export function SignupForm(props) {
       <MutedLink href="#">
         Already have an account?
         <BoldLink href="#" onClick={switchToSignin}>
-          Sign in
+          SIGN IN
         </BoldLink>
       </MutedLink>
     </BoxContainer>

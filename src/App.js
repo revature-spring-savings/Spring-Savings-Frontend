@@ -1,11 +1,12 @@
-import LoginSignUp from "./pages/loginSignup/loginSignup";
-import './App.css';
+import './scss/App.scss';
+import Chat from './components/chat/chat.js';
 import Navbar from "./components/navbar/Navbar";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
+import {Home, TransactionPage, Accounts } from "./pages/Home";
+import CreateAccount from './components/account/CreateAccount';
 import Information from "./pages/Information";
-import Accounts from './pages/Accounts';
+import Profile from './pages/Profile';
 import Logout from './pages/Logout';
 import { Landing } from './pages/Landing';
 import LoginButton from "./pages/LoginButton";
@@ -18,8 +19,20 @@ function App() {
 
   console.log(today);
 
-  return (
+  // test state 
+  const currentUser = {
+    "user_id": 1,
+    "first_name": "Louis",
+    "last_name": "Lydia",
+    "username": "testlogin",
+    "password": "testPassword",
+    "dob": "6/30/99",
+    "email": "testing@gmail.com",
+    "phone_number": "501301231"
+  }
 
+console.log(today);
+return (
     <Auth0Provider
     domain="dev-wjx29g94.us.auth0.com"
     clientId="zlyKi8BrV6Ii0AqjzGIWUap3TOgnwuu1"
@@ -37,11 +50,17 @@ function App() {
             <Route path="/logout" element={<LogoutButton />} />
              {/* {<Route path="/Login"element={<Login />} />} */}
             <Route path="/accounts" element={<Accounts />} />
-             {/* {<Route path="/pay-or-transfer" element={<PayOrTransfer/>} /> */}
-             {/* <Route path="/deposit" element={<Deposit />} /> */}
-             {/* <Route path="/withdraw" element={<Withdraw />} */}
-          </Routes>
-        </Router>
+            <Route path="/transactions" element={<TransactionPage />} />
+          <Route path="/information" element={<Information />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<Profile currentUser = {currentUser} />} />
+          <Route path="/transactions" element={<TransactionPage />} />
+          <Route path="/create" element={<CreateAccount />} />
+        </Routes>
+      </Router>
+
+      <Chat />
     </div>
     </Auth0Provider>
   );

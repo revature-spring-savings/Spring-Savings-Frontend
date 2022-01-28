@@ -11,8 +11,6 @@ import {
 } from "./common";
 import { Marginer } from "../marginer/Marginer";
 import { AccountContext } from "./accountContext";
-//import { RestoreTwoTone } from "@material-ui/icons";
-
 
 export function LoginForm(props) {
   const { switchToSignup } = useContext(AccountContext);
@@ -62,7 +60,6 @@ export function LoginForm(props) {
   }
   console.log("Outside Axios:" + values.username)
 
-
   return (
     <BoxContainer>
       <FormContainer>
@@ -77,10 +74,9 @@ export function LoginForm(props) {
       <MutedLink href="#">
         New Member?{" "}
         <BoldLink href="#" onClick={switchToSignup}>
-          Create new Account
+          SIGN UP
         </BoldLink>
       </MutedLink>
     </BoxContainer>
-    
   );
 }
