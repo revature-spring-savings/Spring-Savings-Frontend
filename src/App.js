@@ -9,6 +9,7 @@ import Logout from './pages/Logout';
 import { Landing } from './pages/Landing';
 
 
+
 function App() {
   let newDate = new Date()
   let month = newDate.getMonth() + 1;
@@ -28,7 +29,7 @@ function App() {
             <Route path="/landing" element={<Landing />} />
             <Route path="/home" element={<Home />} />
             <Route path="/information" element={<Information />} />
-            <Route path="/" element={<LoginSignUp/>} />
+            <Route path="/" element={<LoginSignUp/>}  />
             <Route path="/logout" element={<Logout />} />
              {/* {<Route path="/Login"element={<Login />} />} */}
             <Route path="/accounts" element={<Accounts />} />
