@@ -53,8 +53,9 @@ export const AccountByAcctID = (props) => {
                 <button className="dark-gray-btn"  onClick={(e)=>viewAll(account.accountID)}>View All</button>
                 <button className="dark-gray-btn"  onClick={(e)=>viewIncoming(account.accountID)}>View Incoming</button>
                 <button className="dark-gray-btn"  onClick={(e)=>viewOutgoing(account.accountID)}>View Outgoing</button>
-                <div id="transactions-pagination">    
+                <div id="transactions-pagination"><center>  
                     <ViewAllTransactionsByAccountID accountID={props.accountID}/>
+                    </center>  
                 </div>
                 <button   className="close-btn" onClick={(e)=>hideDetails(account.accountID)}>Close</button>
             </div> 
