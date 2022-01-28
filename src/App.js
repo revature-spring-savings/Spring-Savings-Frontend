@@ -5,12 +5,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {Home, TransactionPage, Accounts } from "./pages/Home";
 import CreateAccount from './components/account/CreateAccount';
 import Information from "./pages/Information";
-// import Accounts from './pages/Accounts';
+import Profile from './pages/Profile';
 import Logout from './pages/Logout';
 import { Landing } from './pages/Landing';
 import Login from "./pages/Login"
-// import TransactionPage from './pages/TransactionPage';
-
 
 function App() {
   let newDate = new Date()
@@ -24,6 +22,9 @@ function App() {
     "user_id": 1,
     "first_name": "Louis",
     "last_name": "Lydia",
+    "username": "testlogin",
+    "password": "testPassword",
+    "dob": "6/30/99",
     "email": "testing@gmail.com",
     "phone_number": "501301231"
   }
@@ -42,6 +43,8 @@ function App() {
           <Route path="/information" element={<Information />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<Profile currentUser = {currentUser} />} />
+          <Route path="/transactions" element={<TransactionPage />} />
           <Route path="/create" element={<CreateAccount />} />
         </Routes>
       </Router>

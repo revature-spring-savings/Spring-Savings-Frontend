@@ -1,9 +1,6 @@
 import axios from 'axios';
-
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-// import { isBlock } from 'typescript';
-import CloseButton from '../dashboard/CloseButton';
 import {AccountByAcctID} from './AccountByAcctID';
 
 export const AccountByUserID = () => {
@@ -28,13 +25,14 @@ export const AccountByUserID = () => {
                 <div className="acctCardHeader">
                     <h3>Account: {accountID}</h3>
                 </div>
-
-                <p>Type: {accountType}</p>
+            <div id="accountDeets">
+                <p>Type: {accountType}</p><br/>
                 <p>Balance: ${accountBalance}</p>
+            </div>
 
                 <div className="acctCardFooter">
                     
-                    <p  onClick={(e) => moreDetails(accountID)}>View More Details</p>
+                    <h5  onClick={(e) => moreDetails(accountID)}>View More Details</h5>
                     <div id={accountID}>
                     
                     </div>
