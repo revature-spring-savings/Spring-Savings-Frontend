@@ -32,7 +32,7 @@ export const AccountByUserID = () => {
 
                 <div className="acctCardFooter">
                     
-                    <h5  onClick={(e) => moreDetails(accountID)}>View More Details</h5>
+                    <h5 className="more-details-click" onClick={(e) => moreDetails(accountID)}>View More Details</h5>
                     <div id={accountID}>
                     
                     </div>
