@@ -1,33 +1,18 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
-import BottomNavbar from "./bottomNavbar";
 import "./navbar.scss";
+import Burger from "./Burger";
+import Logo from "../../assets/logo/logo.png"
 
-// when user is logged in?
+//Renders the navbar in both mobile and desktop
 export default function Navbar() {
-    const location = useLocation();
-
     return (
-        <>
-            <div className="navbar-container">
-                <ul className="navbar">
-                    <li className="left-navbar">
-                        <Link className={location.pathname === "/home" ? "active" : "non-active"} to="/home">Home</Link>
-                    </li>
-                    <li className="left-navbar">
-                        <Link className={location.pathname === "/information" ? "active" : "non-active"} to="/information">Information</Link>
-                    </li>
-                    <li id="page-title">Spring Banking</li>
-                    <li className="right-navbar">
-                        {/*When user is logged in remove logout and login*/}
-                        <Link className={location.pathname === "/logout" ? "active" : "non-active"} to="/logout">Logout</Link>
-                    </li>
-                    <li className="right-navbar">
-                        <Link className={location.pathname === "/login" ? "active" : "non-active"} to="/login">Login</Link>
-                    </li>
-                </ul>
-                <BottomNavbar />
+        <div className="nav-bar">
+            <div id="logo-bar">
+                <img src={Logo} alt="logo" />
+                <h1 className="logo">Spring Savings</h1>
             </div>
-        </>
+
+            <Burger />
+        </div>
     )
 }

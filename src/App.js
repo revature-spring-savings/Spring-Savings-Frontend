@@ -11,6 +11,7 @@ import Logout from './pages/Logout';
 import { Landing } from './pages/Landing';
 import LoginButton from "./pages/LoginButton";
 import LogoutButton from "./pages/LogoutButton";
+import Login from "./pages/Login"
 
 function App() {
   let newDate = new Date()
@@ -38,21 +39,22 @@ return (
     clientId="zlyKi8BrV6Ii0AqjzGIWUap3TOgnwuu1"
     redirectUri={window.location.origin}>
     
+  console.log(today);
+  return (
+    
     <div className="App">
-        <Router>
-          <Navbar />
-          {/* {<Landing/>} */}
-          <Routes>
-            <Route path="/landing" element={<Landing />} />
-            <Route path="/home" element={<Home />} />
+      <Router>
+        <Navbar />
+
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/home" element={<Home />} />
+            <Route path="/accounts" element={<Accounts />} />
+            <Route path="/transactions" element={<TransactionPage />} />
             <Route path="/information" element={<Information />} />
             <Route path="/" element={<LoginButton/>} />
             <Route path="/logout" element={<LogoutButton />} />
-             {/* {<Route path="/Login"element={<Login />} />} */}
-            <Route path="/accounts" element={<Accounts />} />
-            <Route path="/transactions" element={<TransactionPage />} />
-          <Route path="/information" element={<Information />} />
-          <Route path="/logout" element={<Logout />} />
+            {/* <Route path="/logout" element={<Logout />} /> */}
           {/* <Route path="/login" element={<Login />} /> */}
           <Route path="/profile" element={<Profile currentUser = {currentUser} />} />
           <Route path="/transactions" element={<TransactionPage />} />
@@ -62,7 +64,9 @@ return (
 
       <Chat />
     </div>
+
     </Auth0Provider>
+
   );
 }
 

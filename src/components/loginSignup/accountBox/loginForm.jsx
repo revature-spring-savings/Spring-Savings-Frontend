@@ -14,7 +14,6 @@ import { AccountContext } from "./accountContext";
 import IdleTime from "../../IdleTime";
 //import { RestoreTwoTone } from "@material-ui/icons";
 
-
 export function LoginForm(props) {
   const { switchToSignup } = useContext(AccountContext);
   const [values, setValues] = useState({
@@ -63,7 +62,6 @@ export function LoginForm(props) {
   }
   console.log("Outside Axios:" + values.username)
 
-
   return (
     <div className="image">
       <IdleTime/>
@@ -80,10 +78,11 @@ export function LoginForm(props) {
       <MutedLink href="#">
         Don't have an account?{" "}
         <BoldLink href="#" onClick={switchToSignup}>
-          Sign up
+          SIGN UP
         </BoldLink>
       </MutedLink>
     </BoxContainer>
     </div>
+
   );
 }
