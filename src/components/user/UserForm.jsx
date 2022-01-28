@@ -3,8 +3,8 @@ import { useState } from "react";
 import axios from "axios";
 import "./userForm.scss"
 import UpdateAccountModal from "../modal/UpdateAccountModal";
-import visible from "./user-images/visible.png";
-import notVisible from "./user-images/not-visible.png";
+import notVisible from "./user-images/visible.png";
+import visible from "./user-images/not-visible.png";
 
 export default function UserForm(props) {
     const [firstName, setFirstName] = useState('');
@@ -50,7 +50,6 @@ export default function UserForm(props) {
     }
 
     const handleClickShowPassword = (e) => {
-        e.preventDefault();
         setShowPassword(!showPassword);
     }
 
@@ -96,11 +95,11 @@ export default function UserForm(props) {
                     Password:
                     <input className="update-form-input" placeholder={currentUser.password} value={password} onChange={handlePassword} type={showPassword ? "text" : "password"} name="name" />
                     <div className="visibility-image-container">
-                        <img className="visibility-image" src={notVisible} alt="visible-icon"/>
+                        <img onClick={()=> handleClickShowPassword()} className="visibility-image" src={showPassword ? visible: notVisible} alt="visible-icon"/>
                     </div>
                 </label>
                 <label>
-                    Phone Number:
+                    Phone number:
                     <input className="update-form-input" placeholder={currentUser.phone_number} value={phoneNum} onChange={handlePhoneNum} type="text" name="name" />
                 </label>
                 <label>
@@ -108,7 +107,7 @@ export default function UserForm(props) {
                     <input className="update-form-input" placeholder={currentUser.dob} value={dob} onChange={handleDob} type="text" name="name" />
                 </label>
             </form>
-            <button className="update-form-button" onClick={() => {updateUserInformation(); setRenderModal(!renderModal)}}>Submit</button>
+            <button className="update-form-button" onClick={() => {updateUserInformation(); setRenderModal(!renderModal)}}>Update</button>
             <button className="update-form-button" onClick={() => editForm(false)}>Cancel</button>
             {renderModal ? <UpdateAccountModal close={setRenderModal}/> : ""}
         </div>
