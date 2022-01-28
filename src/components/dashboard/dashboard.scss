@@ -62,7 +62,7 @@
 .acctCard{
     border-radius: 20px;
     background-color: beige;
-    color: black;
+    color: rgb(53, 26, 8);
     margin: 20px;
     overflow: hidden;
     // align-items: center;
@@ -82,6 +82,7 @@
         flex-wrap: wrap;
         padding: 10px;
         justify-content: center;
+        
     }
     p {
         font-size: medium;
@@ -111,7 +112,7 @@
 
 .acctCardFooter{
     background-color: #FCB414;
-    color: black;  
+    color: rgb(53, 26, 8);  
     // border-radius: 0px 0px 18px 18px ;
     padding: 0.25px 10px;
     display: flex;
@@ -149,6 +150,7 @@
 .transactionsTable th{
     background-color: $rev-blue;
     padding: 5px 10px;
+    color: black;
 }
 
 .transactionsTable td{
