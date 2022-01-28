@@ -16,10 +16,6 @@ export default function Dashboard() {
             <div id="acctCards">
                 <AccountByUserID />
             </div>
-            {/* <div id="latestTransactions">
-                <h3 class="title">view latest transactions here</h3>
-                <ViewAllTransactions />
-            </div> */}
         </div>
     )
-}
+    }

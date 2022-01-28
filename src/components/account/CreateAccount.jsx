@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import "./CreateAccount.scss"
+import "./createaccount.scss"
 import Modal from "../modal/Modal";
 import AccountNavbar from "../navbar/AccountNavBar";
 
@@ -84,19 +84,22 @@ export default function CreateAccount() {
             <AccountNavbar />
             <div className="page-container">
                 <form className="create-account-form">
-                    Create a new Banking Account <br />
+                    <div className="create-account-header">
+                    <h2>Create a new Banking Account </h2>
+                    </div>
                     <input name="type" type="radio" id="checking" value="CHECKING" onClick={(e) => changeTheValue(e.target.value)} />
                     <label htmlFor="checking" defaultChecked>Checking</label>
 
                     <input className="savings-button" name="type" type="radio" id="savings" value="SAVINGS" onClick={(e) => changeTheValue(e.target.value)} />
                     <label htmlFor="savings">Savings</label>
                     <br /><br />
-                    Initial Balance<br />
+                    <p>Initial Balance</p>
                     <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} /><br /><br />
-
+                    <div className="create-account-footer">
                     <div id="AJvalidation"></div>
                     <button className="create-button" onClick={submit}>Create a new {accountType.toLowerCase()} account</button>
                     <br />
+                    </div>
                     {/* <button className="viewall-button" onClick={ViewAllAccounts}>View All Accounts</button> */}
 
 

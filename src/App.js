@@ -9,8 +9,6 @@ import Profile from './pages/Profile';
 import Logout from './pages/Logout';
 import { Landing } from './pages/Landing';
 import Login from "./pages/Login"
-// import TransactionPage from './pages/TransactionPage';
-
 
 function App() {
   let newDate = new Date()

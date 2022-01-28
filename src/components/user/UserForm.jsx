@@ -20,7 +20,6 @@ export default function UserForm(props) {
     const editForm = props.formState;
     const currentUser = props.currentUser;
 
-
     const handleFirstName = (e) => {
         setFirstName(e.target.value);
     }
@@ -29,11 +28,11 @@ export default function UserForm(props) {
         setLastname(e.target.value);
     }
 
-    const handleEmail= (e) => {
+    const handleEmail = (e) => {
         setEmail(e.target.value);
     }
 
-    const handleUsername= (e) => {
+    const handleUsername = (e) => {
         setUsername(e.target.value);
     }
 
@@ -54,7 +53,7 @@ export default function UserForm(props) {
     }
 
     // update user information
-    
+
     const updateUserInformation = () => {
         axios.put(`http://localhost:8081/users/update/1`, {
             userID: 1,
@@ -69,9 +68,9 @@ export default function UserForm(props) {
             console.log(res.data)
         }).catch(err =>
             console.log(`Error occurred while updating ${err}`)
-            )
+        )
     }
-    
+
     return (
         <div className="form-container">
             <form className="update-info-form">
@@ -109,7 +108,7 @@ export default function UserForm(props) {
             </form>
             <button className="update-form-button" onClick={() => {updateUserInformation(); setRenderModal(!renderModal)}}>Update</button>
             <button className="update-form-button" onClick={() => editForm(false)}>Cancel</button>
-            {renderModal ? <UpdateAccountModal close={setRenderModal}/> : ""}
+            {renderModal ? <UpdateAccountModal close={setRenderModal} /> : ""}
         </div>
 
     )
