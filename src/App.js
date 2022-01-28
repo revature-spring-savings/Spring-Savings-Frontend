@@ -1,7 +1,7 @@
 import './scss/App.scss';
 import Chat from './components/chat/chat.js';
 import Navbar from "./components/navbar/Navbar";
-import { Auth0Provider } from "@auth0/auth0-react";
+// import { Auth0Provider } from "@auth0/auth0-react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {Home, TransactionPage, Accounts } from "./pages/Home";
 import CreateAccount from './components/account/CreateAccount';
@@ -33,13 +33,12 @@ function App() {
   }
 
 console.log(today);
-return (
-    <Auth0Provider
-    domain="dev-wjx29g94.us.auth0.com"
-    clientId="zlyKi8BrV6Ii0AqjzGIWUap3TOgnwuu1"
-    redirectUri={window.location.origin}>
-    
-  console.log(today);
+
+    // <Auth0Provider
+    // domain="dev-wjx29g94.us.auth0.com"
+    // clientId="zlyKi8BrV6Ii0AqjzGIWUap3TOgnwuu1"
+    // redirectUri={window.location.origin}>
+ 
   return (
     
     <div className="App">
@@ -65,7 +64,7 @@ return (
       <Chat />
     </div>
 
-    </Auth0Provider>
+    // </Auth0Provider>
 
   );
 }
