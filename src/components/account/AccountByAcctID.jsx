@@ -2,6 +2,10 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import ViewAllTransactionsByAccountID from '../transaction/ViewAllTransactionsByAccountID';
+import ViewAllIncomingTransactionsByAccountID from '../transaction/ViewAllIncomingTransactionsByAccountID';
+import ViewAllOutgoingTransactionsByAccountID from '../transaction/ViewAllOutgoingTransactionsByAccountID';
+
+
 import CreateSingleTransaction from '../transaction/CreateSingleTransaction';
 import CreateTransfer from '../transaction/CreateTransfer';
 
@@ -32,11 +36,11 @@ export const AccountByAcctID = (props) => {
     }
 
     function viewIncoming(accountID){
-        ReactDOM.render(<CreateTransfer accountID={accountID}/>, document.getElementById("transactions-pagination"));
+        ReactDOM.render(<ViewAllIncomingTransactionsByAccountID accountID={props.accountID}/>, document.getElementById("transactions-pagination"));
     }
 
     function viewOutgoing(accountID){
-        ReactDOM.render(<CreateTransfer accountID={accountID}/>, document.getElementById("transactions-pagination"));
+        ReactDOM.render(<ViewAllOutgoingTransactionsByAccountID accountID={props.accountID}/>, document.getElementById("transactions-pagination"));
     }
 
     return (
@@ -53,8 +57,9 @@ export const AccountByAcctID = (props) => {
                 <button className="dark-gray-btn"  onClick={(e)=>viewAll(account.accountID)}>View All</button>
                 <button className="dark-gray-btn"  onClick={(e)=>viewIncoming(account.accountID)}>View Incoming</button>
                 <button className="dark-gray-btn"  onClick={(e)=>viewOutgoing(account.accountID)}>View Outgoing</button>
-                <div id="transactions-pagination">    
+                <div id="transactions-pagination"><center>  
                     <ViewAllTransactionsByAccountID accountID={props.accountID}/>
+                    </center>  
                 </div>
                 <button   className="close-btn" onClick={(e)=>hideDetails(account.accountID)}>Close</button>
             </div> 

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { AccountByAcctID } from "./AccountByAcctID";
 // import ReactPaginate from "react-paginate";
-// import "./accountPagination.scss";
+ import "./accountPagination.scss";
 
 export const AccountByUserID = () => {
   const [account, setAccount] = useState([]);
