@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import ViewAllTransactionsByUserID from '../transaction/ViewAllTransactionsByUserID';
+import ViewAllTransactionsByAccountID from '../transaction/ViewAllTransactionsByAccountID';
 import CreateSingleTransaction from '../transaction/CreateSingleTransaction';
 import CreateTransfer from '../transaction/CreateTransfer';
 
@@ -30,6 +30,7 @@ export const AccountByAcctID = (props) => {
     return (
         <>  
             <div>
+                <h2>Account {props.accountID}</h2>
                 <button  className="gray-btn" onClick={(e)=>withDep(account.accountID)}>Withdraw/Deposit</button>
                 <button  className="gray-btn" onClick={(e)=>transfer(account.accountID)}>Transfer</button>
                 {/* <h3>Account: {account.accountID}</h3> */}
@@ -37,10 +38,10 @@ export const AccountByAcctID = (props) => {
                 <h3>Balance: {account.accountBalance}</h3>
 
                 <p>Recent Transactions</p>
-                <button className="dark-gray-btn" >View All</button>
+                {/* <button className="dark-gray-btn" >View All</button>
                 <button className="dark-gray-btn" >View Incoming</button>
-                <button className="dark-gray-btn" >View Outgoing</button>
-                <ViewAllTransactionsByUserID userID={account.userID}/>
+                <button className="dark-gray-btn" >View Outgoing</button> */}
+                <ViewAllTransactionsByAccountID accountID={props.accountID}/>
                 <button   className="close-btn" onClick={(e)=>hideDetails(account.accountID)}>Close</button>
             </div> 
         </>

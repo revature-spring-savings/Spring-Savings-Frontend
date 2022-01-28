@@ -10,10 +10,6 @@ import Logout from './pages/Logout';
 import { Landing } from './pages/Landing';
 import Login from "./pages/Login"
 
-import ViewAllTransactionsByUserID from './components/transaction/ViewAllTransactionsByUserID';
-// import TransactionPage from './pages/TransactionPage';
-
-
 function App() {
   let newDate = new Date()
   let month = newDate.getMonth() + 1;
