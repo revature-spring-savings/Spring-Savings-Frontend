@@ -4,6 +4,7 @@ import "./userCard.scss";
 import icon from "./user-images/icon.png";
 import UserForm from "./UserForm";
 import { filterProps } from "framer-motion";
+import anonpig from "./user-images/pigsavings.png";
 
 export default function UserCard(props) {
   const currentUser = props.currUser;
@@ -13,7 +14,8 @@ export default function UserCard(props) {
   return (
     <div className="c-container">
       <div className="img-container">
-        <img src={icon} alt="person-icon" />
+        <img className ="usercard-img" src={anonpig} alt="person-icon" />
+        {editForm ? <div className="card-name">{currentUser.first_name} {currentUser.last_name}</div> : ""}
       </div>
       {editForm ? (
         <UserForm currentUser={currentUser} formState = {setEditForm} />

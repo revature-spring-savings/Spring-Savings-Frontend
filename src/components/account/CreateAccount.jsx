@@ -50,7 +50,7 @@ export default function CreateAccount() {
             setCurrType("SUCCESS"); // if account creation successful, render sucess page
             setRenderModal(true);
             axios.post(`http://localhost:8081/accounts/createAccount/${userID}`, {
-                userID: 1,
+                userID: 2,
                 accountBalance: amount,
                 accountType: accountType
             })
@@ -84,19 +84,22 @@ export default function CreateAccount() {
             <AccountNavbar />
             <div className="page-container">
                 <form className="create-account-form">
-                    Create a new Banking Account <br />
+                    <div className="create-account-header">
+                    <h2>Create a new Banking Account </h2>
+                    </div>
                     <input name="type" type="radio" id="checking" value="CHECKING" onClick={(e) => changeTheValue(e.target.value)} />
                     <label htmlFor="checking" defaultChecked>Checking</label>
 
                     <input className="savings-button" name="type" type="radio" id="savings" value="SAVINGS" onClick={(e) => changeTheValue(e.target.value)} />
                     <label htmlFor="savings">Savings</label>
                     <br /><br />
-                    Initial Balance<br />
+                    <p>Initial Balance</p>
                     <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} /><br /><br />
-
+                    <div className="create-account-footer">
                     <div id="AJvalidation"></div>
                     <button className="create-button" onClick={submit}>Create a new {accountType.toLowerCase()} account</button>
                     <br />
+                    </div>
                     {/* <button className="viewall-button" onClick={ViewAllAccounts}>View All Accounts</button> */}
 
 
@@ -104,8 +107,9 @@ export default function CreateAccount() {
                     {/* <button onClick={createNewAccount}>{accountBtn ? "Create a Savings Accounts" : "Create a Checking Account"}</button> */}
 
                 </form>
-                {renderModal ? <Modal modalState={setRenderModal} accountType={currType} setAmount={setAmount} /> : ""}
             </div>
+                {renderModal ? <Modal modalState={setRenderModal} accountType={currType} setAmount={setAmount} /> : ""}
         </>
+      
     )
 }

@@ -33,16 +33,16 @@ export default function Modal(props) {
 
     }
 
-    const pageReload  = () => {
+    // const pageReload  = () => {
         
-        window.location.reload(true);
-    }
+    //     window.location.reload(true);
+    // }
     
     return (
          <div className="m-background">
              <div className="m-container">
                  <div className="m-close-button">
-                    <button onClick={()  => close(false)} onClick={pageReload}>X</button>
+                    <button onClick={()  => close(false)}>X</button>
                  </div>
                  {modalDisplay(currType)}
              </div>

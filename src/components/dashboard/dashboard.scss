@@ -29,6 +29,14 @@
     }
 
     #acctCards{
+         display: flex;
+         flex-direction: column;
+        float: left;
+        overflow-y:auto;
+    }
+
+    #main-area{
+        float: right;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -44,12 +52,17 @@
         display: flex;
         flex-direction: row;
     }
+
+    #more-details-here{
+        background-color: #FCB414;
+        box-shadow: 0 0 9px 3px rgb(58, 58, 58);
+    }
 }
 
 .acctCard{
     border-radius: 20px;
     background-color: beige;
-    color: black;
+    color: rgb(53, 26, 8);
     margin: 20px;
     overflow: hidden;
     // align-items: center;
@@ -69,6 +82,7 @@
         flex-wrap: wrap;
         padding: 10px;
         justify-content: center;
+        
     }
     p {
         font-size: medium;
@@ -92,12 +106,13 @@
 
     h3{
         font-size: large;
+        color: beige;
     }
 }
 
 .acctCardFooter{
     background-color: #FCB414;
-    color: black;  
+    color: rgb(53, 26, 8);  
     // border-radius: 0px 0px 18px 18px ;
     padding: 0.25px 10px;
     display: flex;
@@ -111,8 +126,9 @@
     // margin-top: 30px;
     // height: 100%;
     
-    p{
-    cursor: pointer;
+    .more-details-click{
+    cursor: pointer !important;
+    padding: 10px 0px;
    
     
     }
@@ -135,6 +151,7 @@
 .transactionsTable th{
     background-color: $rev-blue;
     padding: 5px 10px;
+    color: black;
 }
 
 .transactionsTable td{

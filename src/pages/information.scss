@@ -1,0 +1,170 @@
+@use "../scss/colors" as *;
+@use "../scss/font" as *;
+@use "../scss/mixins" as *;
+
+@font-face{
+    font-family: "Future-Std-Bold";
+    src: url(../../public/assets/fonts/Futura-Std-Bold.otf);
+}
+
+.info-style {
+    background-color: beige;
+
+}
+
+.content-spring {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    background-color: beige;
+    padding: 2em;
+    box-shadow: 0 0 9px 3px rgb(58, 58, 58);
+    margin: 2em auto 0;
+
+    .content-springTitle{
+        background-color:$rev-orange;
+        opacity: 85%;
+        margin-bottom: 10px;
+        border-radius: 20px;
+        padding: 5px;
+        min-width: 400px;
+    }
+
+    .content-spring-Cards{
+         display: flex;
+         flex-direction: column;
+        float: left;
+        overflow-y:auto;
+    }
+
+    .content-spring-area{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-items: center;
+        overflow: hidden;
+
+    }
+    
+    .latestContent-spring{
+        display: flex;
+        flex-direction: column;
+        list-style-type:none;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .more-content-spring-here{
+        background-color: #FCB414;
+        box-shadow: 0 0 9px 3px rgb(58, 58, 58);
+    }
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $rev-darkgrey;
+    color: beige;
+    width: 100%;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    margin: 0 auto;
+
+    .contact-infoTitle{
+        background-color: #FCB414;
+        opacity: 85%;
+        box-shadow: 0 0 9px 3px rgb(58, 58, 58);
+        margin-bottom: 20px;
+        border-radius: 20px;
+        min-width: 400px;
+    }
+
+    .contact-infoCards{
+         display: flex;
+         flex-direction: column;
+        float: left;
+        overflow-y:auto;
+    }
+
+    .contact-info-area{
+        float: right;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        overflow: hidden;
+    }
+    
+    .latestContact-info{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .more-contact-info-here{
+        background-color: #FCB414;
+        box-shadow: 0 0 9px 3px rgb(58, 58, 58);
+    }
+}
+
+.springinfo { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $rev-darkgrey;
+    color: white;
+    width: 100%;
+    border-radius: 20px;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    margin: 0 auto;
+    font-size: small;
+    a{
+        text-decoration: none;
+        color: $rev-blue;
+    }
+    span{
+        color: $rev-orange;
+        font-size: large;
+        padding: 10px;
+    }
+
+    .springinfoTitle{
+        background-color: #FCB414;
+        opacity: 85%;
+        box-shadow: 0 0 9px 3px rgb(58, 58, 58);
+        margin-bottom: 20px;
+        border-radius: 20px;
+        min-width: 400px;
+       
+    }
+
+    .springinfoCards{
+         display: flex;
+         flex-direction: column;
+        float: left;
+        overflow-y:auto;
+    }
+
+    .springinfo-area{
+        float: right;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        overflow: hidden;
+
+    }
+    
+    .latestSpringinfo{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .more-springinfo-here{
+        background-color: #FCB414;
+        box-shadow: 0 0 9px 3px rgb(58, 58, 58);
+    }
+}

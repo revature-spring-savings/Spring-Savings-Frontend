@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import ViewAllTransactionsByUserID from '../transaction/ViewAllTransactionsByUserID';
+import ViewAllTransactionsByAccountID from '../transaction/ViewAllTransactionsByAccountID';
 import CreateSingleTransaction from '../transaction/CreateSingleTransaction';
 import CreateTransfer from '../transaction/CreateTransfer';
 
@@ -27,9 +27,22 @@ export const AccountByAcctID = (props) => {
         ReactDOM.render(<CreateTransfer accountID={accountID}/>, document.getElementById(accountID));
     }
 
+    function viewAll(accountID){
+        ReactDOM.render(<ViewAllTransactionsByAccountID accountID={props.accountID}/>, document.getElementById("transactions-pagination"));
+    }
+
+    function viewIncoming(accountID){
+        ReactDOM.render(<CreateTransfer accountID={accountID}/>, document.getElementById("transactions-pagination"));
+    }
+
+    function viewOutgoing(accountID){
+        ReactDOM.render(<CreateTransfer accountID={accountID}/>, document.getElementById("transactions-pagination"));
+    }
+
     return (
         <>  
             <div>
+                <h2>Account {props.accountID}</h2>
                 <button  className="gray-btn" onClick={(e)=>withDep(account.accountID)}>Withdraw/Deposit</button>
                 <button  className="gray-btn" onClick={(e)=>transfer(account.accountID)}>Transfer</button>
                 {/* <h3>Account: {account.accountID}</h3> */}
@@ -37,10 +50,12 @@ export const AccountByAcctID = (props) => {
                 <h3>Balance: {account.accountBalance}</h3>
 
                 <p>Recent Transactions</p>
-                <button className="dark-gray-btn" >View All</button>
-                <button className="dark-gray-btn" >View Incoming</button>
-                <button className="dark-gray-btn" >View Outgoing</button>
-                <ViewAllTransactionsByUserID userID={account.userID}/>
+                <button className="dark-gray-btn"  onClick={(e)=>viewAll(account.accountID)}>View All</button>
+                <button className="dark-gray-btn"  onClick={(e)=>viewIncoming(account.accountID)}>View Incoming</button>
+                <button className="dark-gray-btn"  onClick={(e)=>viewOutgoing(account.accountID)}>View Outgoing</button>
+                <div id="transactions-pagination">    
+                    <ViewAllTransactionsByAccountID accountID={props.accountID}/>
+                </div>
                 <button   className="close-btn" onClick={(e)=>hideDetails(account.accountID)}>Close</button>
             </div> 
         </>
