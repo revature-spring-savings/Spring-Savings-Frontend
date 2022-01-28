@@ -2,8 +2,8 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { AccountByAcctID } from "./AccountByAcctID";
-import ReactPaginate from "react-paginate";
-import "./accountPagination.scss";
+// import ReactPaginate from "react-paginate";
+// import "./accountPagination.scss";
 
 export const AccountByUserID = () => {
   const [account, setAccount] = useState([]);
@@ -36,8 +36,9 @@ export const AccountByUserID = () => {
     );
   }
 
-  const accountMap = account.slice(pageVisited, pageVisited + accountsPerPage).map(
-    ({ accountID, accountType, accountBalance }, index) => {
+  // const accountMap = account.slice(pageVisited, pageVisited + accountsPerPage).map(
+  //   ({ accountID, accountType, accountBalance }, index) => {
+      const accountMap = account.map(({ accountID, accountType, accountBalance }, index) => {
       return (
         <div key={index} className="acctCard">
           <div className="acctCardHeader">
@@ -50,7 +51,7 @@ export const AccountByUserID = () => {
           </div>
 
           <div className="acctCardFooter">
-            <h5 onClick={(e) => moreDetails(accountID)}>View More Details</h5>
+            <h5  className="more-details-click" onClick={(e) => moreDetails(accountID)}>View More Details</h5>
             <div id={accountID}></div>
           </div>
         </div>
@@ -58,11 +59,12 @@ export const AccountByUserID = () => {
     }
   );
 
+
   return (
     <>
       {accountMap}
-      <div>
-        <ReactPaginate
+      {/* <div> */}
+        {/* <ReactPaginate
             previousLabel={"Previous"}
             nextLabel={"Next"}
             pageCount={pageCount}
@@ -72,8 +74,8 @@ export const AccountByUserID = () => {
             nextLinkClassName={"nextButton"}
             disabledClassName={"paginationDisable"}
             activeClassName={"paginationActive"}
-        />
-      </div>
+        /> */}
+      {/* </div> */}
     </>
   );
 };

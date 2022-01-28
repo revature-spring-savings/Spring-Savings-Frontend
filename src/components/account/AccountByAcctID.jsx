@@ -27,6 +27,18 @@ export const AccountByAcctID = (props) => {
         ReactDOM.render(<CreateTransfer accountID={accountID}/>, document.getElementById(accountID));
     }
 
+    function viewAll(accountID){
+        ReactDOM.render(<ViewAllTransactionsByAccountID accountID={props.accountID}/>, document.getElementById("transactions-pagination"));
+    }
+
+    function viewIncoming(accountID){
+        ReactDOM.render(<CreateTransfer accountID={accountID}/>, document.getElementById("transactions-pagination"));
+    }
+
+    function viewOutgoing(accountID){
+        ReactDOM.render(<CreateTransfer accountID={accountID}/>, document.getElementById("transactions-pagination"));
+    }
+
     return (
         <>  
             <div>
@@ -38,10 +50,12 @@ export const AccountByAcctID = (props) => {
                 <h3>Balance: {account.accountBalance}</h3>
 
                 <p>Recent Transactions</p>
-                {/* <button className="dark-gray-btn" >View All</button>
-                <button className="dark-gray-btn" >View Incoming</button>
-                <button className="dark-gray-btn" >View Outgoing</button> */}
-                <ViewAllTransactionsByAccountID accountID={props.accountID}/>
+                <button className="dark-gray-btn"  onClick={(e)=>viewAll(account.accountID)}>View All</button>
+                <button className="dark-gray-btn"  onClick={(e)=>viewIncoming(account.accountID)}>View Incoming</button>
+                <button className="dark-gray-btn"  onClick={(e)=>viewOutgoing(account.accountID)}>View Outgoing</button>
+                <div id="transactions-pagination">    
+                    <ViewAllTransactionsByAccountID accountID={props.accountID}/>
+                </div>
                 <button   className="close-btn" onClick={(e)=>hideDetails(account.accountID)}>Close</button>
             </div> 
         </>
