@@ -1,12 +1,15 @@
 import LoginSignUp from "./pages/loginSignup/loginSignup";
 import './App.css';
 import Navbar from "./components/navbar/Navbar";
+import { Auth0Provider } from "@auth0/auth0-react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Information from "./pages/Information";
 import Accounts from './pages/Accounts';
 import Logout from './pages/Logout';
 import { Landing } from './pages/Landing';
+import LoginButton from "./pages/LoginButton";
+import LogoutButton from "./pages/LogoutButton";
 
 function App() {
   let newDate = new Date()
@@ -17,6 +20,11 @@ function App() {
 
   return (
 
+    <Auth0Provider
+    domain="dev-wjx29g94.us.auth0.com"
+    clientId="zlyKi8BrV6Ii0AqjzGIWUap3TOgnwuu1"
+    redirectUri={window.location.origin}>
+    
     <div className="App">
         <Router>
           <Navbar />
@@ -25,8 +33,8 @@ function App() {
             <Route path="/landing" element={<Landing />} />
             <Route path="/home" element={<Home />} />
             <Route path="/information" element={<Information />} />
-            <Route path="/" element={<LoginSignUp/>} />
-            <Route path="/logout" element={<Logout />} />
+            <Route path="/" element={<LoginButton/>} />
+            <Route path="/logout" element={<LogoutButton />} />
              {/* {<Route path="/Login"element={<Login />} />} */}
             <Route path="/accounts" element={<Accounts />} />
              {/* {<Route path="/pay-or-transfer" element={<PayOrTransfer/>} /> */}
@@ -35,6 +43,7 @@ function App() {
           </Routes>
         </Router>
     </div>
+    </Auth0Provider>
   );
 }
 

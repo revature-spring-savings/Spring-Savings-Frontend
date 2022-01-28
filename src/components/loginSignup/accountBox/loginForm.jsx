@@ -56,8 +56,8 @@ export function LoginForm(props) {
       else navigate("/");
     }
     const sessionStorageSetItem = () => {
-      sessionStorage.setItem("userID", userID);
-      sessionStorage.setItem("Name", name);
+      useContext.setItem("userID", userID);
+      useContext.setItem("Name", name);
     }
   }
   console.log("Outside Axios:" + values.username)
