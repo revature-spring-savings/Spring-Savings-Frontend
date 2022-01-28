@@ -3,8 +3,8 @@ import { useState } from "react";
 import axios from "axios";
 import "./userForm.scss"
 import UpdateAccountModal from "../modal/UpdateAccountModal";
-import notVisible from "./user-images/visible.png";
-import visible from "./user-images/not-visible.png";
+import visible from "./user-images/visible.png";
+import notVisible from "./user-images/not-visible.png";
 
 export default function UserForm(props) {
     const [firstName, setFirstName] = useState('');
@@ -92,9 +92,9 @@ export default function UserForm(props) {
                 </label>
                 <label>
                     Password:
-                    <input className="update-form-input" placeholder={currentUser.password} value={password} onChange={handlePassword} type={showPassword ? "text" : "password"} name="name" />
+                    <input className="update-form-input" placeholder={currentUser.password} value={password} onChange={handlePassword} type={showPassword ? "password" : "text"} name="name" />
                     <div className="visibility-image-container">
-                        <img onClick={()=> handleClickShowPassword()} className="visibility-image" src={showPassword ? visible: notVisible} alt="visible-icon"/>
+                        <img onClick={()=> handleClickShowPassword()} className="visibility-image" src={showPassword ? notVisible: visible} alt="visible-icon"/>
                     </div>
                 </label>
                 <label>
