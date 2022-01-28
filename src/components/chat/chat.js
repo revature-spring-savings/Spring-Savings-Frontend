@@ -86,7 +86,6 @@ function Chat() {
     let suffix = today.getHours() < 12 ? " AM" : " PM"
     let time = hour + ":" + minute + suffix;
 
-
     return time;
   }
 
@@ -100,13 +99,12 @@ function Chat() {
 
           <div className='chatBoxCont' style={{}}>
 
+            {/* This is the div that has the X button to close the chat box */}
             <Fade top opposite when={showX}>
-              <div style={{
-                position: 'absolute', top: '-10%', right: '-20px', cursor: 'pointer'
-              }}
+              <div className="chatHeader"
                 onClick={() => setTimeout(() => { setTranscript([]) }, 500)}>
                 <RiCloseCircleLine size='30'
-                  color={'salmon'}
+                  color={'gray'}
                   onClick={() => {
                     setShowX(false);
                     setTimeout(() => {
@@ -116,6 +114,7 @@ function Chat() {
                       setChatWrapHeight('50px')
                     }, 500);
                   }} />
+                  <h1>Support Chat</h1>
               </div>
             </Fade>
 
@@ -132,13 +131,10 @@ function Chat() {
                         </span> : ''
                       }
 
-                      {t.who === userName ?
-                        '' : <span style={{ marginLeft: '7px', marginTop: '5px', color: 'grey' }}>
-                          {t.time}</span>
-                      }
+                      {t.who === userName ? '' : <span className="chatTimeSpan"> {t.time} </span>}
 
                       <div style={{
-                        wordBreak: 'break-word', borderRadius: '5px',
+                        wordBreak: 'break-word', borderRadius: '10px',
                         marginLeft: t.who === userName ? '30px' : '7px',
                         marginRight: t.who === userName ? '7px' : '30px',
                         backgroundColor: t.who === userName ? 'rgba(252, 100, 47, 0.8)'
@@ -148,10 +144,7 @@ function Chat() {
                         {t.message}
                       </div>
 
-                      {t.who === userName ?
-                        <span style={{ marginRight: '7px', marginTop: '5px', color: 'grey' }}>
-                          {t.time}</span> : ''
-                      }
+                      {t.who === userName ? <span className="chatTimeSpan"> {t.time}</span> : ''}
 
                       {t.who === userName ?
                         '' :
@@ -166,7 +159,7 @@ function Chat() {
               }
             </div>
 
-            <div style={{ height: '30%', borderTop: '1px solid black' }}>
+            <div className='textInputContainer'>
               <Fade bottom opposite when={sendText} distance={'30px'}>
                 <textarea id='tArea' onChange={(e) => setChatType(e.target.value)} value={chatType}
                   onKeyPress={submitMessage} className='chatBoxText'
