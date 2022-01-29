@@ -5,7 +5,7 @@ export default function ViewOneTransaction() {
     const [d, setTransaction] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:8081/transactions/id/" + 1)
+        axios.get("http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/transactions/id/" + 1)
             .then((response) => {
                 console.log(response.data);
                 setTransaction(response.data);

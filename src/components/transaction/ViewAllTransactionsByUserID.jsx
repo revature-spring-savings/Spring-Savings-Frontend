@@ -6,7 +6,7 @@ export default function ViewAllTransactionsByUserID() {
     const [userID, setUserID] = useState(2);
 
     useEffect(() => {
-        axios.get(`http://localhost:8081/transactions/userID/${userID}`)
+        axios.get(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/transactions/userID/${userID}`)
             .then((response) => {
                 console.log(response.data);
                 setTransactions(response.data);

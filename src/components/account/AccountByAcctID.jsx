@@ -13,7 +13,7 @@ export const AccountByAcctID = (props) => {
     const [account, setAccount] = useState([]);
 
     useEffect(()=>{
-        axios.get(`http://localhost:8081/accounts/${props.accountID}`).then(res =>{
+        axios.get(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/accounts/${props.accountID}`).then(res =>{
             console.log(res);
             setAccount(res.data);
         });

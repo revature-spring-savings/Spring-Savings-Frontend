@@ -19,7 +19,7 @@ export default function ViewAllTransactionsByAccountID(props) {
     const pageCount = Math.ceil(transactions.length / transactionsPerPage);
 
     useEffect(() => {
-        axios.get(`http://localhost:8081/transactions/accountID/${accountID}`)
+        axios.get(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/transactions/accountID/${accountID}`)
             .then((response) => {
                 console.log(response.data);
                 setTransactions(response.data);

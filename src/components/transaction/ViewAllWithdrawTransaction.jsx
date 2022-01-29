@@ -9,7 +9,7 @@ export const ViewAllWithdrawTransaction = () => {
 
     //Withdraw for Transaction based on accountID
     useEffect(() => {
-        axios.post(`http://localhost:8081/transactions/withdraw`, {
+        axios.post(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/transactions/withdraw`, {
             accountID: accountNum
         })
         .then(res => {
