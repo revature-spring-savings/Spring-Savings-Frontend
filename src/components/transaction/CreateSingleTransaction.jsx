@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import {AccountByAcctID} from '../account/AccountByAcctID';
 import CreateTransfer from '../transaction/CreateTransfer';
+import TransactionModal from "../modal/TransactionModal";
 
 import ReactDOM from 'react-dom';
 
@@ -13,6 +14,7 @@ export default function CreateNewTransaction(props) {
     const [accountID, setAccountID] = useState(props.accountID);
     const [amount, setAmount] = useState(0);
     const [transactionBtn, setTransactionBtn] = useState(false);
+    const [renderModal, setRenderModal] = useState(false);
 
     let newDate = new Date();
     let month = newDate.getMonth() + 1;
@@ -73,6 +75,7 @@ export default function CreateNewTransaction(props) {
                 <button  className="complete-btn" onClick={createNewTransaction}>{transactionBtn ? "WITHDRAW" : "DEPOSIT"}</button>
 
             {/* </form> */}
+            <TransactionModal transactionType={transactionType} />
         </>
     )
 }
