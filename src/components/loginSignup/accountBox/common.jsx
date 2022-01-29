@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+/*
+  These are JSX elements created to render different html elements
+inside this jsx file. They are styled-components rendered components.
+They are being imported into loginForm.jsx and signupForm.jsx.
+You can utilized regular CSS or even SASS syntax within the backticks.
+*/
+
+
 export const BoxContainer = styled.div`
   width: 100%;
   display: flex;
@@ -14,55 +22,51 @@ export const FormContainer = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  //box-shadow: 0px 0px 2.5px rgba(15, 15, 15, 0.19);
-  }
 `;
 
 export const MutedLink = styled.a`
-  font-size: 11px;
-  color: rgba(200, 200, 200, 0.8);
+  font-size: 13px;
+  color: rgb(119, 119, 119);
   font-weight: 500;
   text-decoration: none;
 `;
 
 export const BoldLink = styled.a`
-  font-size: 11px;
-  color: #ee7a0d;
+  font-size: 13px;
+  color: #a76c00;
   font-weight: 500;
   text-decoration: none;
   margin: 0 4px;
+  /* border: orange 1px solid; */
+  padding: 4px 8px;
+  /* border-radius: 10px;
+  background: #F26925;
+    background: linear-gradient(90deg,
+        #F26925 0%, 
+         #e6b927 49%, 
+         #FCB414 100%);
+  transition: all .5s ease-in-out; */
 `;
 
 export const Input = styled.input`
   width: 100%;
   height: 30px;
   outline: none;
-  //border: 1px solid rgba(200, 200, 200, 0.3);
   border: none;
   padding: 1px 9px;
-  /* margin: 5px 0; */
-  /* border-radius: 5px; */
-  /* background-color: rgba(130, 130, 130, 0.104); */
-  // background-color: transparent;
   border-bottom: 1px solid rgba(238, 238, 238, 0.104);
   transition: all 200ms ease-in-out;
   font-size: 12px;
+  background-color: beige;
+
   &::placeholder {
-    color: rgba(200, 200, 200, 1);
+    color: #8f8f8f;
   }
-  /* &:not(:last-of-type) {
-    border-bottom: 1.5px solid rgba(200, 200, 200, 0.4);
-  } */
+
   &:focus {
     outline: none;
     border-bottom: 2px solid rgb(230, 155, 69);
   }
-  /* background: linear-gradient(to right, rgb(240, 240, 240) 50%, rgb(124, 124, 124) 50%) left;
-  background-size: 200%;
-  &:hover, &:active {
-      background-position: right;
-      color: white;
-  } */
 `;
 
 export const SubmitButton = styled.button`
@@ -74,11 +78,11 @@ export const SubmitButton = styled.button`
   border-radius: 100px;
   cursor: pointer;
   transition: all, 240ms ease-in-out;
-  background: rgb(236, 121, 14);
+  background: #F26925;
     background: linear-gradient(90deg,
-         #e49217 0%, 
+        #F26925 0%, 
          #e6b927 49%, 
-         #eeca2a 100%);
+         #FCB414 100%);
   );
   &:hover {
     filter: brightness(1.03);
