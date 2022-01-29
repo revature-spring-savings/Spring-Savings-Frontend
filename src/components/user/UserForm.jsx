@@ -55,7 +55,7 @@ export default function UserForm(props) {
     // update user information
 
     const updateUserInformation = () => {
-        axios.put(`http://localhost:8081/users/update/1`, {
+        axios.put(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/users/update/1`, {
             userID: 1,
             firstName: firstName,
             lastName: lastName,

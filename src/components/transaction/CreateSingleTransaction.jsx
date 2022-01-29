@@ -26,7 +26,7 @@ export default function CreateNewTransaction(props) {
 
     function createNewTransaction() {
         console.log(props.amount);
-        axios.post("http://localhost:8081/transactions", [{
+        axios.post("http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/transactions", [{
             accountID: accountID,
             userID: 1,
             amount: amount,

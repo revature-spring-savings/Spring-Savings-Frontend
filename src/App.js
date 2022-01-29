@@ -13,6 +13,11 @@ import LoginButton from "./pages/LoginButton";
 import LogoutButton from "./pages/LogoutButton";
 import Login from "./pages/Login"
 
+// PLEASE READ
+// base url for backend is
+// http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/
+// be sure to change it on any page that is still using localhost
+
 function App() {
   let newDate = new Date()
   let month = newDate.getMonth() + 1;
