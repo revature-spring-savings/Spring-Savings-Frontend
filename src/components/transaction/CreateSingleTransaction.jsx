@@ -72,10 +72,10 @@ export default function CreateNewTransaction(props) {
                 Note<br />
                 <input type="text" value={transactionNote} onChange={(e) => setTransactionNote(e.target.value)} placeholder="Note" /><br /><br />
 
-                <button  className="complete-btn" onClick={createNewTransaction}>{transactionBtn ? "WITHDRAW" : "DEPOSIT"}</button>
+                <button  className="complete-btn" onClick={() => {createNewTransaction(); setRenderModal(true)}}>{transactionBtn ? "WITHDRAW" : "DEPOSIT"}</button>
 
             {/* </form> */}
-            <TransactionModal transactionType={transactionType} />
+            {renderModal ? <TransactionModal setRenderModal={setRenderModal} transactionType={transactionType} /> : ""  }
         </>
     )
 }

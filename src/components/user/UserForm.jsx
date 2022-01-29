@@ -106,8 +106,8 @@ export default function UserForm(props) {
                     <input className="update-form-input" placeholder={currentUser.dob} value={dob} onChange={handleDob} type="date" name="name" />
                 </label>
             </form>
-            <button className="update-form-button" onClick={() => {updateUserInformation(); setRenderModal(!renderModal)}}>Update</button>
-            <button className="update-form-button" onClick={() => editForm(false)}>Cancel</button>
+            <button id="submit-update-form" className="update-form-button" onClick={() => {updateUserInformation(); setRenderModal(!renderModal)}}>Update</button>
+            <button id="cancel-update-form" className="update-form-button" onClick={() => editForm(false)}>Cancel</button>
             {renderModal ? <UpdateAccountModal close={setRenderModal} /> : ""}
         </div>
 

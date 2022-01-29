@@ -1,38 +1,31 @@
 import React from "react";
-import "./Modal.scss";
+import "./transactionModal.scss";
 
 export default function TransactionModal(props) {
     const currType = props.transactionType; // CHECKINGS & SAVINGS 
-    const close = props.modalState;
-    console.log(props);
+    const close = props.setRenderModal
+    console.log(currType);
 
-    // const modalDisplay = (currType) => {
-    //     switch (currType) {
-    //         case 'WITHDRAW':
-    //             return (
-    //                 <div className="body">
-    //                      <p>Checking requires $100 minimum to open</p>
-    //                 </div> 
-    //             )
-    //         case 'DEPOSIT':
-    //             return (
-    //                 <div className="body">
-    //                     <p>Saving requires $50 minimum to open</p>
-    //                </div>
-    //             )
-    //         case 'SUCCESS':
-    //             return (
-    //                 <div className="body">
-    //                     <p>Account created!</p>
-    //                </div>
-                   
-    //             )    
-    //             default:
-    //                 return null;
-    //         }
+    const modalDisplay = (currType) => {
+        switch (currType || currType.toUpperCase()) {
+            case 'WITHDRAW':
+                return (
+                    <div className="body">
+                         <p>Withdrawal Successful</p>
+                    </div> 
+                )
+            case 'DEPOSIT':
+                return (
+                    <div className="body">
+                        <p>Deposit Successful</p>
+                   </div>
+                )
+                default:
+                    return null;
+            }
             
 
-    // }
+    }
 
     // const pageReload  = () => {
         
@@ -40,12 +33,12 @@ export default function TransactionModal(props) {
     // }
     
     return (
-         <div className="m-background">
-             <div className="m-container">
-                 <div className="m-close-button">
+         <div className="t-background">
+             <div className="t-container">
+                 <div className="t-close-button">
                     <button onClick={()  => close(false)}>X</button>
                  </div>
-                 {/* {modalDisplay(currType)} */}
+                 {modalDisplay(currType)}
              </div>
 
          </div>
