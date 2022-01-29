@@ -115,7 +115,9 @@ function Chat() {
                     }, 500);
                   }} />
                   <h1>Support Chat</h1>
+                  
               </div>
+              <p id="support-tagline">Wallet got you in checkmate?<br/>We can help.</p>
             </Fade>
 
             <div className='transcriptArea' id='trDiv' style={{}}>
