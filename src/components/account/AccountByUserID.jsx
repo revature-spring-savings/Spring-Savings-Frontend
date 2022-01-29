@@ -6,8 +6,11 @@ import {AccountByAcctID} from './AccountByAcctID';
 export const AccountByUserID = () => {
     const [account, setAccount] = useState([]);
 
+    //Daniel, you need to change the userID on this page using setUserID
+    const [userID, setUserID] = useState(2);
+
+    
     useEffect(() => {
-        var userID = 2;
         axios.get(`http://localhost:8081/accounts/${userID}/all-accounts`).then(res => {
             console.log(res);
             setAccount(res.data);
