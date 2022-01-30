@@ -11,13 +11,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
     margin: 0 auto;
-    //please add a margin to the top 
-
-   // justify-content: center;
-  //  margin: 55px 0 0 0;
-
+    width: 100%;
 
     #dashTitle{
         background-color: $rev-orange;
@@ -34,28 +29,10 @@
         float: left;
         overflow-y:auto;
     }
-
-    #main-area{
-        float: right;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-
-        overflow: hidden;
-
-       // justify-content: center;
-
-    }
     
     #latestTransactions{
         display: flex;
         flex-direction: row;
-    }
-
-    #more-details-here{
-        background-color: #FCB414;
-        box-shadow: 0 0 9px 3px rgb(58, 58, 58);
     }
 }
 
@@ -71,40 +48,51 @@
     // border: $rev-orange 3px solid;
     // box-shadow: 0 0 6px 3px rgb(65, 64, 64);
     width: fit-content;
+   // max-width: 100vh;
+   // overflow: scroll;
     min-width: 350px;
     box-shadow: 0 0 9px 3px rgb(58, 58, 58);
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: no-wrap;
+
+    @media (max-width: 768px) {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column ;
+        max-width: 100vh !important;
+    }
+
     #accountDeets{
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         padding: 10px;
         justify-content: center;
-        width: 150px;
-        
+        min-width: 150px;
     }
+
     p {
         font-size: medium;
         margin: 5px;
+    }
+
+    h4{
+        margin: 2px;
+        margin-top: 15px;
+
     }
 }
 
 .acctCardHeader{
     background-color: #F26925;
     color: white;
-    // border-radius: 20px 20px 0px 0px;
     padding: 0px 20px; 
     justify-content: center;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 150px;
-    // height: 100%;
-
-    
-    // margin-bottom: 30px;s
+    min-width: 150px;
 
     h3{
         font-size: large;
@@ -115,7 +103,6 @@
 .acctCardFooter{
     background-color: #FCB414;
     color: rgb(53, 26, 8);  
-    // border-radius: 0px 0px 18px 18px ;
     padding: 0.25px 10px;
     display: flex;
     flex-direction: column;
@@ -124,16 +111,36 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    
-    // margin-top: 30px;
-    // height: 100%;
+    min-width: 150px;
     
     .more-details-click{
-    cursor: pointer !important;
-    padding: 10px 0px;
-    width: 130px;
-   
-    
+        cursor: pointer !important;
+        padding: 10px 0px;
+        width: 130px;
+        background-color: $rev-orange;
+        color: white;
+        border: 2px solid $rev-orange;
+        border-radius: 20px;
+        margin: 5px 0px;
+    }
+
+    .more-details-click:hover{
+        background-color: transparent;
+        color:$rev-orange;
+        transition: all 0.3s ease-out;
+    }
+
+    .footer-header{
+        background-color: $rev-orange;
+        width:fit-content;
+        padding: 10px 20px;
+        margin: 20px 0px 5px 0px;
+        border-radius: 15px;
+
+        h3, h2{
+            padding: 0px;
+            margin: 4px;
+        }
     }
 }
 
@@ -149,22 +156,44 @@
     background-color: beige;
     border: $rev-orange 5px solid;
     margin: 10px;
-}
+    text-align: center;
 
-.transactionsTable th{
-    background-color: $rev-blue;
-    padding: 5px 10px;
-    color: black;
-}
+    th{
+        background-color: $rev-blue;
+        padding: 5px 10px;
+        color: black;
+    }
 
-.transactionsTable td{
-    border: none;
-    padding: 0px 4px;
-    margin: 0px !important;
-}
+    td{
+        border: none;
+        padding: 0px 4px;
+        margin: 0px !important;
+    }
 
-.transactionsTable tr{
-    border: 1px solid black;
+    #tid{
+        min-width: 90px;
+    }
+
+    #amt{
+        min-width: 65px;
+    }
+
+    #tdate{
+        min-width: 74px;
+    }
+
+    #ttype{
+        min-width: 75px;
+    }
+
+    #tnote{
+        min-width: 205px;
+    }
+
+    @media (max-width: 768px) {
+        max-width: 80%;
+        overflow: scroll;
+    }
 }
 
 .complete-btn{
@@ -182,16 +211,31 @@
     padding: 4px 8px;
     border-radius: 15px;
     margin: 5px;
+
+    margin-bottom: 20px;
     color: black;
 }
 
-.dark-gray-btn {
+.gray-btn:hover {
+    background-color: $rev-darkgrey;
+    transition: all 0.3s ease-out;
+    color: white;
+}
+
+.trans-btn {
     background-color: $rev-yellow;
     border: 1px solid $rev-orange;
     padding: 4px 8px;
     border-radius: 15px;
     margin: 5px;
     color: #cb561c;
+}
+
+.trans-btn:hover {
+    background-color: $rev-orange;
+    border: 1px solid $rev-orange;
+    color: white;
+    transition: all 0.3s ease-out;
 }
 
 .close-btn {
@@ -201,4 +245,11 @@
     border-radius: 12px;
     margin: 5px;
     color: black;
+}
+
+.close-btn:hover {
+    background-color: $rev-lightgrey;
+   // color: white;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
 }

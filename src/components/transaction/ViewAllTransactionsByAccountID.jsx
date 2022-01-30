@@ -31,11 +31,11 @@ export default function ViewAllTransactionsByAccountID(props) {
             <table class="transactionsTable">
                 <thead>
                     <tr>
-                        <th>Transaction #</th>
-                        <th>Amount</th>
-                        <th>Date</th>
-                        <th>Type</th>
-                        <th>Note</th>
+                        <th id="tid">Transaction</th>
+                        <th id="amt">Amount</th>
+                        <th id="tdate">Date</th>
+                        <th id="ttype">Type</th>
+                        <th id="tnote">Note</th>
                     </tr>
                 </thead>
                 {transactions.slice(pageVisited, pageVisited + transactionsPerPage).map(d => {
@@ -51,6 +51,7 @@ export default function ViewAllTransactionsByAccountID(props) {
                 })}
             </table>
             <div>
+                <center>
             <ReactPaginate
             previousLabel={"Previous"}
             nextLabel={"Next"}
@@ -61,7 +62,7 @@ export default function ViewAllTransactionsByAccountID(props) {
             nextLinkClassName={"nextButton"}
             disabledClassName={"paginationDisable"}
             activeClassName={"paginationActive"}
-        />
+        /></center>
             </div>
         </>
     )

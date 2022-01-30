@@ -19,8 +19,15 @@ export const AccountByAcctID = (props) => {
         });
     },[]);
 
+    function moreDetails(accountID) {
+        ReactDOM.render(
+          <AccountByAcctID accountID={accountID} />,
+          document.getElementById(accountID)
+        );
+      }
+
     function hideDetails(accountID){
-        ReactDOM.render('', document.getElementById(accountID));
+        ReactDOM.render(<button  className="more-details-click" onClick={(e) => moreDetails(accountID)}>View More Details</button>, document.getElementById(accountID));
     }
 
     function withDep(accountID){
@@ -46,16 +53,20 @@ export const AccountByAcctID = (props) => {
     return (
         <>  
             <div>
-                <h2>Account {props.accountID}</h2>
+                <div className="footer-header">
+                    <h2>Account {props.accountID}</h2>
+                    <h3>Balance: ${account.accountBalance}</h3>
+                </div>
+
                 <button  className="gray-btn" onClick={(e)=>withDep(account.accountID)}>Withdraw/Deposit</button>
-                <button  className="gray-btn" onClick={(e)=>transfer(account.accountID)}>Transfer</button>
+                <button  className="gray-btn" onClick={(e)=>transfer(account.accountID)}>Transfer</button><br/>
 
-                <h3>Balance: {account.accountBalance}</h3>
+                
 
-                <p>Recent Transactions</p>
-                <button className="dark-gray-btn"  onClick={(e)=>viewAll(account.accountID)}>View All</button>
-                <button className="dark-gray-btn"  onClick={(e)=>viewIncoming(account.accountID)}>View Incoming</button>
-                <button className="dark-gray-btn"  onClick={(e)=>viewOutgoing(account.accountID)}>View Outgoing</button>
+                <h4>Recent Transactions</h4>
+                <button className="trans-btn"  onClick={(e)=>viewAll(account.accountID)}>View All</button>
+                <button className="trans-btn"  onClick={(e)=>viewIncoming(account.accountID)}>View Incoming</button>
+                <button className="trans-btn"  onClick={(e)=>viewOutgoing(account.accountID)}>View Outgoing</button>
                 <div id="transactions-pagination">
                     <center>  
                         <ViewAllTransactionsByAccountID accountID={props.accountID}/>
