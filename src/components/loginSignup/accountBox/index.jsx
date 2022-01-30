@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { LoginForm } from "./loginForm";
 import { motion } from "framer-motion";
+import { LoginForm } from "./loginForm";
 import { AccountContext } from "./accountContext";
 import { SignupForm } from "./signupForm";
 

@@ -8,9 +8,12 @@ import ViewAllOutgoingTransactionsByAccountID from '../transaction/ViewAllOutgoi
 
 import CreateSingleTransaction from '../transaction/CreateSingleTransaction';
 import CreateTransfer from '../transaction/CreateTransfer';
+import { User } from '@auth0/auth0-react';
 
 export const AccountByAcctID = (props) => {
     const [account, setAccount] = useState([]);
+
+
 
     useEffect(()=>{
         axios.get(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/accounts/${props.accountID}`).then(res =>{

@@ -56,7 +56,7 @@ return (
             <Route path="/accounts" element={<Accounts />} />
             <Route path="/transactions" element={<TransactionPage />} />
             <Route path="/information" element={<Information />} />
-            <Route path="/" element={<LoginButton/>} />
+            <Route path="/login" element={<Login/>} />
             <Route path="/logout" element={<LogoutButton />} />
             {/* <Route path="/logout" element={<Logout />} /> */}
           {/* <Route path="/login" element={<Login />} /> */}
