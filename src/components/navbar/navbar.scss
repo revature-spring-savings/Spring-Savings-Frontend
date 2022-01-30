@@ -26,9 +26,10 @@
 
         a {
             text-decoration: none;
+            @include animate-underline-left;
         }
     }
-}
+} 
 
 .nav-bar {
     width: 100%;
