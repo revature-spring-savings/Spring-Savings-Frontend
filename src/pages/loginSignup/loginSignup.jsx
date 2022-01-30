@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { AccountBox } from '../../components/loginSignup/accountBox';
+//this is from index.js
 
 const LoginSignContainer = styled.div`
     width: 100%;
