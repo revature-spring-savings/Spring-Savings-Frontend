@@ -9,7 +9,7 @@ import Information from "./pages/Information";
 import Profile from './pages/Profile';
 import Logout from './pages/Logout';
 import { Landing } from './pages/Landing';
-import LoginButton from "./pages/LoginButton";
+
 
 import Login from "./pages/Login"
 
@@ -34,17 +34,14 @@ function App() {
 
 console.log(today);
 return (
-     <Auth0Provider
-     domain="dev-wjx29g94.us.auth0.com"
-     clientId="zlyKi8BrV6Ii0AqjzGIWUap3TOgnwuu1"
-     redirectUri={window.location.origin}>
- 
-
-    
-    <div className="App">
+  
+  <div className="App">
       <Router>
+      <Auth0Provider
+      domain="dev-wjx29g94.us.auth0.com"
+      clientId="zlyKi8BrV6Ii0AqjzGIWUap3TOgnwuu1"
+      redirectUri={window.location.origin}>
         <Navbar />
-
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/home" element={<Home />} />
@@ -55,16 +52,13 @@ return (
           <Route path="/profile" element={<Profile currentUser = {currentUser} />} />
           <Route path="/transactions" element={<TransactionPage />} />
           <Route path="/create" element={<CreateAccount />} />
-            {/* <Route path="/" element={<LoginButton/>} /> */}
-            {/* <Route path="/logout" element={<LogoutButton />} /> */}
           {/* <Route path="/login" element={<Login />} /> */}
         </Routes>
+     </Auth0Provider>
       </Router>
-
       <Chat />
     </div>
 
-     </Auth0Provider>
 
   )
 }
