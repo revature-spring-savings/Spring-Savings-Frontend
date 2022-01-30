@@ -10,7 +10,7 @@ import Profile from './pages/Profile';
 import Logout from './pages/Logout';
 import { Landing } from './pages/Landing';
 import LoginButton from "./pages/LoginButton";
-import LogoutButton from "./pages/LogoutButton";
+
 import Login from "./pages/Login"
 
 function App() {
@@ -51,13 +51,13 @@ return (
             <Route path="/accounts" element={<Accounts />} />
             <Route path="/transactions" element={<TransactionPage />} />
             <Route path="/information" element={<Information />} />
-            <Route path="/" element={<LoginButton/>} />
-            <Route path="/logout" element={<LogoutButton />} />
-            {/* <Route path="/logout" element={<Logout />} /> */}
-          {/* <Route path="/login" element={<Login />} /> */}
+            { <Route path="/logout" element={<Logout />} /> }
           <Route path="/profile" element={<Profile currentUser = {currentUser} />} />
           <Route path="/transactions" element={<TransactionPage />} />
           <Route path="/create" element={<CreateAccount />} />
+            {/* <Route path="/" element={<LoginButton/>} /> */}
+            {/* <Route path="/logout" element={<LogoutButton />} /> */}
+          {/* <Route path="/login" element={<Login />} /> */}
         </Routes>
       </Router>
 
