@@ -18,6 +18,11 @@ const Ul = styled.ul`
 const RightNav = ({ open }) => {
     const location = useLocation();
 
+    const handleRemoveSession = () => {
+        sessionStorage.removeItem("userID");
+        sessionStorage.removeItem("Name");
+    }
+
     return (
         <Ul open={open}>
             <li className="label">
@@ -54,7 +59,8 @@ const RightNav = ({ open }) => {
                 <img src={Logout} className="navbar-icon" alt="logout" />
                 <Link
                     to="/logout"
-                    className={location.pathname === "/logout" ? "active" : "non-active"}>
+                    className={location.pathname === "/logout" ? "active" : "non-active"}
+                    onClick={handleRemoveSession}>
                     Logout
                 </Link>
             </li>

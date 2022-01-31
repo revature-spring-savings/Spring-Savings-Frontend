@@ -32,7 +32,7 @@ import IdleTime from "../../IdleTime";
     it DOES show up in sessionStorage on the other page
 */
 
-export function LoginForm(props) {
+export function LoginForm() {
   const { switchToSignup } = useContext(AccountContext);
   const [values, setValues] = useState({
     firstName: '',
@@ -44,7 +44,6 @@ export function LoginForm(props) {
     dob: ''
   });
   const [name, setName] = useState("");
-  const [userID, setUserID] = useState(0);
 
   let navigate = useNavigate();
 
@@ -63,25 +62,19 @@ export function LoginForm(props) {
       pass: values.password
     }).then(res => {
       //this prints correct userID
+      console.log(res.data)
       console.log("userID from response body is " + res.data.userID);
-      //userID is not setting correctly
-      setUserID(parseInt(res.data.userID));
-      console.log("userID from session storage is " + userID); //this prints out as 0
-      sessionStorageSetItem();
+
+      // Setting the session storage
+      sessionStorage.setItem("userID", res.data.userID);
+      sessionStorage.setItem("Name", name);
+
       redirectToHome(res.status);
     }).catch(err => console.log(err));
 
     function redirectToHome(status) {
       if (status === 200) navigate("/home");
       else navigate("/");
-    }
-    const sessionStorageSetItem = () => {
-      //this saves as 0 b/c userID is not setting properly
-      //sessionStorage.setItem("userID", userID);
-
-      // the dummy way
-      sessionStorage.setItem("userID", 2);
-      sessionStorage.setItem("Name", name);
     }
   }
 
