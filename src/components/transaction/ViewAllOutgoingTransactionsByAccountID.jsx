@@ -1,16 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
-import "../account/pagination.scss";
 
-export default function ViewAllTransactionsByAccountID(props) {
+export default function ViewAllOutgoingTransactionsByAccountID(props) {
     const [transactions, setTransactions] = useState([]);
     const [userID, setUserID] = useState(2);
     const [accountID, setAccountID] = useState(props.accountID);
     const [pageNumber, setPageNumber] = useState(0);
-    
 
-    // change this to view more transactions per page
+    // Jeremy: conditionally render ONLY withdraws on this page pls
     const transactionsPerPage = 5;
     const pageVisited = pageNumber * transactionsPerPage;
 
@@ -33,10 +31,9 @@ export default function ViewAllTransactionsByAccountID(props) {
             <table class="transactionsTable">
                 <thead>
                     <tr>
-                        <th id="tid">Transaction</th>
+                    <th id="tid">Transaction</th>
                         <th id="amt">Amount</th>
                         <th id="tdate">Date</th>
-                        <th id="ttype">Type</th>
                         <th id="tnote">Note</th>
                     </tr>
                 </thead>
@@ -46,14 +43,12 @@ export default function ViewAllTransactionsByAccountID(props) {
                             <td>{d.transactionID}</td>
                             <td>${d.amount}</td>
                             <td>{d.transactionDate}</td>
-                            <td>{d.transactionType}</td>
                             <td>{d.transactionNote}</td>
                         </tr>
                     )
                 })}
             </table>
-            <div>
-                <center>
+            <div><center>
             <ReactPaginate
             previousLabel={"Previous"}
             nextLabel={"Next"}
@@ -64,7 +59,8 @@ export default function ViewAllTransactionsByAccountID(props) {
             nextLinkClassName={"nextButton"}
             disabledClassName={"paginationDisable"}
             activeClassName={"paginationActive"}
-        /></center>
+        />
+        </center>
             </div>
         </>
     )

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import "./createaccount.scss"
+import "./CreateAccount.scss"
 import Modal from "../modal/Modal";
 import AccountNavbar from "../navbar/AccountNavBar";
 
@@ -85,7 +85,8 @@ export default function CreateAccount() {
             <div className="page-container">
                 <form className="create-account-form">
                     <div className="create-account-header">
-                    <h2>Create a new Banking Account </h2>
+                    <h2>Create a New Banking Account </h2>
+                    <h4>(because a bank is better than a cookie jar)</h4>
                     </div>
                     <input name="type" type="radio" id="checking" value="CHECKING" onClick={(e) => changeTheValue(e.target.value)} />
                     <label htmlFor="checking" defaultChecked>Checking</label>
@@ -110,5 +111,6 @@ export default function CreateAccount() {
             </div>
                 {renderModal ? <Modal modalState={setRenderModal} accountType={currType} setAmount={setAmount} /> : ""}
         </>
+      
     )
 }

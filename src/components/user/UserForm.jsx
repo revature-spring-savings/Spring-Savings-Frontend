@@ -7,18 +7,22 @@ import visible from "./user-images/visible.png";
 import notVisible from "./user-images/not-visible.png";
 
 export default function UserForm(props) {
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastname] = useState('');
-    const [email, setEmail] = useState('');
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [phoneNum, setPhoneNum] = useState('');
-    const [dob, setDob] = useState('');
+    const currentUser = props.currentUser;
+    console.log(currentUser)
+    console.log(props)
+    const [firstName, setFirstName] = useState(currentUser.firstName);
+    const [lastName, setLastname] = useState(currentUser.lastName);
+    const [email, setEmail] = useState(currentUser.email);
+    const [username, setUsername] = useState(currentUser.username);
+    const [password, setPassword] = useState(currentUser.pass);
+    const [phoneNum, setPhoneNum] = useState(currentUser.phoneNumber);
+    const [dob, setDob] = useState(currentUser.dob);
     const [showPassword, setShowPassword] = useState("false");
     const [renderModal, setRenderModal] = useState(false);
 
+    console.log(props.currentUser);
+
     const editForm = props.formState;
-    const currentUser = props.currentUser;
 
     const handleFirstName = (e) => {
         setFirstName(e.target.value);
@@ -55,8 +59,18 @@ export default function UserForm(props) {
     // update user information
 
     const updateUserInformation = () => {
-        axios.put(`http://localhost:8081/users/update/1`, {
-            userID: 1,
+        props.setCurrentUser({
+            userID: currentUser.userID,
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            username: username,
+            pass: password,
+            phoneNumber: phoneNum,
+            dob: dob
+        });
+        axios.put(`http://localhost:8081/users/update/${currentUser.userID}`, {
+            userID: currentUser.userID,
             firstName: firstName,
             lastName: lastName,
             email: email,

@@ -14,7 +14,8 @@
     border-top: 1px $rev-lightgrey solid;
 
     @media (max-width: 768px) {
-        margin: 0;
+        // margin: 0;
+        
     }
 
     .left-bottomNavbar {
@@ -25,9 +26,10 @@
 
         a {
             text-decoration: none;
+            @include animate-underline-left;
         }
     }
-}
+} 
 
 .nav-bar {
     width: 100%;
@@ -52,6 +54,9 @@
         img {
             width: 80px;
             height: auto;
+            position: absolute;
+            justify-items: left;
+
         }
         .logo {
             font-size: 1.5em;
@@ -59,6 +64,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            color: rgb(53, 26, 8);
             @media (max-width: 768px) {
                 display: none;
             }
@@ -134,7 +140,7 @@
             right: -10%;
             height: 100vh;
             width: 150px;
-            padding: 3.5rem 0rem 0rem 2rem;
+            padding: 3.5rem 2rem 0rem 2rem;
             // transform is used in the RightNav.jsx file
         }
     }
@@ -147,5 +153,5 @@
 }
 .non-active {
     text-decoration: none;
-    color: $rev-lightgrey;
+    color: #8d8d8d;
 }

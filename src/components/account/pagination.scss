@@ -1,25 +1,32 @@
+@use "../../scss/colors" as *;
+
 .paginationButtons {
     width: 50%;
-    padding-top: 10px;
+   // padding-top: 10px;
     padding-left: 5px;
-    height: 40px;
+    height: 20px;
     list-style: none;
     display: flex;
     justify-content: center;
     color:rgb(252, 249, 251);
-
 }
 
 .paginationButtons a {
-    padding: 8px;
+    padding: 5px;
     margin: 5px;
     border-radius: 5px;
-    border: 1px solid rgb(4, 153, 198);
+    border: 1px solid $rev-blue;
     color:rgb(22, 22, 22);
     cursor: pointer;
+    font-size: 12px;
 }
 
 .paginationButtons a:hover {
     color: rgb(0, 0, 0);
-    background-color: rgb(35, 169, 231);
+    background-color: $rev-blue;
+}
+
+#transactions-pagination{
+    text-align: center;
+    align-content: center;
 }
