@@ -18,16 +18,21 @@ const Ul = styled.ul`
 const RightNav = ({ open }) => {
     const location = useLocation();
 
+    const handleRemoveSession = () => {
+        sessionStorage.removeItem("userID");
+        sessionStorage.removeItem("Name");
+    }
+
     return (
         <Ul open={open}>
             <li className="label">
-                <img src={Dashboard} className="navbar-icon" alt="" />
+                <img src={Dashboard} className="navbar-icon" alt="dashboard" />
                 <Link to="/home" className={location.pathname === "/home" ? "active" : "non-active"}>
                     Dashboard
                 </Link>
             </li>
             <li className="label">
-                <img src={Info} className="navbar-icon" alt="" />
+                <img src={Info} className="navbar-icon" alt="information" />
                 <Link
                     to="/information"
                     className={location.pathname === "/information" ? "active" : "non-active"}>
@@ -35,7 +40,7 @@ const RightNav = ({ open }) => {
                 </Link>
             </li>
             <li className="label">
-                <img src={Profile} className="navbar-icon" alt="" />
+                <img src={Profile} className="navbar-icon" alt="profile" />
                 <Link
                     to="/profile"
                     className={location.pathname === "/profile" ? "active" : "non-active"}>
@@ -43,7 +48,7 @@ const RightNav = ({ open }) => {
                 </Link>
             </li>
             <li className="label">
-                <img src={Login} className="navbar-icon" alt="" />
+                <img src={Login} className="navbar-icon" alt="login" />
                 <Link
                     to="/login"
                     className={location.pathname === "/login" ? "active" : "non-active"}>
@@ -51,10 +56,11 @@ const RightNav = ({ open }) => {
                 </Link>
             </li>
             <li className="label">
-                <img src={Logout} className="navbar-icon" alt="" />
+                <img src={Logout} className="navbar-icon" alt="logout" />
                 <Link
                     to="/logout"
-                    className={location.pathname === "/logout" ? "active" : "non-active"}>
+                    className={location.pathname === "/logout" ? "active" : "non-active"}
+                    onClick={handleRemoveSession}>
                     Logout
                 </Link>
             </li>

@@ -1,5 +1,5 @@
 import React from 'react';
-import './button.css';
+import './Button.css';
 import { Link } from 'react-router-dom';
 /**********************************Works Cited************************************
  * Title: React Website Tutorial - Beginner React JS Project Fully Responsive
@@ -25,7 +25,7 @@ export const ButtonVideo = ({
         const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
 
         return(
-            <Link to="/" className='btn-mobile'>
+            <Link to="/login" className='btn-mobile'>
                 <button
                 className={`btn ${checkButtonStyle} ${checkButtonSize}`}
                 onClick={onClick}

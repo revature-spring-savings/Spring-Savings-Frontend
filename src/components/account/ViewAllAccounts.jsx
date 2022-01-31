@@ -5,7 +5,7 @@ export default function ViewAllAccounts() {
     const [allAccounts, setAllAccounts] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:8081/accounts")
+        axios.get("http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/accounts")
             .then((response) => {
                 console.log(response.data);
                 setAllAccounts(response.data);

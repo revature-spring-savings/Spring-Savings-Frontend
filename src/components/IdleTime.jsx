@@ -11,7 +11,7 @@ function IdleTime() {
             console.log("user was idle so is not being logged out")
         }
   return <div>
-<IdleTimer ref={idleTimerRef} timeout={5 * 1000} onIdle={onIdle} >
+<IdleTimer ref={idleTimerRef} timeout={15 * 60 * 1000} onIdle={onIdle} >
 
 
 </IdleTimer>

@@ -35,9 +35,8 @@ export function SignupForm(props) {
   const handlePhoneNumber = (event) => setValues({ ...values, phoneNumber: event.target.value });
   const handleDob = (event) => setValues({ ...values, dob: event.target.value });
 
-
   const registerFormData = () => {
-    axios.post('http://localhost:8081/users/register', {
+    axios.post('http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/users/register', {
       firstName: values.firstName,
       lastName: values.lastName,
       email: values.email,
