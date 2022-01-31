@@ -12,6 +12,7 @@ import { Landing } from './pages/Landing';
 import LoginButton from "./pages/LoginButton";
 import LogoutButton from "./pages/LogoutButton";
 import Login from "./pages/Login"
+import CreepyEasterEgg from "./components/video/CreepyEasterEgg";
 
 // PLEASE READ
 // base url for backend is
@@ -61,6 +62,7 @@ function App() {
             <Route path="/profile" element={<Profile currentUser={currentUser} />} />
             <Route path="/transactions" element={<TransactionPage />} />
             <Route path="/create" element={<CreateAccount />} />
+            <Route path="/creepy" element={<CreepyEasterEgg/>} />
           </Routes>
         </Router>
 
