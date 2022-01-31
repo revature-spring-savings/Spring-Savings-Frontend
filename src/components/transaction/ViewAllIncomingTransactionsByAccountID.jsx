@@ -26,41 +26,47 @@ export default function ViewAllIncomingTransactionsByAccountID(props) {
             })
     }, []);
 
+    const depositTransactions = transactions.slice(pageVisited, pageVisited + transactionsPerPage).map(t => {
+        if (t.transactionType === "DEPOSIT" || t.transactionType === "deposit") {
+            return (
+                <>
+                    <tr>
+                        <td>{t.transactionID}</td>
+                        <td>${t.amount}</td>
+                        <td>{t.transactionDate}</td>
+                        <td>{t.transactionNote}</td>
+                    </tr>
+                </>
+            )
+        }
+    })
+
     return (
         <>
             <table class="transactionsTable">
                 <thead>
                     <tr>
-                    <th id="tid">Transaction</th>
+                        <th id="tid">Transaction</th>
                         <th id="amt">Amount</th>
                         <th id="tdate">Date</th>
                         <th id="tnote">Note</th>
                     </tr>
                 </thead>
-                {transactions.slice(pageVisited, pageVisited + transactionsPerPage).map(d => {
-                    return (
-                        <tr>
-                            <td>{d.transactionID}</td>
-                            <td>${d.amount}</td>
-                            <td>{d.transactionDate}</td>
-                            <td>{d.transactionNote}</td>
-                        </tr>
-                    )
-                })}
+                {depositTransactions}
             </table>
             <div><center>
-            <ReactPaginate
-            previousLabel={"Previous"}
-            nextLabel={"Next"}
-            pageCount={pageCount}
-            onPageChange={changePage}
-            containerClassName={"paginationButtons"}
-            previousLinkClassName={"previousButton"}
-            nextLinkClassName={"nextButton"}
-            disabledClassName={"paginationDisable"}
-            activeClassName={"paginationActive"}
-        />
-        </center>
+                <ReactPaginate
+                    previousLabel={"Previous"}
+                    nextLabel={"Next"}
+                    pageCount={pageCount}
+                    onPageChange={changePage}
+                    containerClassName={"paginationButtons"}
+                    previousLinkClassName={"previousButton"}
+                    nextLinkClassName={"nextButton"}
+                    disabledClassName={"paginationDisable"}
+                    activeClassName={"paginationActive"}
+                />
+            </center>
             </div>
         </>
     )

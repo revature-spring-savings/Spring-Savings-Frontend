@@ -5,11 +5,12 @@ import IdleTime from '../IdleTime'
 import AccountNavbar from '../navbar/AccountNavBar';
 
 export default function Dashboard() {
+    const userSession = sessionStorage.getItem("Name");
     return (
         <div id="dashboard-container">
             <div id="dashTitle">
                 <h1 className="pageTitle">Dashboard</h1>
-                <h3 className="title">Hello, User 2!</h3>
+                <h3 className="title">Hello, {userSession}</h3>
             </div>
                 <IdleTime/>
             <div id="acctCards">

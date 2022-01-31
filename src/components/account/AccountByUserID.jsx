@@ -9,8 +9,6 @@ export const AccountByUserID = () => {
   const [account, setAccount] = useState([]);
   const [userID, setUserID] = useState(2);
 
-
-
   //Andy's paginations stuff
   // const [pageNumber, setPageNumber] = useState(0);
   /* const accountsPerPage = 3;
