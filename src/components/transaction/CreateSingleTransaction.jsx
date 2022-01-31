@@ -28,8 +28,11 @@ export default function CreateNewTransaction(props) {
     }
 
     function createNewTransaction() {
-        console.log(amount);
-        console.log("userID is "+userID);
+        if(transactionType === 'WITHDRAW' && amount > acctBalance){
+            //modal popup saying you can't exceed balance
+            <TransactionModal setRenderModal={setRenderModal} transactionType={"WITHDRAW-OVERDRAFT"} /> 
+            console.log("cannot perform transaction because withdrawal cannot exceed balance");
+        } else{
         axios.post("http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/transactions", [{
             accountID: accountID,
             userID: userID,
@@ -45,6 +48,7 @@ export default function CreateNewTransaction(props) {
             console.log(error);
         })
     }
+}
 
     function moreDetails(accountID){
         ReactDOM.render(<AccountByAcctID accountID={accountID} />, document.getElementById(accountID));
