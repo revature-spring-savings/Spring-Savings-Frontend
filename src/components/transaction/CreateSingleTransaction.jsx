@@ -2,11 +2,18 @@ import { tab } from "@testing-library/user-event/dist/tab";
 import axios from "axios";
 import { useState } from "react";
 
+import {AccountByAcctID} from '../account/AccountByAcctID';
+import CreateTransfer from '../transaction/CreateTransfer';
+
+import ReactDOM from 'react-dom';
+
 export default function CreateNewTransaction(props) {
     const [transactionType, setTransactionType] = useState('');
     const [transactionNote, setTransactionNote] = useState('');
+    const [accountID, setAccountID] = useState(props.accountID);
+    const [acctBalance, setAcctBalance] = useState(props.accountBalance);
     const [amount, setAmount] = useState(0);
-    const [transactionBtn, setTransactionBtn] = useState(false);
+    const [userID, setUserID] = sessionStorage.getItem("userID");
 
     let newDate = new Date();
     let month = newDate.getMonth() + 1;
@@ -15,14 +22,14 @@ export default function CreateNewTransaction(props) {
     //get userID and accountID from useContext
     function changeTheValue(e) {
         setTransactionType(e);
-        setTransactionBtn(!transactionBtn);
     }
 
     function createNewTransaction() {
-        console.log(props.amount);
-        axios.post("http://localhost:8081/transactions", [{
-            accountID: 3,
-            userID: 1,
+        console.log(amount);
+        console.log("userID is "+userID);
+        axios.post("http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/transactions", [{
+            accountID: accountID,
+            userID: userID,
             amount: amount,
             transactionDate: today,
             transactionNote: transactionNote,
@@ -36,10 +43,25 @@ export default function CreateNewTransaction(props) {
         })
     }
 
+    function moreDetails(accountID){
+        ReactDOM.render(<AccountByAcctID accountID={accountID} />, document.getElementById(accountID));
+    }
+
+    function transfer(accountID, accountBalance){
+        ReactDOM.render(<CreateTransfer accountID={accountID} accountBalance={accountBalance} />, document.getElementById(accountID));
+    }
+
     return (
         <>
-            <form>
-                Transaction <br />
+            <div className="footer-header">
+                    <h2>Account {accountID}</h2>
+                    <h3>Balance: ${acctBalance}</h3>
+                </div>
+         <button  className="gray-btn" onClick={(e) => moreDetails(props.accountID)}>Go back</button>
+         <button  className="gray-btn"  onClick={(e)=>transfer(props.accountID, props.accountBalance)}>Transfer</button>
+
+            {/* <form> */}
+                <h3>Transaction </h3>
                 <input name="type" type="radio" id="withdraw" value="WITHDRAW" onClick={(e) => changeTheValue(e.target.value)} />
                 <label for="withdraw">Withdrawal</label>
 
@@ -47,15 +69,15 @@ export default function CreateNewTransaction(props) {
                 <label for="deposit">Deposit</label>
 
                 <br /><br />
-                Amount<br />
+                Amount:<br />
                 <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} /><br /><br />
 
-                Note<br />
+                Note:<br />
                 <input type="text" value={transactionNote} onChange={(e) => setTransactionNote(e.target.value)} placeholder="Note" /><br /><br />
 
-                <button onClick={createNewTransaction}>{transactionBtn ? "WITHDRAW" : "DEPOSIT"}</button>
+                <button  className="complete-btn" onClick={createNewTransaction}>Finalize {transactionType}</button>
 
-            </form>
+            {/* </form> */}
         </>
     )
 }

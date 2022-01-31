@@ -5,10 +5,11 @@ import './VideoSection.css';
 function LogoutVideo() {
     return (
         <div className='video-container'>
-            <video src="./assests/videolog.mp4" autoPlay loop muted></video>
+            <video src="./assets/video/videolog.mp4" autoPlay loop muted></video>
             <div className='textOverlay'>
-                <h1 className='videoH1'>Saving money like my cookies!</h1>
-                <p className='videoP'>Checkmate said my wallet.</p>
+                <h1 className='videoH1'>Banking doesn't have to be a tough cookie!</h1>
+                <p className='videoP'>FOMO no more with our mobile app and save with Spring Savings!</p>
+                <p className='videoP'>Just add a glass of milk. </p>
                 <div className='video-btns'>
                     <ButtonVideo 
                         className='btns' buttonStyle='btn--outline' 

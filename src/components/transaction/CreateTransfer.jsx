@@ -1,20 +1,29 @@
 import { tab } from "@testing-library/user-event/dist/tab";
 import axios from "axios";
 import { useState } from "react";
+import ReactDOM from 'react-dom';
 
-export default function CreateTransfer() {
-    const [acctSrc, setAcctSrc] = useState(1);
-    const [acctDest, setAcctDest] = useState(2);
+import { AccountByAcctID } from '../account/AccountByAcctID';
+import CreateSingleTransaction from '../transaction/CreateSingleTransaction';
+
+export default function CreateTransfer(props) {
+
+    const [acctSrc, setAcctSrc] = useState(props.accountID);
+    const [acctBalance, setAcctBalance] = useState(props.accountBalance);
+    const [acctDest, setAcctDest] = useState(0);
     const [amount, setAmount] = useState(0);
+    const [userID, setUserID] = sessionStorage.getItem("userID");
 
     let newDate = new Date();
     let month = newDate.getMonth() + 1;
     let today = `${month < 10 ? `0${month}` : `${month}`}/${newDate.getDate()}/${newDate.getFullYear()}`;
 
     function createNewTransaction() {
-        axios.post('http://localhost:8081/transactions', [{
+        console.log("userID is "+userID);
+
+        axios.post('http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/transactions', [{
             accountID: acctSrc,
-            userID: 1,
+            userID: userID,
             amount: amount,
             transactionDate: today,
             transactionNote: `Transfer from acct ${acctSrc} to acct ${acctDest}`,
@@ -22,7 +31,7 @@ export default function CreateTransfer() {
         },
         {
             accountID: acctDest,
-            userID: 1,
+            userID: userID,
             amount: amount,
             transactionDate: today,
             transactionNote: `Transfer from acct ${acctSrc} to acct ${acctDest}`,
@@ -36,22 +45,37 @@ export default function CreateTransfer() {
             })
     }
 
+    function moreDetails(accountID) {
+        ReactDOM.render(<AccountByAcctID accountID={accountID} />, document.getElementById(accountID));
+    }
+
+    function withDep(accountID, acctBalance) {
+        ReactDOM.render(<CreateSingleTransaction accountID={accountID} accountBalance={acctBalance} />, document.getElementById(accountID));
+    }
+
     return (
         <>
-            Transfer <br /><br />
-            Transfer From<br />
-            <input type="number" value={acctSrc} onChange={(e) => setAcctSrc(e.target.value)} /><br /><br />
+            <div className="footer-header">
+                <h2>Account {acctSrc}</h2>
+                <h3>Balance: ${acctBalance}</h3>
+            </div>
 
-            Transfer To<br />
+            <button className="gray-btn" onClick={(e) => moreDetails(acctSrc)}>Go back</button>
+            <button className="gray-btn" onClick={(e) => withDep(props.accountID, props.accountBalance)}>Withdraw/Deposit</button>
+            <h3>Transfer</h3>
+            Transfer From:<br />
+            Acct #{props.accountID}<br /><br />
+
+            Transfer To:<br />
             <input type="number" value={acctDest} onChange={(e) => setAcctDest(e.target.value)} /><br /><br />
 
-            Amount<br />
+            Amount:<br />
             <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} /><br /><br />
 
-            Note<br />
-            <div>Transfer from acct {acctSrc} to acct {acctDest}</div>
+            Note:<br />
+            <p>Transfer from acct {acctSrc} to acct {acctDest}</p><br />
 
-            <button onClick={createNewTransaction}>Complete Transfer</button>
+            <button className="complete-btn" onClick={createNewTransaction}>Complete Transfer</button>
         </>
     )
 }
