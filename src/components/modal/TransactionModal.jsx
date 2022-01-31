@@ -7,11 +7,12 @@ export default function TransactionModal(props) {
     console.log(currType);
 
     const modalDisplay = (currType) => {
-        switch (currType || currType.toUpperCase()) {
+   //     switch (currType || currType.toUpperCase()) {
+    switch (currType) {
             case 'WITHDRAW':
                 return (
                     <div className="body">
-                         <p>Withdrawal Successful</p>
+                        <p>Withdrawal Successful</p>
                     </div> 
                 )
             case 'DEPOSIT':
@@ -20,17 +21,18 @@ export default function TransactionModal(props) {
                         <p>Deposit Successful</p>
                    </div>
                 )
+                case 'WITHDRAW-OVERDRAFT':
+                return (
+                    <div className="body">
+                         <p>Withdrawal Cannot Exceed Balance</p>
+                    </div> 
+                )
                 default:
                     return null;
             }
             
 
     }
-
-    // const pageReload  = () => {
-        
-    //     window.location.reload(true);
-    // }
     
     return (
          <div className="t-background">

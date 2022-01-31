@@ -3,12 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import BankContextProvider from './context/bank-context'
 
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BankContextProvider>
+    <React.StrictMode>
+
+        <App />
+      
+    </React.StrictMode>
+  </BankContextProvider>,
   document.getElementById('root')
 );
 

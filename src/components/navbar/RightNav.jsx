@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import "./navbar.scss";
@@ -8,6 +8,7 @@ import Logout from "../../assets/icons/logout.png"
 import Login from "../../assets/icons/login.png"
 import Info from "../../assets/icons/information.png"
 import { useLogin } from '../../context/LoginProvider';
+import {BankContext} from '../../context/bank-context'
 
 const Ul = styled.ul`
     padding-left: 1rem;
@@ -22,20 +23,23 @@ const RightNav = ({ open }) => {
             setLoginUserID, 
             loginUsername, 
             setLoginUsername } = useLogin();
+    let rightNav = useContext(BankContext);
+
     const location = useLocation();
 
     const handleRemoveSession = () => {
         setLoginUserID(0);
         setLoginUsername("");
+        rightNav.onSetIsLoggedIn(false);
     }
 
-    console.log(`Is the user logged in?: ${isLoggedIn}`);
+    console.log(`Is the user logged in?: ${rightNav.onIsLoggedIn}`);
     console.log(`User ID: ${loginUserID}`);
     console.log(`Username: ${loginUsername}`);
     
     return (
         <> 
-        {isLoggedIn ?
+        {rightNav.onIsLoggedIn ?
             <Ul open={open}>
                 <li className="label">
                     <img src={Dashboard} className="navbar-icon" alt="dashboard" />

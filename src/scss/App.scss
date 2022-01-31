@@ -14,6 +14,7 @@ body{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow-y: auto;
 }
 
 .App {
@@ -22,7 +23,9 @@ body{
   align-items: center;
   display: flex;
   justify-content: center;
+  overflow-y: visible;
  // height: 100vh;
+ position: relative;
 }
 
 .pageTitle, .title{

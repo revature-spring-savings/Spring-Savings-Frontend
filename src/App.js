@@ -12,6 +12,9 @@ import { Landing } from './pages/Landing';
 import Login from "./pages/Login"
 import CreepyEasterEgg from "./components/video/CreepyEasterEgg";
 import LoginProvider from './context/LoginProvider';
+import { BankContext } from './context/bank-context'
+import { useContext } from 'react';
+
 
 // PLEASE READ
 // base url for backend is
@@ -22,6 +25,7 @@ function App() {
   let newDate = new Date()
   let month = newDate.getMonth() + 1;
   let today = `${month < 10 ? `0${month}` : `${month}`}/${newDate.getDate()}/${newDate.getFullYear()}`;
+  let appCTX = useContext(BankContext)
 
   sessionStorage.setItem("isLogin", false);
   // console.log(today);
@@ -65,12 +69,13 @@ function App() {
               <Route path="/creepy" element={<CreepyEasterEgg />} />
             </Routes>
           </Router>
-          <Chat />
         </div>
+        {
+          appCTX.onIsLoggedIn ? <Chat /> : ''
+        }
 
       </Auth0Provider>
     </LoginProvider>
-
   )
 }
 

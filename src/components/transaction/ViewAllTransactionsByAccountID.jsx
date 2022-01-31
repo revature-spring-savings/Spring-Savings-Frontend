@@ -52,6 +52,7 @@ export default function ViewAllTransactionsByAccountID(props) {
                     )
                 })}
             </table>
+            {transactions.length <= 5 ? "" :  
             <div>
                 <center>
             <ReactPaginate
@@ -66,6 +67,7 @@ export default function ViewAllTransactionsByAccountID(props) {
             activeClassName={"paginationActive"}
         /></center>
             </div>
+            }
         </>
     )
 }
