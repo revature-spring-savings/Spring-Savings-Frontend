@@ -17,8 +17,7 @@ const Ul = styled.ul`
 `;
 
 const RightNav = ({ open }) => {
-    const { isLoggedIn, 
-            setIsLoggedIn, 
+    const {  
             loginUserID, 
             setLoginUserID, 
             loginUsername, 
@@ -26,7 +25,6 @@ const RightNav = ({ open }) => {
     const location = useLocation();
 
     const handleRemoveSession = () => {
-        setIsLoggedIn(false);
         setLoginUserID(0);
         setLoginUsername("");
     }

@@ -8,7 +8,7 @@ import { useLogin } from "../../context/LoginProvider";
 
 //Renders the navbar in both mobile and desktop
 export default function Navbar() {
-    const { isLoggedIn } = useLogin();
+    // const { isLoggedIn } = useLogin();
     return (
         <div className="nav-bar">
             <div id="logo-bar">
