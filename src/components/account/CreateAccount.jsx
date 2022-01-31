@@ -50,7 +50,7 @@ export default function CreateAccount() {
             setCurrType("SUCCESS"); // if account creation successful, render sucess page
             setRenderModal(true);
             axios.post(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/accounts/createAccount/${userID}`, {
-                userID: 2,
+                userID: sessionStorage.getItem("userID"),
                 accountBalance: amount,
                 accountType: accountType
             })
