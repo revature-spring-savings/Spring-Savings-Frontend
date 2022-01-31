@@ -1,0 +1,50 @@
+
+/**********************************Works Cited************************************
+ * Title: React Website Tutorial - Beginner React JS Project Fully Responsive
+ * Author: Brian Design 
+ * Date: 8/11/20 (Accessed 1/1/22)
+ * Code Version: React
+ * Availability: https://youtu.be/I2UBjN5ER4s
+ *********************************************************************************/
+
+:root{
+    --primary: #474C55;
+}
+
+.btn{
+    padding: 8px 20 px;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.cbtn--parimary{
+    background-color: var(--primary);
+    color: #242424;
+    border: 1px solid var(--primary);
+}
+
+.cbtn--outline{
+    background-color: transparent;
+    color:#474C55;
+    padding: 8px 20px;
+    border: 1px solid var(--primary);
+    transition: all 0.3s ease-out;
+}
+
+.cbtn--medium{
+    padding: 8px 20px;
+    font-size: 20px;
+}
+
+.cbtn--large{
+    padding: 12px 26px;
+    font-size: 20px;   
+}
+
+.cbtn--medium:hover, .cbtn--large:hover{
+   background:#FCB414;
+   color:#242424;
+   transition: all 0.3s ease-out;
+}

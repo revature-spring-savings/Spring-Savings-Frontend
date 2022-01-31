@@ -22,7 +22,7 @@ export function SignupForm(props) {
     lastName: '',
     email: '',
     username: '',
-    password: '',
+    pass: '',
     phoneNumber: '',
     dob: ''
   });
@@ -31,7 +31,7 @@ export function SignupForm(props) {
   const handleLastName = (event) => setValues({ ...values, lastName: event.target.value });
   const handleEmail = (event) => setValues({ ...values, email: event.target.value });
   const handleUsername = (event) => setValues({ ...values, username: event.target.value });
-  const handlePassword = (event) => setValues({ ...values, password: event.target.value });
+  const handlePassword = (event) => setValues({ ...values, pass: event.target.value });
   const handlePhoneNumber = (event) => setValues({ ...values, phoneNumber: event.target.value });
   const handleDob = (event) => setValues({ ...values, dob: event.target.value });
 
@@ -41,7 +41,7 @@ export function SignupForm(props) {
       lastName: values.lastName,
       email: values.email,
       username: values.username,
-      password: values.password,
+      pass: values.pass,
       phoneNumber: values.phoneNumber,
       dob: values.dob 
     }).then(response => {
@@ -66,7 +66,7 @@ export function SignupForm(props) {
         <Input type="text" onChange={handleLastName} name="lastname" placeholder="Last Name..." value={values.lastName} />
         <Input type="email" name="email" onChange={handleEmail} placeholder="Email..." value={values.email} />
         <Input type="username" name="username" onChange={handleUsername} placeholder="Username..." value={values.username} />
-        <Input type="password" name="password" onChange={handlePassword} placeholder="Password..." value={values.password} />
+        <Input type="password" name="password" onChange={handlePassword} placeholder="Password..." value={values.pass} />
         <Input type="phoneNumber" name="PhoneNumber" onChange={handlePhoneNumber} placeholder="Phone Number..." value={values.phoneNumber} />
         <Input type="dob" name="dob" onChange={handleDob} placeholder="DOB..." value={values.dob} />
       </FormContainer>

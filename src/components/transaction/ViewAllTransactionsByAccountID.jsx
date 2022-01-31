@@ -1,12 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
+import "../account/pagination.scss";
 
 export default function ViewAllTransactionsByAccountID(props) {
     const [transactions, setTransactions] = useState([]);
     const [userID, setUserID] = useState(2);
     const [accountID, setAccountID] = useState(props.accountID);
     const [pageNumber, setPageNumber] = useState(0);
+    
 
     // change this to view more transactions per page
     const transactionsPerPage = 5;

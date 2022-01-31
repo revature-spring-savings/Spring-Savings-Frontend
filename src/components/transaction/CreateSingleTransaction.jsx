@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import {AccountByAcctID} from '../account/AccountByAcctID';
 import CreateTransfer from '../transaction/CreateTransfer';
+import TransactionModal from "../modal/TransactionModal";
 
 import ReactDOM from 'react-dom';
 
@@ -13,6 +14,8 @@ export default function CreateNewTransaction(props) {
     const [accountID, setAccountID] = useState(props.accountID);
     const [acctBalance, setAcctBalance] = useState(props.accountBalance);
     const [amount, setAmount] = useState(0);
+    const [transactionBtn, setTransactionBtn] = useState(false);
+    const [renderModal, setRenderModal] = useState(false);
     const [userID, setUserID] = sessionStorage.getItem("userID");
 
     let newDate = new Date();
@@ -75,9 +78,11 @@ export default function CreateNewTransaction(props) {
                 Note:<br />
                 <input type="text" value={transactionNote} onChange={(e) => setTransactionNote(e.target.value)} placeholder="Note" /><br /><br />
 
-                <button  className="complete-btn" onClick={createNewTransaction}>Finalize {transactionType}</button>
+                <button  className="complete-btn" onClick={() => {createNewTransaction(); setRenderModal(true)}}>{transactionBtn ? "WITHDRAW" : "DEPOSIT"}</button>
+                {/* <button  className="complete-btn" onClick={createNewTransaction}>Finalize {transactionType}</button> */}
 
             {/* </form> */}
+            {renderModal ? <TransactionModal setRenderModal={setRenderModal} transactionType={transactionType} /> : ""  }
         </>
     )
 }
