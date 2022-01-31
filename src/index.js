@@ -8,10 +8,11 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 
 ReactDOM.render(
-  <ReactStrict>
-  
-      <App />
-  
-  </ReactStrict>,
+  <React.StrictMode>
+
+  <App />
+
+</React.StrictMode>
+,
   document.getElementById('root'),
 );
