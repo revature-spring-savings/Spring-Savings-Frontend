@@ -5,7 +5,7 @@ import icon from "./user-images/icon.png";
 import UserForm from "./UserForm";
 import { filterProps } from "framer-motion";
 import anonpig from "./user-images/anonymous-pig.png";
-
+import { useAuth0 } from '@auth0/auth0-react';
 export default function UserCard(props) {
   const currentUser = props.currUser;
 

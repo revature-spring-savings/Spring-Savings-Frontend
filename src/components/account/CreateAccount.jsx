@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
-import "./createaccount.scss"
+import "./CreateAccount.scss"
 import Modal from "../modal/Modal";
 import AccountNavbar from "../navbar/AccountNavBar";
+import { useAuth0 } from '@auth0/auth0-react';
 
 export default function CreateAccount() {
     const [accountType, setAccountType] = useState('');
