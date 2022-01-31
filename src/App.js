@@ -1,9 +1,9 @@
 import './scss/App.scss';
 import Chat from './components/chat/chat.js';
 import Navbar from "./components/navbar/Navbar";
- import { Auth0Provider } from "@auth0/auth0-react";
+import { Auth0Provider } from "@auth0/auth0-react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import {Home, TransactionPage, Accounts } from "./pages/Home";
+import { Home, TransactionPage, Accounts } from "./pages/Home";
 import CreateAccount from './components/account/CreateAccount';
 import Information from "./pages/Information";
 import Profile from './pages/Profile';
@@ -23,7 +23,7 @@ function App() {
   let month = newDate.getMonth() + 1;
   let today = `${month < 10 ? `0${month}` : `${month}`}/${newDate.getDate()}/${newDate.getFullYear()}`;
 
-  console.log(today);
+  // console.log(today);
 
   // test state 
   const currentUser = {
@@ -37,39 +37,37 @@ function App() {
     "phone_number": "501301231"
   }
 
-console.log(today);
-return (
-     <Auth0Provider
-     domain="dev-wjx29g94.us.auth0.com"
-     clientId="zlyKi8BrV6Ii0AqjzGIWUap3TOgnwuu1"
-     redirectUri={window.location.origin}>
- 
+  console.log(today);
+  return (
+    <Auth0Provider
+      domain="dev-wjx29g94.us.auth0.com"
+      clientId="zlyKi8BrV6Ii0AqjzGIWUap3TOgnwuu1"
+      redirectUri={window.location.origin}>
 
-    
-    <div className="App">
-      <Router>
-        <Navbar />
+      <div className="App">
+        <Router>
+          <Navbar />
 
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/home" element={<Home />} />
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/accounts" element={<Accounts />} />
             <Route path="/transactions" element={<TransactionPage />} />
             <Route path="/information" element={<Information />} />
-            <Route path="/login" element={<Login/>} />
+            <Route path="/login" element={<Login />} />
             {/* <Route path="/logout" element={<LogoutButton />} /> */}
             <Route path="/logout" element={<Logout />} />
-          {/* <Route path="/login" element={<Login />} /> */}
-          <Route path="/profile" element={<Profile currentUser = {currentUser} />} />
-          <Route path="/transactions" element={<TransactionPage />} />
-          <Route path="/create" element={<CreateAccount />} />
-        </Routes>
-      </Router>
+            {/* <Route path="/login" element={<Login />} /> */}
+            <Route path="/profile" element={<Profile currentUser={currentUser} />} />
+            <Route path="/transactions" element={<TransactionPage />} />
+            <Route path="/create" element={<CreateAccount />} />
+          </Routes>
+        </Router>
 
-      <Chat />
-    </div>
+        <Chat />
+      </div>
 
-     </Auth0Provider>
+    </Auth0Provider>
 
   )
 }
