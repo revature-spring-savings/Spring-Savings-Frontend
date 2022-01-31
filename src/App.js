@@ -1,7 +1,7 @@
 import './scss/App.scss';
 import Chat from './components/chat/chat.js';
 import Navbar from "./components/navbar/Navbar";
-import { Auth0Provider } from "@auth0/auth0-react";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home, TransactionPage, Accounts } from "./pages/Home";
 import CreateAccount from './components/account/CreateAccount';
@@ -9,14 +9,14 @@ import Information from "./pages/Information";
 import Logout from './pages/Logout';
 import { Landing } from './pages/Landing';
 import ProtectedRoute from './auth/protected-route';
-import { useAuth0 } from '@auth0/auth0-react';
+
 import Loading from './components/auth0/loading';
 import Login from "./pages/Login"
 import Profile from './pages/Profile';
 
 
-const App = () => {
-  const { isLoading } = useAuth0();
+// const App = () => {
+//   const { isLoading } = useAuth0();
 
 // PLEASE READ
 // base url for backend is
@@ -44,11 +44,6 @@ function App() {
 
   console.log(today);
   return (
-    <Auth0Provider
-      domain="dev-wjx29g94.us.auth0.com"
-      clientId="zlyKi8BrV6Ii0AqjzGIWUap3TOgnwuu1"
-      redirectUri={window.location.origin}>
-
       <div className="App">
         <Router>
           <Navbar />
@@ -72,7 +67,6 @@ function App() {
         <Chat />
       </div>
 
-    </Auth0Provider>
 
   )
 }

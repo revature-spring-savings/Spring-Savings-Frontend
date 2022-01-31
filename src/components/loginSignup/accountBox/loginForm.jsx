@@ -88,7 +88,7 @@ export function LoginForm() {
         </FormContainer>
         <Marginer direction="vertical" margin={10} />
         <Marginer direction="vertical" margin="1.6em" />
-        <SubmitButton type="submit" onClick={loginFormData}>Login</SubmitButton>
+        <SubmitButton type="submit" onClick={loginFormData}>Login</SubmitButton>  
         <Marginer direction="vertical" margin="1em" />
         {/* <MutedLink href="#">Forget your password?</MutedLink> */}
         <MutedLink href="#">
