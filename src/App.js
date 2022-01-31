@@ -9,8 +9,6 @@ import Information from "./pages/Information";
 import Profile from './pages/Profile';
 import Logout from './pages/Logout';
 import { Landing } from './pages/Landing';
-import LoginButton from "./pages/LoginButton";
-import LogoutButton from "./pages/LogoutButton";
 import Login from "./pages/Login"
 import CreepyEasterEgg from "./components/video/CreepyEasterEgg";
 import LoginProvider from './context/LoginProvider';

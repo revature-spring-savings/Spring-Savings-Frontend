@@ -48,11 +48,8 @@ export function LoginForm() {
 
   let navigate = useNavigate();
 
-  const handleUsername = (event) => {
-    setValues({ ...values, username: event.target.value });
-  }
-
-  const handlePassword = (event) => { setValues({ ...values, password: event.target.value }) };
+  const handleUsername = (event) => setValues({ ...values, username: event.target.value });
+  const handlePassword = (event) => setValues({ ...values, password: event.target.value });
 
   function loginFormData() {
     axios.post('http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/users/login', {
