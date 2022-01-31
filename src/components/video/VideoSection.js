@@ -22,12 +22,6 @@ import SignupButton from '../auth0/signup-button';
                         buttonSize='btn--large'>
                         Thyme to Bank!
                     </ButtonVideo>
-               <div>
-                    <AuthenticationButton/>
-                </div>
-                <div>
-                <SignupButton/>
-                </div>
                 </div>
             </div>
         </div>

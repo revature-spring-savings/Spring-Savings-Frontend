@@ -7,6 +7,8 @@ import Profile from "../../assets/icons/profile.png"
 import Logout from "../../assets/icons/logout.png"
 import Login from "../../assets/icons/login.png"
 import Info from "../../assets/icons/information.png"
+import SignupButton from '../auth0/signup-button';
+import LoginButton from '../auth0/login-button';
 
 const Ul = styled.ul`
     padding-left: 1rem;
@@ -44,11 +46,11 @@ const RightNav = ({ open }) => {
             </li>
             <li className="label">
                 <img src={Login} className="navbar-icon" alt="" />
-                <Link
-                    to="/login"
-                    className={location.pathname === "/login" ? "active" : "non-active"}>
-                    Login
-                </Link>
+                 <SignupButton/>
+            </li>
+            <li className="label">
+                <img src={Login} className="navbar-icon" alt="" />
+                 <LoginButton/>
             </li>
             <li className="label">
                 <img src={Logout} className="navbar-icon" alt="" />
