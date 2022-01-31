@@ -7,9 +7,10 @@ function LogoutVideo() {
         <div className='video-container'>
             <video src="./assets/video/videolog.mp4" autoPlay loop muted></video>
             <div className='textOverlay'>
-                <h1 className='videoH1'>Banking doesn't have to be a tough cookie!</h1>
-                <p className='videoP'>FOMO no more with our mobile app and save with Spring Savings!</p>
-                <p className='videoP'>Just add a glass of milk. </p>
+                <h1 className='videoH1'>Wallet Got You in Checkmate? </h1>
+                <h1 className='videoH1'>We can help.</h1>
+                <p className='videoP'>Ditch FOMO and the hassle with Spring Savings!</p>
+                
                 <div className='video-btns'>
                     <ButtonVideo 
                         className='btns' buttonStyle='btn--outline' 
