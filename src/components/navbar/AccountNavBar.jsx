@@ -10,9 +10,9 @@ export default function AccountNavbar() {
             <li className="left-bottomNavbar">
                 <Link className={location.pathname === "/home" ? "active" : "non-active"} to="/home">Accounts</Link>
             </li>
-            <li className="left-bottomNavbar">
+            {/* <li className="left-bottomNavbar">
                 <Link className={location.pathname === "/transactions" ? "active" : "non-active"} to="/transactions">Recent Transactions</Link>
-            </li>
+            </li> */}
             {/* <li className="left-bottomNavbar">
                 <Link className={location.pathname === "/deposit" ? "active" : "non-active"} to="/deposit">Deposit</Link>
             </li>

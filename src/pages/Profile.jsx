@@ -9,7 +9,6 @@ const Profile = () => {
   
   return (
     <>
-      <AccountNavbar />
       <div className="page-container">
         <div className="user-information">
     <div>

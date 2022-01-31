@@ -3,8 +3,8 @@ import { useState } from "react";
 import axios from "axios";
 import "./userForm.scss"
 import UpdateAccountModal from "../modal/UpdateAccountModal";
-import notVisible from "./user-images/visible.png";
-import visible from "./user-images/not-visible.png";
+import visible from "./user-images/visible.png";
+import notVisible from "./user-images/not-visible.png";
 
 export default function UserForm(props) {
     const [firstName, setFirstName] = useState('');
@@ -55,7 +55,7 @@ export default function UserForm(props) {
     // update user information
 
     const updateUserInformation = () => {
-        axios.put(`http://localhost:8081/users/update/1`, {
+        axios.put(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/users/update/1`, {
             userID: 1,
             firstName: firstName,
             lastName: lastName,
@@ -92,9 +92,9 @@ export default function UserForm(props) {
                 </label>
                 <label>
                     Password:
-                    <input className="update-form-input" placeholder={currentUser.password} value={password} onChange={handlePassword} type={showPassword ? "text" : "password"} name="name" />
+                    <input className="update-form-input" placeholder={currentUser.password} value={password} onChange={handlePassword} type={showPassword ? "password" : "text"} name="name" />
                     <div className="visibility-image-container">
-                        <img onClick={()=> handleClickShowPassword()} className="visibility-image" src={showPassword ? visible: notVisible} alt="visible-icon"/>
+                        <img onClick={()=> handleClickShowPassword()} className="visibility-image" src={showPassword ? notVisible: visible} alt="visible-icon"/>
                     </div>
                 </label>
                 <label>
@@ -103,7 +103,7 @@ export default function UserForm(props) {
                 </label>
                 <label>
                     Date of Birth:
-                    <input className="update-form-input" placeholder={currentUser.dob} value={dob} onChange={handleDob} type="text" name="name" />
+                    <input className="update-form-input" placeholder={currentUser.dob} value={dob} onChange={handleDob} type="date" name="name" />
                 </label>
             </form>
             <button className="update-form-button" onClick={() => {updateUserInformation(); setRenderModal(!renderModal)}}>Update</button>

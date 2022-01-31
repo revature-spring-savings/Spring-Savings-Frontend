@@ -51,7 +51,7 @@ export default function CreateAccount() {
             setCurrType("SUCCESS"); // if account creation successful, render sucess page
             setRenderModal(true);
             axios.post(`http://localhost:8081/accounts/createAccount/${userID}`, {
-                userID: 1,
+                userID: 2,
                 accountBalance: amount,
                 accountType: accountType
             })
@@ -86,7 +86,8 @@ export default function CreateAccount() {
             <div className="page-container">
                 <form className="create-account-form">
                     <div className="create-account-header">
-                    <h2>Create a new Banking Account </h2>
+                    <h2>Create a New Banking Account </h2>
+                    <h4>(because a bank is better than a cookie jar)</h4>
                     </div>
                     <input name="type" type="radio" id="checking" value="CHECKING" onClick={(e) => changeTheValue(e.target.value)} />
                     <label htmlFor="checking" defaultChecked>Checking</label>
@@ -111,5 +112,6 @@ export default function CreateAccount() {
             </div>
                 {renderModal ? <Modal modalState={setRenderModal} accountType={currType} setAmount={setAmount} /> : ""}
         </>
+      
     )
 }

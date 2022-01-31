@@ -9,7 +9,7 @@ export const ViewAllDepositTransaction = () => {
 
     //Deposit for Transaction based on accountID
     useEffect(() => {
-        axios.post(`http://localhost:8081/transactions/deposit`, {
+        axios.post(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/transactions/deposit`, {
             accountID: accountNum
         })
             .then(res => {
