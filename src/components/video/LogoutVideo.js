@@ -2,11 +2,12 @@ import React from 'react';
 import { ButtonVideo } from './ButtonVideo'
 import './VideoSection.css';
 import { useAuth0 } from "@auth0/auth0-react";
+import LogoutButton from '../auth0/logout-button';
 
 
 
 function LogoutVideo() {
-    const { logout } = useAuth0();
+   
 
 
     return (
@@ -23,9 +24,7 @@ function LogoutVideo() {
                     </ButtonVideo>
                 </div>
                 <div>
-                <button onClick={() => logout({ returnTo: window.location.origin })}>
-                 Log Out
-              </button>
+                <LogoutButton/>
                 </div>
             </div>
         </div>

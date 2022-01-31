@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import {AccountByAcctID} from './AccountByAcctID';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export const AccountByUserID = () => {
     const [account, setAccount] = useState([]);

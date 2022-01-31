@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ViewAllWithdrawTransaction } from './ViewAllWithdrawTransaction';
 import { ViewAllDepositTransaction } from './ViewAllDepositTransaction';
-
+import { useAuth0 } from '@auth0/auth0-react';
 export const TransactionsDetail = () => {
     const [transactionBtn, setTransactionBtn] = useState(false);
 

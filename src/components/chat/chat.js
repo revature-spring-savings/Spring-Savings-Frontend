@@ -7,6 +7,7 @@ import Slide from 'react-reveal/Slide';
 import React, { useState, useRef, useEffect } from 'react';
 import * as SockJS from "sockjs-client";
 import * as Stomp from "stompjs";
+import { useAuth0 } from '@auth0/auth0-react';
 
 // function App() {
 function Chat() {

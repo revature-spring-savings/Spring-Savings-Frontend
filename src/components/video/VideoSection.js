@@ -2,6 +2,9 @@ import React from 'react';
 import { ButtonVideo } from './ButtonVideo';
 import './VideoSection.css';
 import { useAuth0 } from "@auth0/auth0-react";
+import AuthenticationButton from '../auth0/authentication-button';
+import SignupButton from '../auth0/signup-button';
+
 
     function VideoSection() {
         
@@ -20,7 +23,10 @@ import { useAuth0 } from "@auth0/auth0-react";
                         Thyme to Bank!
                     </ButtonVideo>
                <div>
-                    <button onClick={() => loginWithRedirect()}>Log In</button>
+                    <AuthenticationButton/>
+                </div>
+                <div>
+                <SignupButton/>
                 </div>
                 </div>
             </div>

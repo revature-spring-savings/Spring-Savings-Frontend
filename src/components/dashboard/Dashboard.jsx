@@ -3,6 +3,7 @@ import { AccountByUserID } from "../account/AccountByUserID"
 import './dashboard.scss'
 import IdleTime from '../IdleTime'
 import AccountNavbar from '../navbar/AccountNavBar';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export default function Dashboard() {
     return (
