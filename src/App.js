@@ -12,6 +12,8 @@ import { Landing } from './pages/Landing';
 import LoginButton from "./pages/LoginButton";
 import LogoutButton from "./pages/LogoutButton";
 import Login from "./pages/Login"
+import {BankContext} from './Context/bank-context'
+import {useContext} from 'react';
 
 // PLEASE READ
 // base url for backend is
@@ -22,6 +24,7 @@ function App() {
   let newDate = new Date()
   let month = newDate.getMonth() + 1;
   let today = `${month < 10 ? `0${month}` : `${month}`}/${newDate.getDate()}/${newDate.getFullYear()}`;
+  let appCTX = useContext(BankContext)
 
   // console.log(today);
 
@@ -63,8 +66,9 @@ function App() {
             <Route path="/create" element={<CreateAccount />} />
           </Routes>
         </Router>
-
-        <Chat />
+      {
+        appCTX.onIsLoggedIn? <Chat/>:''
+      }
       </div>
 
     </Auth0Provider>

@@ -29,6 +29,7 @@ body{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow-y: hidden;
 }
 
 .App {
@@ -37,6 +38,7 @@ body{
   align-items: center;
   display: flex;
   justify-content: center;
+  overflow-y: visible;
  // height: 100vh;
 }
 
