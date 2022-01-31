@@ -33,11 +33,6 @@ export default function TransactionModal(props) {
             
 
     }
-
-    // const pageReload  = () => {
-        
-    //     window.location.reload(true);
-    // }
     
     return (
          <div className="t-background">

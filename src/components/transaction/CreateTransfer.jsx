@@ -5,6 +5,8 @@ import ReactDOM from 'react-dom';
 
 import { AccountByAcctID } from '../account/AccountByAcctID';
 import CreateSingleTransaction from '../transaction/CreateSingleTransaction';
+import TransferModal from "../modal/TransferModal";
+//import { render } from "sass";
 
 export default function CreateTransfer(props) {
 
@@ -13,6 +15,8 @@ export default function CreateTransfer(props) {
     const [acctDest, setAcctDest] = useState(0);
     const [amount, setAmount] = useState(0);
     const [userID, setUserID] = sessionStorage.getItem("userID");
+    const [transactionBtn, setTransactionBtn] = useState(false);
+    const [renderModal, setRenderModal] = useState(false);
 
     let newDate = new Date();
     let month = newDate.getMonth() + 1;
@@ -71,11 +75,11 @@ export default function CreateTransfer(props) {
 
             Amount:<br />
             <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} /><br /><br />
-
+            {renderModal ? <TransferModal close={setRenderModal} / >: "" }
             Note:<br />
             <p>Transfer from acct {acctSrc} to acct {acctDest}</p><br />
 
-            <button className="complete-btn" onClick={createNewTransaction}>Complete Transfer</button>
+            <button className="complete-btn" onClick={() => {createNewTransaction(); setRenderModal(!renderModal)}}>Complete Transfer</button>
         </>
     )
 }

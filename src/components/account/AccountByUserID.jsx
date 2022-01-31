@@ -9,17 +9,6 @@ export const AccountByUserID = () => {
   const [account, setAccount] = useState([]);
   //const [userID, setUserID] = useState(2);
 
-
-
-  //Andy's paginations stuff
-  // const [pageNumber, setPageNumber] = useState(0);
-  /* const accountsPerPage = 3;
-   const pageVisited = pageNumber * accountsPerPage;
-  const changePage = ({ selected }) => {
-    setPageNumber(selected);
-  };
-  const pageCount = Math.ceil(account.length / accountsPerPage);*/
-
   useEffect(() => {
 
     //setting values from session storage here but not working
@@ -43,8 +32,6 @@ export const AccountByUserID = () => {
     );
   }
 
-  // const accountMap = account.slice(pageVisited, pageVisited + accountsPerPage).map(
-  //   ({ accountID, accountType, accountBalance }, index) => {
   const accountMap = account.map(({ accountID, accountType, accountBalance }, index) => {
     return (
       <div key={index} className="acctCard">
@@ -74,19 +61,6 @@ export const AccountByUserID = () => {
   return (
     <>
       {accountMap}
-      {/* <div> */}
-      {/* <ReactPaginate
-            previousLabel={"Previous"}
-            nextLabel={"Next"}
-            pageCount={pageCount}
-            onPageChange={changePage}
-            containerClassName={"paginationButtons"}
-            previousLinkClassName={"previousButton"}
-            nextLinkClassName={"nextButton"}
-            disabledClassName={"paginationDisable"}
-            activeClassName={"paginationActive"}
-        /> */}
-      {/* </div> */}
     </>
   );
 };
