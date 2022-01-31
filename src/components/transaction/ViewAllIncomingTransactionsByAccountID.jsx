@@ -49,6 +49,7 @@ export default function ViewAllIncomingTransactionsByAccountID(props) {
                 })}
             </table>
             <div><center>
+                
             <ReactPaginate
             previousLabel={"Previous"}
             nextLabel={"Next"}
