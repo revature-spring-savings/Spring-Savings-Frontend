@@ -2,7 +2,7 @@ import { tab } from "@testing-library/user-event/dist/tab";
 import axios from "axios";
 import { useState } from "react";
 import ReactDOM from 'react-dom';
-
+import { useAuth0 } from '@auth0/auth0-react';
 import {AccountByAcctID} from '../account/AccountByAcctID';
 import CreateSingleTransaction from '../transaction/CreateSingleTransaction';
 

@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import ViewAllTransactionsByAccountID from '../transaction/ViewAllTransactionsByAccountID';
 import CreateSingleTransaction from '../transaction/CreateSingleTransaction';
 import CreateTransfer from '../transaction/CreateTransfer';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export const AccountByAcctID = (props) => {
     const [account, setAccount] = useState([]);
