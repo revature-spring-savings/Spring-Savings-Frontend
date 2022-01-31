@@ -5,12 +5,7 @@ import { TransactionsDetail } from "../components/transaction/index";
 import ViewAllAccounts from "../components/account/ViewAllAccounts";
 
 // can delete this component; Only used to check if routing worked.
-<<<<<<< HEAD
-export default function Home() {
-
-=======
 export function Home() {
->>>>>>> c02db43a40652e62bfc3c75804bb88a558d00c58
     return (
         <>
             <AccountNavbar />

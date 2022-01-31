@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-
-import './App.css';
-=======
 import './scss/App.scss';
 import Chat from './components/chat/chat.js';
->>>>>>> c02db43a40652e62bfc3c75804bb88a558d00c58
 import Navbar from "./components/navbar/Navbar";
  import { Auth0Provider } from "@auth0/auth0-react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -52,21 +47,9 @@ return (
       <Router>
         <Navbar />
 
-<<<<<<< HEAD
-          {/* {<Landing/>} */}
-          <Routes>
-            
-            <Route path="/landing" element={<Landing />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/information" element={<Information />} />
-            <Route path="/" element={<Home />}  />
-            <Route path="/logout" element={<Logout />} />
-             {/* {<Route path="/Login"element={<Login />} />} */}
-=======
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/home" element={<Home />} />
->>>>>>> c02db43a40652e62bfc3c75804bb88a558d00c58
             <Route path="/accounts" element={<Accounts />} />
             <Route path="/transactions" element={<TransactionPage />} />
             <Route path="/information" element={<Information />} />
