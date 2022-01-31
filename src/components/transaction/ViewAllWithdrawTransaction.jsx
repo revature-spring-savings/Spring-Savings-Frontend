@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import { useAuth0 } from '@auth0/auth0-react';
 export const ViewAllWithdrawTransaction = () => {
     const [withdraw, setWithdraw] = useState([]);
 
@@ -12,11 +12,11 @@ export const ViewAllWithdrawTransaction = () => {
         axios.post(`http://localhost:8081/transactions/withdraw`, {
             accountID: accountNum
         })
-            .then(res => {
-                console.log(res.data);
-                setWithdraw(res.data);
-            })
-            .catch(err => console.log(err));
+        .then(res => {
+            console.log(res.data);
+            setWithdraw(res.data);
+        })
+        .catch(err => console.log(err));
     }, [])
 
     const withdrawTransaction = withdraw.map(withdraws => {
