@@ -33,12 +33,12 @@ export const AccountByAcctID = (props) => {
         ReactDOM.render(<button  className="more-details-click" onClick={(e) => moreDetails(accountID)}>View More Details</button>, document.getElementById(accountID));
     }
 
-    function withDep(accountID){
-        ReactDOM.render(<CreateSingleTransaction accountID={accountID}/>, document.getElementById(accountID));
+    function withDep(accountID, accountBalance){
+        ReactDOM.render(<CreateSingleTransaction accountID={accountID} accountBalance={accountBalance} />, document.getElementById(accountID));
     }
 
-    function transfer(accountID){
-        ReactDOM.render(<CreateTransfer accountID={accountID}/>, document.getElementById(accountID));
+    function transfer(accountID, accountBalance){
+        ReactDOM.render(<CreateTransfer accountID={accountID} accountBalance={accountBalance} />, document.getElementById(accountID));
     }
 
     function viewAll(accountID){
@@ -61,12 +61,12 @@ export const AccountByAcctID = (props) => {
                     <h3>Balance: ${account.accountBalance}</h3>
                 </div>
 
-                <button  className="gray-btn" onClick={(e)=>withDep(account.accountID)}>Withdraw/Deposit</button>
-                <button  className="gray-btn" onClick={(e)=>transfer(account.accountID)}>Transfer</button><br/>
+                <button  className="gray-btn" onClick={(e)=>withDep(account.accountID, account.accountBalance)}>Withdraw/Deposit</button>
+                <button  className="gray-btn" onClick={(e)=>transfer(account.accountID, account.accountBalance)}>Transfer</button><br/>
 
                 
 
-                <h4>Recent Transactions</h4>
+                <h4 id="recent-trans">Recent Transactions</h4>
                 <button className="trans-btn"  onClick={(e)=>viewAll(account.accountID)}>View All</button>
                 <button className="trans-btn"  onClick={(e)=>viewIncoming(account.accountID)}>View Incoming</button>
                 <button className="trans-btn"  onClick={(e)=>viewOutgoing(account.accountID)}>View Outgoing</button>

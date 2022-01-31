@@ -34,4 +34,34 @@
     cursor: pointer;
     background-color: #F26925
   }
+  
+  #submit-update-form {
+    background:#0066A2;
+    color:white;
+    border-style:outset;
+    border-color:#0066A2;
+    height:25px;
+    width:75px;
+    font:bold15px arial,sans-serif;
+    text-shadow:none;
+  }
+
+  #submit-update-form:hover {
+    background: black;
+  }
+
+  #cancel-update-form:hover {
+    background: black;
+  }
+  
+  #cancel-update-form {
+    background:#e23b24;
+    color:white;
+    border-style:outset;
+    border-color:#0066A2;
+    height:25px;
+    width:75px;
+    font:bold15px arial,sans-serif;
+    text-shadow:none;
+  }
 }
