@@ -12,6 +12,7 @@ import {
 import { Marginer } from "../marginer/Marginer";
 import { AccountContext } from "./accountContext";
 import IdleTime from "../../IdleTime";
+import { useLogin } from "../../../context/LoginProvider";
 //import { RestoreTwoTone } from "@material-ui/icons";
 
 /* Dear Jeremy,
@@ -33,6 +34,7 @@ import IdleTime from "../../IdleTime";
 */
 
 export function LoginForm() {
+  const { setIsLoggedIn, setLoginUserID, setLoginUsername } = useLogin();
   const { switchToSignup } = useContext(AccountContext);
   const [values, setValues] = useState({
     firstName: '',
@@ -43,13 +45,11 @@ export function LoginForm() {
     phoneNumber: '',
     dob: ''
   });
-  const [name, setName] = useState("");
 
   let navigate = useNavigate();
 
   const handleUsername = (event) => {
     setValues({ ...values, username: event.target.value });
-    setName(event.target.value);
   }
 
   const handlePassword = (event) => { setValues({ ...values, password: event.target.value }) };
@@ -65,9 +65,9 @@ export function LoginForm() {
       console.log(res.data)
       console.log("userID from response body is " + res.data.userID);
 
-      // Setting the session storage
-      sessionStorage.setItem("userID", res.data.userID);
-      sessionStorage.setItem("Name", name);
+      setIsLoggedIn(true);
+      setLoginUserID(res.data.userID);
+      setLoginUsername(res.data.username);
 
       redirectToHome(res.status);
     }).catch(err => console.log(err));
