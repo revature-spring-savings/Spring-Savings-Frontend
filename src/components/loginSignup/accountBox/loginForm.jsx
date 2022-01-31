@@ -12,6 +12,9 @@ import {
 import { Marginer } from "../marginer/Marginer";
 import { AccountContext } from "./accountContext";
 import IdleTime from "../../IdleTime";
+import {BankContext} from '../../../Context/bank-context'
+
+
 //import { RestoreTwoTone } from "@material-ui/icons";
 
 /* Dear Jeremy,
@@ -34,6 +37,7 @@ import IdleTime from "../../IdleTime";
 
 export function LoginForm() {
   const { switchToSignup } = useContext(AccountContext);
+  const loginCTX = useContext(BankContext)
   const [values, setValues] = useState({
     firstName: '',
     lastName: '',
@@ -66,10 +70,18 @@ export function LoginForm() {
       console.log("userID from response body is " + res.data.userID);
 
       // Setting the session storage
-      sessionStorage.setItem("userID", res.data.userID);
-      sessionStorage.setItem("Name", name);
+      
+      if(res.data) {
+        sessionStorage.setItem("userID", res.data.userID);
+        sessionStorage.setItem("Name", name);
+        loginCTX.onSetUserData(res.data)
 
-      redirectToHome(res.status);
+        loginCTX.onSetIsLoggedIn(true);
+        redirectToHome(res.status);
+
+      }
+
+
     }).catch(err => console.log(err));
 
     function redirectToHome(status) {

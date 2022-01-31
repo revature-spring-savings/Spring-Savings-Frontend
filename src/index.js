@@ -2,15 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import ReactStrict from 'react-dom'
-import { BrowserRouter as Router } from 'react-router-dom';
-
+import reportWebVitals from './reportWebVitals';
+import BankContextProvider from './Context/bank-context'
 
 
 ReactDOM.render(
+  <BankContextProvider>
   <React.StrictMode>
 
-  <App />
+      <App />
+    
+  </React.StrictMode>
+  </BankContextProvider>,
+  document.getElementById('root')
+);
 
 </React.StrictMode>
 ,

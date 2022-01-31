@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import "./navbar.scss";
@@ -7,6 +7,9 @@ import Profile from "../../assets/icons/profile.png"
 import Logout from "../../assets/icons/logout.png"
 import Login from "../../assets/icons/login.png"
 import Info from "../../assets/icons/information.png"
+import {BankContext} from '../../Context/bank-context'
+
+
 
 const Ul = styled.ul`
     padding-left: 1rem;
@@ -17,8 +20,10 @@ const Ul = styled.ul`
 
 const RightNav = ({ open }) => {
     const location = useLocation();
+    let rightNav = useContext(BankContext)
 
     const handleRemoveSession = () => {
+        rightNav.onSetIsLoggedIn(false);
         sessionStorage.removeItem("userID");
         sessionStorage.removeItem("Name");
     }

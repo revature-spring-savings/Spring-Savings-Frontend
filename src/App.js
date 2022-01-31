@@ -8,15 +8,13 @@ import CreateAccount from './components/account/CreateAccount';
 import Information from "./pages/Information";
 import Logout from './pages/Logout';
 import { Landing } from './pages/Landing';
-import ProtectedRoute from './auth/protected-route';
+import LoginButton from "./pages/LoginButton";
+import LogoutButton from "./pages/LogoutButton";
+import Login from "./pages/Login";
+import CreepyEasterEgg from "./components/video/CreepyEasterEgg";
+import {BankContext} from './Context/bank-context'
+import {useContext} from 'react';
 
-import Loading from './components/auth0/loading';
-import Login from "./pages/Login"
-import Profile from './pages/Profile';
-
-
-// const App = () => {
-//   const { isLoading } = useAuth0();
 
 // PLEASE READ
 // base url for backend is
@@ -27,6 +25,7 @@ function App() {
   let newDate = new Date()
   let month = newDate.getMonth() + 1;
   let today = `${month < 10 ? `0${month}` : `${month}`}/${newDate.getDate()}/${newDate.getFullYear()}`;
+  let appCTX = useContext(BankContext)
 
   // console.log(today);
 
@@ -61,10 +60,12 @@ function App() {
             <Route path="/profile" element={<Profile currentUser={currentUser} />} />
             <Route path="/transactions" element={<TransactionPage />} />
             <Route path="/create" element={<CreateAccount />} />
+            <Route path="/creepy" element={<CreepyEasterEgg/>} />
           </Routes>
         </Router>
-
-        <Chat />
+      {
+        appCTX.onIsLoggedIn? <Chat/>:''
+      }
       </div>
 
 
