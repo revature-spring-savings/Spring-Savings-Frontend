@@ -8,19 +8,19 @@
 }
 
   // Scrollbar customization
-//   ::-webkit-scrollbar {
-//     width: 16px;
-// }
+::-webkit-scrollbar {
+  width: 5px;
+}
 
-// ::-webkit-scrollbar-track {
-//   background: #a5a2a2;
-// }
+::-webkit-scrollbar-track {
+  background: #a5a2a2;
+}
 
-// ::-webkit-scrollbar-thumb {
-//   background-color: #fcfcfc;
-//   border-radius: 10px;
-//   border: 3px solid #ffffff;
-// }
+::-webkit-scrollbar-thumb {
+  background-color: #fcfcfc;
+  border-radius: 10px;
+  border: 3px solid #ffffff;
+}
 
 .mainCont {
   /* background-color: #282c34; */

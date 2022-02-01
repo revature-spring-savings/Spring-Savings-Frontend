@@ -4,17 +4,19 @@ import "./userCard.scss";
 import UserForm from "./UserForm";
 import anonpig from "./user-images/pigsavings.png";
 import axios from "axios";
+import { useLogin } from "../../Context/LoginProvider"
 
-export default function UserCard(props) {
-  //const currentUser = props.currUser;
+export default function UserCard() {
+  const { loginUsername } = useLogin();
   const [editForm, setEditForm] = useState(false);
   const [currentUser, setCurrentUser] = useState([]);
   console.log(currentUser);
   
   useEffect(() => {
-    const currentUserID = sessionStorage.userID
+
+    //http://localhost:8081/users/id
     axios
-      .get(`http://localhost:8081/users/id/${currentUserID}`)
+      .get(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/users/username/${loginUsername}`)
       .then((res) => {
         console.log(res.data);
         setCurrentUser(res.data);

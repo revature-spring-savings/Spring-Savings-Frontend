@@ -17,7 +17,6 @@ export default function CreateNewTransaction(props) {
     const [acctBalance, setAcctBalance] = useState(props.accountBalance);
     const [amount, setAmount] = useState(0);
     const [renderModal, setRenderModal] = useState(false);
-
     const [account, setAccount] = useState([]);
 
     // get account by accountID
@@ -42,6 +41,7 @@ export default function CreateNewTransaction(props) {
             //modal popup saying you can't exceed balance
             <TransactionModal setRenderModal={true} transactionType='OVERDRAFT' />
             alert("Withdrawal cannot exceed balance!");
+
         } else {
             axios.post("http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/transactions", [{
                 accountID: accountID,
@@ -53,13 +53,16 @@ export default function CreateNewTransaction(props) {
             }])
                 .then((response) => {
                     console.log(response.data);
+
                     updateBalance();
                     setRenderModal(true); 
+
                 })
                 .catch(function (error) {
                     console.log(error);
                 })
         }
+
     }
 
     function updateBalance(){
@@ -72,6 +75,7 @@ export default function CreateNewTransaction(props) {
             let divid = `${accountID}b`;
             document.getElementById(divid).innerHTML = `Balance: $${parseFloat(acctBalance) + parseFloat(amount)}`;
         }
+
     }
 
     function moreDetails(accountID) {
@@ -95,6 +99,7 @@ export default function CreateNewTransaction(props) {
             <h3>Transaction </h3>
             <input name="type" type="radio" id="withdraw" value="WITHDRAW" onClick={(e) => changeTheValue(e.target.value)} />
             <label for="withdraw">Withdrawal</label>
+
 
             <input name="type" type="radio" id="deposit" value="DEPOSIT" onClick={(e) => changeTheValue(e.target.value)} />
             <label for="deposit">Deposit</label>

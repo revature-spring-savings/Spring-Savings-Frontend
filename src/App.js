@@ -3,7 +3,7 @@ import Chat from './components/chat/chat.js';
 import Navbar from "./components/navbar/Navbar";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Home, TransactionPage, Accounts } from "./pages/Home";
+import { Home, Accounts } from "./pages/Home";
 import CreateAccount from './components/account/CreateAccount';
 import Information from "./pages/Information";
 import Profile from './pages/Profile';
@@ -14,7 +14,6 @@ import CreepyEasterEgg from "./components/video/CreepyEasterEgg";
 import LoginProvider from './Context/LoginProvider';
 import { BankContext } from './Context/bank-context'
 import { useContext } from 'react';
-
 
 // PLEASE READ
 // base url for backend is
@@ -57,14 +56,10 @@ function App() {
               <Route path="/" element={<Landing />} />
               <Route path="/home" element={<Home />} />
               <Route path="/accounts" element={<Accounts />} />
-              <Route path="/transactions" element={<TransactionPage />} />
               <Route path="/information" element={<Information />} />
               <Route path="/login" element={<Login />} />
-              {/* <Route path="/logout" element={<LogoutButton />} /> */}
               <Route path="/logout" element={<Logout />} />
-              {/* <Route path="/login" element={<Login />} /> */}
               <Route path="/profile" element={<Profile currentUser={currentUser} />} />
-              <Route path="/transactions" element={<TransactionPage />} />
               <Route path="/create" element={<CreateAccount />} />
               <Route path="/creepy" element={<CreepyEasterEgg />} />
             </Routes>

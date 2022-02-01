@@ -69,8 +69,6 @@ export const AccountByAcctID = (props) => {
                 <button  className="gray-btn" onClick={(e)=>withDep(account.accountID, account.accountBalance)}>Withdraw/Deposit</button>
                 <button  className="gray-btn" onClick={(e)=>transfer(account.accountID, account.accountBalance)}>Transfer</button><br/>
 
-                
-
                 <h4 id="recent-trans">Recent Transactions</h4>
                 <button className="trans-btn"  onClick={(e)=>viewAll(account.accountID)}>View All</button>
                 <button className="trans-btn"  onClick={(e)=>viewIncoming(account.accountID)}>View Incoming</button>

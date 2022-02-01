@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './CreepyButton.css';
 import { Link } from 'react-router-dom';
+import { BankContext } from '../../Context/bank-context'
+
 /**********************************Works Cited************************************
  * Title: React Website Tutorial - Beginner React JS Project Fully Responsive
  * Author: Brian Design 
@@ -19,27 +21,38 @@ export const CreepyButtonConst = ({
     onClick,
     buttonStyle,
     buttonSize }) => {
+    let rightNav = useContext(BankContext);
+
     const checkButtonStyle = STYLES.includes(buttonStyle) ? buttonStyle : STYLES[0];
 
     const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
 
     return (
-
-        <Link to="/" className='cbtn-mobile'>
-            <button
-                className={`btn ${checkButtonStyle} ${checkButtonSize}`}
-                onClick={onClick}
-                type={type}
-            >
-                {children}
-            </button>
-        </Link>
+        <>
+            {rightNav.onIsLoggedIn ?
+                <Link to="/home" className='cbtn-mobile'>
+                    <button
+                        className={`btn ${checkButtonStyle} ${checkButtonSize}`}
+                        onClick={onClick}
+                        type={type}
+                    >
+                        {children}
+                    </button>
+                </Link>
+                :
+                <Link to="/" className='cbtn-mobile'>
+                    <button
+                        className={`btn ${checkButtonStyle} ${checkButtonSize}`}
+                        onClick={onClick}
+                        type={type}
+                    >
+                        {children}
+                    </button>
+                </Link>
+            }
+        </>
 
     )
-
-
-
-
 
 
 }

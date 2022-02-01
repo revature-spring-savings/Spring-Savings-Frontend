@@ -2,15 +2,12 @@ import React from "react";
 import UserInformation from "../components/user/UserInformation";
 import { useLogin } from "../Context/LoginProvider";
 
-const Profile = (props) => {
-  const currentUser = props.currentUser;
+const Profile = () => {
   const { loginUsername } = useLogin();
   return (
     <>
       <div className="page-container">
-        <div className="user-information">
-          <UserInformation currentUser={currentUser} />
-        </div>
+          <UserInformation currentUser={loginUsername} />
       </div>
     </>
   );
