@@ -8,11 +8,11 @@ import BankContextProvider from './Context/bank-context'
 
 ReactDOM.render(
   <BankContextProvider>
-  <React.StrictMode>
+    <React.StrictMode>
 
-      <App />
-    
-  </React.StrictMode>
+        <App />
+      
+    </React.StrictMode>
   </BankContextProvider>,
   document.getElementById('root')
 );

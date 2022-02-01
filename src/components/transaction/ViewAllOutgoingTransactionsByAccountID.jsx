@@ -4,7 +4,6 @@ import ReactPaginate from "react-paginate";
 
 export default function ViewAllOutgoingTransactionsByAccountID(props) {
     const [transactions, setTransactions] = useState([]);
-    const [userID, setUserID] = useState(2);
     const [accountID, setAccountID] = useState(props.accountID);
     const [pageNumber, setPageNumber] = useState(0);
 
@@ -26,6 +25,21 @@ export default function ViewAllOutgoingTransactionsByAccountID(props) {
             })
     }, []);
 
+    const withdrawTransactions = transactions.slice(pageVisited, pageVisited + transactionsPerPage).map(t => {
+        if (t.transactionType === "WITHDRAW" || t.transactionType === "withdraw") {
+            return (
+                <>
+                    <tr>
+                        <td>{t.transactionID}</td>
+                        <td>${t.amount}</td>
+                        <td>{t.transactionDate}</td>
+                        <td>{t.transactionNote}</td>
+                    </tr>
+                </>
+            )
+        }
+    })
+
     return (
         <>
             <table class="transactionsTable">
@@ -37,16 +51,7 @@ export default function ViewAllOutgoingTransactionsByAccountID(props) {
                         <th id="tnote">Note</th>
                     </tr>
                 </thead>
-                {transactions.slice(pageVisited, pageVisited + transactionsPerPage).map(d => {
-                    return (
-                        <tr>
-                            <td>{d.transactionID}</td>
-                            <td>${d.amount}</td>
-                            <td>{d.transactionDate}</td>
-                            <td>{d.transactionNote}</td>
-                        </tr>
-                    )
-                })}
+                {withdrawTransactions}
             </table>
             <div><center>
             <ReactPaginate

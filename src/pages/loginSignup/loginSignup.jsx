@@ -5,17 +5,21 @@ import { AccountBox } from '../../components/loginSignup/accountBox';
 
 const LoginSignContainer = styled.div`
     width: 100%;
-    height: 1000px;
+    height: 100%;
     right: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    
+    /* @media only screen and (min-width: 375px) {
+        height: fit-content;    
+    } */
 `;
 
 function LoginSignUp() {
     return (
-        <LoginSignContainer className="lsContainer">
+        <LoginSignContainer >
             <AccountBox/>
         </LoginSignContainer>
     )
