@@ -56,7 +56,7 @@ export default function CreateNewTransaction(props) {
                 alertMessage = alertMessage + "Withdrawal cannot exceed balance!";
                 isValid = false;
             }else{
-                console.log("else is reached");
+               // console.log("else is reached");
                 isValid = true;
             }
         }
@@ -74,14 +74,14 @@ export default function CreateNewTransaction(props) {
                 transactionType: transactionType
             }])
                 .then((response) => {
-                    console.log(response.data);
-                    console.log("")
+                  //  console.log(response.data);
+                  //  console.log("")
                     updateBalance();
                     setRenderModal(true); 
 
                 })
                 .catch(function (error) {
-                    console.log(error.response.data.message);
+                  //  console.log(error.response.data.message);
                 })
         }else{
             alert(alertMessage);
