@@ -57,7 +57,6 @@ export const AccountByUserID = () => {
   return (
     <>
       {accountMap}
-     
     </>
   );
 };

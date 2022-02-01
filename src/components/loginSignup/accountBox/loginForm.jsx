@@ -37,6 +37,7 @@ import { BankContext } from '../../../Context/bank-context'
 */
 
 export function LoginForm() {
+  // useContext is used to store user info -> replaced SessionStorage
   const { setLoginUserID, setLoginUsername } = useLogin();
   const { switchToSignup } = useContext(AccountContext);
   const loginCTX = useContext(BankContext)
@@ -56,32 +57,50 @@ export function LoginForm() {
   const handlePassword = (event) => setValues({ ...values, password: event.target.value });
 
   function loginFormData() {
-    axios.post('http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/users/login', {
-      //  axios.post('http://localhost:8081/users/login', {
-      ...setValues,
-      username: values.username,
-      pass: values.password
-    }).then(res => {
-      //this prints correct userID
-      console.log(res.data)
-      console.log("userID from response body is " + res.data.userID);
-      
-      if(res.data) {
-        setLoginUserID(res.data.userID);
-        setLoginUsername(res.data.username);
 
-        loginCTX.onSetUserData(res.data)
-        loginCTX.onSetIsLoggedIn(true);
+    let isValid = true;
 
-        redirectToHome(res.status);
-      }
-
-    }).catch(err => console.log(err));
-
-    function redirectToHome(status) {
-      if (status === 200) navigate("/home");
-      else navigate("/");
+    if (values.username.length < 1 || values.password.length < 1) { // fields cannot be empty
+      isValid = false;
+      alert("Fields must not be empty");
     }
+    if (isValid) {
+      axios.post('http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/users/login', {
+        ...setValues,
+        username: values.username,
+        pass: values.password
+      }).then(res => {
+
+        if (res.data) {
+          setLoginUserID(res.data.userID);
+          setLoginUsername(res.data.username);
+
+          loginCTX.onSetUserData(res.data)
+          loginCTX.onSetIsLoggedIn(true);
+
+          redirectToHome(res.status);
+        }
+
+      }).catch(function (err) {
+        //console.log(err);
+        //console.log(err.response.status)
+        if (err.response.status == 400 || err.response.status == 500) {
+          alert("Invalid username or password");
+        }
+
+      }
+      );
+
+
+
+    }
+
+
+  }
+
+  function redirectToHome(status) {
+    if (status === 200) navigate("/home");
+    else navigate("/");
   }
 
   return (

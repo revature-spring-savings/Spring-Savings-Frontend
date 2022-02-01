@@ -22,7 +22,7 @@ export default function CreateNewTransaction(props) {
     // get account by accountID
     useEffect(()=>{
         axios.get(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/accounts/${props.accountID}`).then(res =>{
-            console.log(res);
+            //console.log(res);
             setAccount(res.data);
         });
     },[]);
@@ -52,14 +52,14 @@ export default function CreateNewTransaction(props) {
                 transactionType: transactionType
             }])
                 .then((response) => {
-                    console.log(response.data);
+                    //console.log(response.data);
 
                     updateBalance();
                     setRenderModal(true); 
 
                 })
                 .catch(function (error) {
-                    console.log(error);
+                    //console.log(error);
                 })
         }
 
