@@ -2,11 +2,10 @@ import { tab } from "@testing-library/user-event/dist/tab";
 import axios from "axios";
 import { useState } from "react";
 import ReactDOM from 'react-dom';
-
 import { AccountByAcctID } from '../account/AccountByAcctID';
 import CreateSingleTransaction from '../transaction/CreateSingleTransaction';
 import TransferModal from "../modal/TransferModal";
-//import { render } from "sass";
+
 
 export default function CreateTransfer(props) {
 

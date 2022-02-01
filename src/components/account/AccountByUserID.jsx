@@ -2,29 +2,24 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { AccountByAcctID } from "./AccountByAcctID";
-// import ReactPaginate from "react-paginate";
-// import "./accountPagination.scss";
 
+// this page displays all of the user's accounts on the dashboard
 export const AccountByUserID = () => {
   const [account, setAccount] = useState([]);
-  //const [userID, setUserID] = useState(2);
 
+// get accounts by userID
   useEffect(() => {
-
-    //setting values from session storage here but not working
-    console.log("on dashboard, userID is " + sessionStorage.getItem("userID")+" (hardcoded)");
-    //also not working. saves it as 0
-    //setUserID(parseInt(sessionStorage.getItem("userID")));
-
+    //change to useContext
     let userNum = sessionStorage.getItem("userID");
     axios
       .get(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/accounts/${userNum}/all-accounts`)
       .then((res) => {
-        console.log(res.data);
         setAccount(res.data);
       });
   }, []);
 
+
+  // onClick => view more details on that account
   function moreDetails(accountID) {
     ReactDOM.render(
       <AccountByAcctID accountID={accountID} />,
@@ -32,6 +27,7 @@ export const AccountByUserID = () => {
     );
   }
 
+  // displays all of the returned accounts
   const accountMap = account.map(({ accountID, accountType, accountBalance }, index) => {
     return (
       <div key={index} className="acctCard">

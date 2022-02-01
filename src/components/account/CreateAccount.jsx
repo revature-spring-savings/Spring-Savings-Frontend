@@ -13,10 +13,8 @@ export default function CreateAccount() {
 
     let isValid = false;
 
+    // update with useContext
     var userID = 1;
-    // let newDate = new Date();
-    // let month = newDate.getMonth() + 1;
-    // let today = `${month < 10 ? `0${month}` : `${month}`}/${newDate.getDate()}/${newDate.getFullYear()}`;
 
     // validation
     const submit = (e) => {
@@ -62,14 +60,7 @@ export default function CreateAccount() {
                 })
         }
 
-        // window.location.reload(true);
-
     }
-
-    //  const resetVal = (e) => {
-    //      e.preventDefault();
-    //      document.getElementById("AJvalidation").innerHTML = "";
-    //  }
 
 
     //get userID and accountID from useContext
