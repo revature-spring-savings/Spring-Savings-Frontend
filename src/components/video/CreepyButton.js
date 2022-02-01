@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import './CreepyButton.css';
 import { Link } from 'react-router-dom';
-import { BankContext } from '../../context/bank-context'
+import { BankContext } from '../../Context/bank-context'
 
 /**********************************Works Cited************************************
  * Title: React Website Tutorial - Beginner React JS Project Fully Responsive

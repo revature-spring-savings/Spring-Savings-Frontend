@@ -7,9 +7,7 @@ const Profile = () => {
   return (
     <>
       <div className="page-container">
-        <div className="user-information">
           <UserInformation currentUser={loginUsername} />
-        </div>
       </div>
     </>
   );

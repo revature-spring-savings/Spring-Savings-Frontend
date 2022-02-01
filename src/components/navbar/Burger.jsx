@@ -27,11 +27,11 @@ export default function Burger() {
     return (
         <>
             <BurgerStyle className="burger" open={open} onClick={() => setOpen(!open)}>
-                <div className="lines"/>
-                <div className="lines"/>
-                <div className="lines"/> 
+                <div className="lines" />
+                <div className="lines" />
+                <div className="lines" />
             </BurgerStyle>
-            <RightNav open={open}/>
+            <RightNav open={open} />
         </>
     )
 }

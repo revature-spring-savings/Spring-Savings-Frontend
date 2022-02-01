@@ -1,9 +1,9 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import "./navbar.scss";
 import { Link } from 'react-router-dom';
 import Burger from "./Burger";
 import Logo from "../../assets/logo/logo.png"
-import {BankContext} from '../../Context/bank-context'
+import { BankContext } from '../../Context/bank-context'
 
 //Renders the navbar in both mobile and desktop
 export default function Navbar() {

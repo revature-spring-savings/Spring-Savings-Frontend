@@ -15,7 +15,6 @@ import LoginProvider from './Context/LoginProvider';
 import { BankContext } from './Context/bank-context'
 import { useContext } from 'react';
 
-
 // PLEASE READ
 // base url for backend is
 // http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/

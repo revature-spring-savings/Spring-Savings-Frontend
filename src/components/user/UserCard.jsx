@@ -4,7 +4,7 @@ import "./userCard.scss";
 import UserForm from "./UserForm";
 import anonpig from "./user-images/pigsavings.png";
 import axios from "axios";
-import { useLogin } from "../../context/LoginProvider"
+import { useLogin } from "../../Context/LoginProvider"
 
 export default function UserCard() {
   const { loginUsername } = useLogin();
