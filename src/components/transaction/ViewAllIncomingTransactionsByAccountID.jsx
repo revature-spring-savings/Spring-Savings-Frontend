@@ -45,7 +45,7 @@ export default function ViewAllIncomingTransactionsByAccountID(props) {
             <table class="transactionsTable">
                 <thead>
                     <tr>
-                        <th id="tid">Transaction</th>
+                        <th id="tid">ID</th>
                         <th id="amt">Amount</th>
                         <th id="tdate">Date</th>
                         <th id="tnote">Note</th>

@@ -13,11 +13,14 @@
     align-items: center;
     margin: 0 auto;
     margin-top: 25px;
-    overflow-x: hidden;
+    height: 100%;
+    width: 100%;
+    max-width: 500px;
 
     @media only screen and (max-width: 768px) {
         margin-top: 100px;
         width: 100vw;
+        overflow-x: hidden;
     }
 
     #dashTitle{
@@ -177,11 +180,44 @@
     border-radius: 17px;
 }
 
-.transactionsTable{
+table.transactionsTable{
     background-color: beige;
     border: $rev-orange 5px solid;
-    margin: 10px;
+    margin: 10px auto;
     text-align: center;
+    width: 500px;
+    font-size: small;
+
+    @media only screen and (max-width: 768px) {
+        margin: 0;
+        font-size: smaller;
+        border-collapse: collapse;
+        table-layout: fixed;
+        width: 350px;
+
+        thead > tr {
+            margin: 0;
+            padding: 0;
+        }
+
+        thead > th {
+            padding: 0;
+            font-size: smaller;
+        }
+        tr > td {
+            padding: 5px 0 5px 0;
+        }
+        td {
+            padding: 0px;
+            word-wrap: break-word;
+            font-size: 10px;
+        }
+
+        #tid,#amt,#tdate,#ttype,#tnote {
+            min-width: 0;
+            font-size: smaller;
+        }
+    }
 
     th{
         background-color: $rev-blue;
@@ -196,7 +232,7 @@
     }
 
     #tid{
-        min-width: 90px;
+        min-width: 30px;
     }
 
     #amt{
@@ -212,25 +248,19 @@
     }
 
     #tnote{
-        min-width: 205px;
-    }
-
-    @media (max-width: 768px) {
-        max-width: 80%;
-        overflow: scroll;
+        min-width: 100px;
     }
 }
 
 .complete-btn{
-    
     background-color: transparent;
     border: 1px solid #b84e19;
     padding: 12px 15px;
     border-radius: 24px;
     margin: 10px;
-    font-weight: bold;
-    
+    font-weight: bold;    
 }
+
 .complete-btn:hover{
     background-color: $rev-orange;
     cursor:pointer;
@@ -242,7 +272,6 @@
     padding: 4px 8px;
     border-radius: 15px;
     margin: 5px;
-
     //margin-bottom: 20px;
     color: black;
 }

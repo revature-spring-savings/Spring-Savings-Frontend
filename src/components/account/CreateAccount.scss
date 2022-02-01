@@ -10,6 +10,16 @@
     overflow: hidden;
     margin-top: 25px;
 
+    @media only screen and (max-width: 768px) {
+        margin-top: 0;
+        border-radius: 0;
+        height: 100vh;
+        overflow-y: hidden;
+        box-shadow: none;
+        width: 100vw;
+    }
+
+
     h2, h4{
         padding: 5px 20px;
         color: beige;
@@ -27,6 +37,7 @@
        margin: 5px;
        font-size: xx-large;
     }
+    
 }
 
 .create-button {
@@ -66,6 +77,11 @@
     padding: 1px 0px; 
     margin-bottom: 30px;
 
+    @media only screen and (max-width: 768px) {
+        margin-top: 100px;
+        margin-bottom: 20px;
+    }
+
     h3{
         font-size: large;
     }
@@ -78,4 +94,7 @@
     margin-top: 30px;
     height: 100%;
     width: 100%;
+    @media only screen and (max-width: 768px) {
+        margin-top: 0; 
+    }
 }

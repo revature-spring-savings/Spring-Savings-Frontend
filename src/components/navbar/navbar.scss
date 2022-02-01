@@ -25,9 +25,9 @@
         color: $rev-darkgrey;
         font-weight: bold;
         border-bottom: 1px rgb(204, 204, 204) solid;
-        
+        display: none;
         @media (max-width: 768px) {
-            display: none;
+            display: block;
         }
     }
     .left-bottomNavbar {
