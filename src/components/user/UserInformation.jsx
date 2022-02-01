@@ -1,5 +1,4 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import UserCard from "./UserCard";
 import "./UserInformation.scss";
 

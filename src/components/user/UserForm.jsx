@@ -24,40 +24,23 @@ export default function UserForm(props) {
 
     const editForm = props.formState;
 
-    const handleFirstName = (e) => {
-        setFirstName(e.target.value);
-    }
+    const handleFirstName = (e) => setFirstName(e.target.value);
 
-    const handleLastName = (e) => {
-        setLastname(e.target.value);
-    }
+    const handleLastName = (e) => setLastname(e.target.value);
 
-    const handleEmail = (e) => {
-        setEmail(e.target.value);
-    }
+    const handleEmail = (e) => setEmail(e.target.value);
 
-    const handleUsername = (e) => {
-        setUsername(e.target.value);
-    }
+    const handleUsername = (e) => setUsername(e.target.value);
 
-    const handlePassword = (e) => {
-        setPassword(e.target.value);
-    }
+    const handlePassword = (e) => setPassword(e.target.value);
 
-    const handlePhoneNum = (e) => {
-        setPhoneNum(e.target.value);
-    }
+    const handlePhoneNum = (e) => setPhoneNum(e.target.value);
 
-    const handleDob = (e) => {
-        setDob(e.target.value);
-    }
+    const handleDob = (e) => setDob(e.target.value);
 
-    const handleClickShowPassword = (e) => {
-        setShowPassword(!showPassword);
-    }
+    const handleClickShowPassword = (e) => setShowPassword(!showPassword);
 
     // update user information
-
     const updateUserInformation = () => {
         props.setCurrentUser({
             userID: currentUser.userID,

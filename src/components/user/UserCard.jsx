@@ -1,9 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./userCard.scss";
-import icon from "./user-images/icon.png";
 import UserForm from "./UserForm";
-import { filterProps } from "framer-motion";
 import anonpig from "./user-images/pigsavings.png";
 import axios from "axios";
 
@@ -11,7 +9,7 @@ export default function UserCard(props) {
   //const currentUser = props.currUser;
   const [editForm, setEditForm] = useState(false);
   const [currentUser, setCurrentUser] = useState([]);
-  console.log(currentUser)
+  console.log(currentUser);
   
   useEffect(() => {
     const currentUserID = sessionStorage.userID

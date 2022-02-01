@@ -12,7 +12,8 @@ import {
 import { Marginer } from "../marginer/Marginer";
 import { AccountContext } from "./accountContext";
 import IdleTime from "../../IdleTime";
-import {BankContext} from '../../../Context/bank-context'
+import { useLogin } from "../../../context/LoginProvider";
+import { BankContext } from '../../../context/bank-context'
 
 
 //import { RestoreTwoTone } from "@material-ui/icons";
@@ -36,6 +37,7 @@ import {BankContext} from '../../../Context/bank-context'
 */
 
 export function LoginForm() {
+  const { setLoginUserID, setLoginUsername } = useLogin();
   const { switchToSignup } = useContext(AccountContext);
   const loginCTX = useContext(BankContext)
   const [values, setValues] = useState({
@@ -47,16 +49,11 @@ export function LoginForm() {
     phoneNumber: '',
     dob: ''
   });
-  const [name, setName] = useState("");
 
   let navigate = useNavigate();
 
-  const handleUsername = (event) => {
-    setValues({ ...values, username: event.target.value });
-    setName(event.target.value);
-  }
-
-  const handlePassword = (event) => { setValues({ ...values, password: event.target.value }) };
+  const handleUsername = (event) => setValues({ ...values, username: event.target.value });
+  const handlePassword = (event) => setValues({ ...values, password: event.target.value });
 
   function loginFormData() {
     axios.post('http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/users/login', {
@@ -68,19 +65,16 @@ export function LoginForm() {
       //this prints correct userID
       console.log(res.data)
       console.log("userID from response body is " + res.data.userID);
-
-      // Setting the session storage
       
       if(res.data) {
-        sessionStorage.setItem("userID", res.data.userID);
-        sessionStorage.setItem("Name", name);
+        setLoginUserID(res.data.userID);
+        setLoginUsername(res.data.username);
+
         loginCTX.onSetUserData(res.data)
-
         loginCTX.onSetIsLoggedIn(true);
+
         redirectToHome(res.status);
-
       }
-
 
     }).catch(err => console.log(err));
 

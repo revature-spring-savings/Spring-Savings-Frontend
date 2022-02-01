@@ -10,7 +10,7 @@ import * as SockJS from "sockjs-client";
 import * as Stomp from "stompjs";
 import PulseLoader from "react-spinners/PulseLoader";
 import TransitionGroup from 'react-transition-group/TransitionGroup';
-import {BankContext} from '../../Context/bank-context'
+import {BankContext} from '../../context/bank-context'
 
 
 
@@ -225,7 +225,7 @@ function Chat() {
   }
 
   return (
-    <div  >
+    <div style={{position: "sticky"}} >
         
       <div className='chatWrap' style={{height:chatWrapHeight, }}>
 
