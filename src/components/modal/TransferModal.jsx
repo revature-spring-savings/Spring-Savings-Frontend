@@ -3,7 +3,22 @@ import "./transactionModal.scss";
 
 export default function TransactionModal(props) {
     const close = props.close
+    const renderModal = props.renderModal;
     console.log(props);
+
+    const msg = () => {
+        if (props.renderModal === 200) {
+            return (
+                <p>Transfer Successful</p>
+            )
+        }
+        if (props.renderModal === 400) {
+            return (
+                <p>Transfer was not successful</p>
+            )
+        }
+    } 
+    
     
     return (
          <div className="t-background">
@@ -12,7 +27,7 @@ export default function TransactionModal(props) {
                     <button onClick={()  => close(false)}>X</button>
                  </div>
                  <div className="body">
-                         <p>Transfer Successful</p>
+                         {msg()}
                  </div> 
              </div>
 

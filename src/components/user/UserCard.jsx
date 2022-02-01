@@ -16,7 +16,7 @@ export default function UserCard(props) {
   useEffect(() => {
     const currentUserID = sessionStorage.userID
     axios
-      .get(`http://localhost:8081/users/id/${currentUserID}`)
+      .get(`http://localhost:9090/users/id/${currentUserID}`)
       .then((res) => {
         console.log(res.data);
         setCurrentUser(res.data);

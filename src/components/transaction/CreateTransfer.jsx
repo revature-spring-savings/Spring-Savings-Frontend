@@ -43,9 +43,12 @@ export default function CreateTransfer(props) {
         }])
             .then((response) => {
                 console.log(response.data);
+                console.log(response.status);
+                setRenderModal(response.status)
             })
             .catch(function (error) {
-                console.log(error);
+                console.log(error.response);
+                setRenderModal(error.response.status)
             })
     }
 
@@ -75,7 +78,7 @@ export default function CreateTransfer(props) {
 
             Amount:<br />
             <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} /><br /><br />
-            {renderModal ? <TransferModal close={setRenderModal} / >: "" }
+            {renderModal ? <TransferModal close={setRenderModal} renderModal={renderModal}/>: ""}
             Note:<br />
             <p>Transfer from acct {acctSrc} to acct {acctDest}</p><br />
 

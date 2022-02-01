@@ -51,7 +51,7 @@ export default function CreateNewTransaction(props) {
     }
 
     function transfer(accountID, accountBalance){
-        ReactDOM.render(<CreateTransfer accountID={accountID} accountBalance={accountBalance}  />, document.getElementById(accountID));
+        ReactDOM.render(<CreateTransfer accountID={accountID} accountBalance={accountBalance} />, document.getElementById(accountID));
     }
 
     return (
@@ -70,8 +70,8 @@ export default function CreateNewTransaction(props) {
 
                 <input name="type" type="radio" id="deposit" value="DEPOSIT" onClick={(e) => changeTheValue(e.target.value)} />
                 <label for="deposit">Deposit</label>
-            {renderModal ? <TransactionModal setRenderModal={setRenderModal} transactionType={transactionType} /> : ""  }
 
+            {renderModal ? <TransactionModal setRenderModal={setRenderModal} transactionType={transactionType} /> : ""  }
                 <br /><br />
                 Amount:<br />
                 <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} /><br /><br />
