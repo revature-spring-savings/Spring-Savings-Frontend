@@ -33,7 +33,25 @@ export default function CreateTransfer(props) {
     },[]);
 
     function createNewTransaction() {
+
+        let isValid = true;
+        let alertMessage = "";
+        
+        
+
+        if(amount <= 0){
+            isValid = false;
+            alertMessage = alertMessage + "Please enter a valid amount\n";
+        }
+
+        if(acctDest <= 0){
+            isValid = false;
+            alertMessage = alertMessage + "That is not a valid account number\n";
+        }
+
+        if(isValid){
         axios.post('http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/transactions', [{
+           // axios.post('http://localhost:9090/transactions', [{
             accountID: acctSrc,
             userID: loginUserID,
             amount: amount,
@@ -53,11 +71,15 @@ export default function CreateTransfer(props) {
                 updateBalance();
             })
             .catch(function (error) {
-                // console.log(error);
+                 alert(error.response.data.message);
             })
+        }else{
+            alert(alertMessage);
+        }
     }
 
     function updateBalance(){
+            setRenderModal(!renderModal);
             setAcctBalance(acctBalance - amount); 
             let divid = `${acctSrc}b`;
             document.getElementById(divid).innerHTML = `Balance: $${acctBalance - amount}`;  
@@ -85,15 +107,15 @@ export default function CreateTransfer(props) {
             Acct #{props.accountID}<br /><br />
 
             Transfer To:<br />
-            <input type="number" value={acctDest} onChange={(e) => setAcctDest(e.target.value)} /><br /><br />
+            <input type="number" min="0.01" value={acctDest} onChange={(e) => setAcctDest(e.target.value)} /><br /><br />
 
             Amount:<br />
-            <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} /><br /><br />
+            <input type="number" min="0.01" value={amount} onChange={(e) => setAmount(e.target.value)} /><br /><br />
             {renderModal ? <TransferModal close={setRenderModal} /> : ""}
             Note:<br />
             <p>Transfer from acct {acctSrc} to acct {acctDest}</p><br />
 
-            <button className="complete-btn" onClick={() => { createNewTransaction(); setRenderModal(!renderModal) }}>Complete Transfer</button>
+            <button className="complete-btn" onClick={() => { createNewTransaction() }}>Complete Transfer</button>
         </>
     )
 }
