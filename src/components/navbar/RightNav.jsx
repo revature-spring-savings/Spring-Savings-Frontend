@@ -7,8 +7,8 @@ import Profile from "../../assets/icons/profile.png"
 import Logout from "../../assets/icons/logout.png"
 import Login from "../../assets/icons/login.png"
 import Info from "../../assets/icons/information.png"
-import { useLogin } from '../../context/LoginProvider';
-import {BankContext} from '../../context/bank-context'
+import { useLogin } from '../../Context/LoginProvider';
+import {BankContext} from '../../Context/bank-context'
 
 const Ul = styled.ul`
     padding-left: 1rem;

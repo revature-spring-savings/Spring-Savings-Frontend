@@ -9,7 +9,7 @@ import * as SockJS from "sockjs-client";
 import * as Stomp from "stompjs";
 import PulseLoader from "react-spinners/PulseLoader";
 import TransitionGroup from 'react-transition-group/TransitionGroup';
-import {BankContext} from '../../context/bank-context'
+import {BankContext} from '../../Context/bank-context'
 
 function Chat() {
   const [showTextBox, setShowTextBox] = useState(false)
@@ -201,7 +201,7 @@ function Chat() {
   }
 
   return (
-    <div className='mainCont' >
+    <div className="mainCont">
         
       <div className='chatWrap' style={{height:chatWrapHeight, }}>
 

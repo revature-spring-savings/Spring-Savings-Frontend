@@ -12,8 +12,8 @@ import {
 import { Marginer } from "../marginer/Marginer";
 import { AccountContext } from "./accountContext";
 import IdleTime from "../../IdleTime";
-import { useLogin } from "../../../context/LoginProvider";
-import { BankContext } from '../../../context/bank-context'
+import { useLogin } from "../../../Context/LoginProvider";
+import { BankContext } from '../../../Context/bank-context'
 
 
 //import { RestoreTwoTone } from "@material-ui/icons";

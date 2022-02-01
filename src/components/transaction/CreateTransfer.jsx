@@ -31,7 +31,6 @@ export default function CreateTransfer(props) {
         },
         {
             accountID: acctDest,
-            userID: userID,
             amount: amount,
             transactionDate: today,
             transactionNote: `Transfer from acct ${acctSrc} to acct ${acctDest}`,
