@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
-import { useLogin } from "../../context/LoginProvider";
+import { useLogin } from "../../Context/LoginProvider";
 import { AccountByAcctID } from "./AccountByAcctID";
 
 // this page displays all of the user's accounts on the dashboard

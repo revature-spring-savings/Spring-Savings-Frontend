@@ -17,24 +17,29 @@ export const CreepyButtonConst = ({
     children,
     type,
     onClick,
-    buttonStyle, 
-    buttonSize}) => {
+    buttonStyle,
+    buttonSize }) => {
+    const checkButtonStyle = STYLES.includes(buttonStyle) ? buttonStyle : STYLES[0];
 
-        const checkButtonStyle = STYLES.includes(buttonStyle) ? buttonStyle : STYLES[0];
+    const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
 
-        const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
+    return (
 
-        return(
-            <Link to="/" className='cbtn-mobile'>
-                <button
+        <Link to="/" className='cbtn-mobile'>
+            <button
                 className={`btn ${checkButtonStyle} ${checkButtonSize}`}
                 onClick={onClick}
                 type={type}
-                >
-                    {children}
-                </button>
-            </Link>
-        )
-        
+            >
+                {children}
+            </button>
+        </Link>
+
+    )
+
+
+
+
+
 
 }

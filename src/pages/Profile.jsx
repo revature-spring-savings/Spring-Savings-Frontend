@@ -1,6 +1,6 @@
 import React from "react";
 import UserInformation from "../components/user/UserInformation";
-import { useLogin } from "../context/LoginProvider";
+import { useLogin } from "../Context/LoginProvider";
 
 const Profile = (props) => {
   const currentUser = props.currentUser;

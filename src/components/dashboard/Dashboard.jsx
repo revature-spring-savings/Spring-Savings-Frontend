@@ -1,7 +1,7 @@
 import { AccountByUserID } from "../account/AccountByUserID"
 import './dashboard.scss'
 import IdleTime from '../IdleTime'
-import { useLogin } from '../../context/LoginProvider';
+import { useLogin } from '../../Context/LoginProvider';
 
 export default function Dashboard() {
     const {loginUsername} = useLogin();

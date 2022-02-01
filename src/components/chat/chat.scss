@@ -41,6 +41,7 @@
   right: 200px;
   transition: all 1s;
   font-family: "Future-Std-Bold";
+  
 
   .chatBoxCont {
     width: 100%;
@@ -51,6 +52,8 @@
     flex-direction: column;
     border-radius: 20px;
     padding: 15px 20px;
+
+ 
 
     .chatHeader {
       display: flex;
@@ -161,4 +164,16 @@
 #support-tagline{
   color: rgb(53, 26, 8);;
   padding: 0px;
+}
+
+#tArea{
+  background-color: transparent ;
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+
+.react-reveal-chatBoxCont{
+  border: 1px solid black;
 }
