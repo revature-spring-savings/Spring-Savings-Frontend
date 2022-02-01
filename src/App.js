@@ -8,12 +8,13 @@ import CreateAccount from './components/account/CreateAccount';
 import Information from "./pages/Information";
 import Logout from './pages/Logout';
 import { Landing } from './pages/Landing';
-import LoginButton from "./pages/LoginButton";
-import LogoutButton from "./pages/LogoutButton";
+// import LoginButton from "./pages/LoginButton";
+// import LogoutButton from "./pages/LogoutButton";
 import Login from "./pages/Login";
 import CreepyEasterEgg from "./components/video/CreepyEasterEgg";
 import {BankContext} from './Context/bank-context'
 import {useContext} from 'react';
+import Profile from './pages/Profile';
 
 
 // PLEASE READ

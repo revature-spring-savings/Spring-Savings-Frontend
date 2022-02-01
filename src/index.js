@@ -16,8 +16,3 @@ ReactDOM.render(
   </BankContextProvider>,
   document.getElementById('root')
 );
-
-</React.StrictMode>
-,
-  document.getElementById('root'),
-);
