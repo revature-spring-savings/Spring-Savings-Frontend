@@ -21,11 +21,8 @@ export default function CreateTransfer(props) {
     let today = `${month < 10 ? `0${month}` : `${month}`}/${newDate.getDate()}/${newDate.getFullYear()}`;
 
     function createNewTransaction() {
-        if( amount > acctBalance){
-            //modal popup saying you can't exceed balance
-            //<TransactionModal setRenderModal={setRenderModal} transactionType={"WITHDRAW-OVERDRAFT"} /> 
-            alert("cannot perform transaction because withdrawal cannot exceed balance");
-        } else{
+        console.log("userID is "+userID);
+
         axios.post('http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/transactions', [{
             accountID: acctSrc,
             userID: userID,
@@ -43,12 +40,10 @@ export default function CreateTransfer(props) {
         }])
             .then((response) => {
                 console.log(response.data);
-                setRenderModal(!renderModal);
             })
             .catch(function (error) {
                 console.log(error);
             })
-        }
     }
 
     function moreDetails(accountID) {
@@ -81,7 +76,7 @@ export default function CreateTransfer(props) {
             Note:<br />
             <p>Transfer from acct {acctSrc} to acct {acctDest}</p><br />
 
-            <button className="complete-btn" onClick={() => {createNewTransaction()}}>Complete Transfer</button>
+            <button className="complete-btn" onClick={() => {createNewTransaction(); setRenderModal(!renderModal)}}>Complete Transfer</button>
         </>
     )
 }
