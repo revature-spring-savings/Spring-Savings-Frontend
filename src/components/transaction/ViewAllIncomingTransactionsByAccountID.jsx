@@ -20,7 +20,7 @@ export default function ViewAllIncomingTransactionsByAccountID(props) {
     useEffect(() => {
         axios.get(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/transactions/accountID/${accountID}`)
             .then((response) => {
-                console.log(response.data);
+                // console.log(response.data);
                 setTransactions(response.data);
             })
     }, []);
@@ -45,7 +45,7 @@ export default function ViewAllIncomingTransactionsByAccountID(props) {
             <table class="transactionsTable">
                 <thead>
                     <tr>
-                        <th id="tid">Transaction</th>
+                        <th id="tid">ID</th>
                         <th id="amt">Amount</th>
                         <th id="tdate">Date</th>
                         <th id="tnote">Note</th>

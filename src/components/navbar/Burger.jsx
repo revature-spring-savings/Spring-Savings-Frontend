@@ -4,7 +4,6 @@ import RightNav from "./RightNav";
 
 //Animation for the hamburger switching between the menus
 const BurgerStyle = styled.div`
-
     .lines {
         background-color: ${({ open }) => open ? "#ccc" : "#333"};
         

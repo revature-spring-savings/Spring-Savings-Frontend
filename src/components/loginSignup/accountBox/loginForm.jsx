@@ -37,6 +37,7 @@ import { BankContext } from '../../../Context/bank-context'
 */
 
 export function LoginForm() {
+  // useContext is used to store user info -> replaced SessionStorage
   const { setLoginUserID, setLoginUsername } = useLogin();
   const { switchToSignup } = useContext(AccountContext);
   const loginCTX = useContext(BankContext)
@@ -56,6 +57,7 @@ export function LoginForm() {
   const handlePassword = (event) => setValues({ ...values, password: event.target.value });
 
   function loginFormData() {
+
     let isValid = true;
 
     if (values.username.length < 1 || values.password.length < 1) { // fields cannot be empty
@@ -80,12 +82,12 @@ export function LoginForm() {
         }
 
       }).catch(function (err) {
-        console.log(err);
+        //console.log(err);
         //console.log(err.response.status)
         if (err.response.status == 400 || err.response.status == 500) {
           alert("Invalid username or password");
         }
-        
+
       }
       );
 

@@ -10,14 +10,18 @@ import Info from "../../assets/icons/information.png"
 import { useLogin } from '../../Context/LoginProvider';
 import { BankContext } from '../../Context/bank-context'
 
+// Mobile Mode for the main nav bar
 const Ul = styled.ul`
     padding-left: 1rem;
+
+    // Media queried for 768px and below
     @media (max-width: 768px) {
         transform: ${({ open }) => open ? "translatex(0)" : "translateX(100%)"}; 
     }
 `;
 
 const RightNav = ({ open }) => {
+    // useContext is used here to conditional rendering of the navbar
     const {
         loginUserID,
         setLoginUserID,
@@ -27,18 +31,20 @@ const RightNav = ({ open }) => {
 
     const location = useLocation();
 
+    // Removes the user's information from the State Management
     const handleRemoveSession = () => {
         setLoginUserID(0);
         setLoginUsername("");
         rightNav.onSetIsLoggedIn(false);
     }
 
-    console.log(`Is the user logged in?: ${rightNav.onIsLoggedIn}`);
-    console.log(`User ID: ${loginUserID}`);
-    console.log(`Username: ${loginUsername}`);
+    // console.log(`Is the user logged in?: ${rightNav.onIsLoggedIn}`);
+    // console.log(`User ID: ${loginUserID}`);
+    // console.log(`Username: ${loginUsername}`);
 
     return (
         <>
+            {/* Renders Navbar according to login status */}
             {rightNav.onIsLoggedIn ?
                 <Ul open={open}>
                     <li className="label">

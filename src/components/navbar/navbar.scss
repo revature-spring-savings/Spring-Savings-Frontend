@@ -2,21 +2,22 @@
 @use "../../scss/font" as *;
 @use "../../scss/mixins" as *;
 
-// AccountNavBar.jsx
+// AccountNavBar.jsx -> we were too lazy to change the name (Sorry)
 .bottom-navbar {
     list-style-type: none;
     margin: 55px 0 0 0;
     padding: 0;
-    background: $nav-bar-color;
     width: 100%;
     position: fixed;
     z-index: 990;
     top: 0%;
-    // border-top: 1px $rev-lightgrey solid;
+    transition: all .5s ease-in-out;
+    background: transparent;
+    opacity: 0;
+    border-top: 1px $rev-lightgrey solid;
 
     @media (max-width: 768px) {
         margin: 0;
-        // padding: 55px 0 0 0;
     }
     
     .div-logo {
@@ -25,9 +26,9 @@
         color: $rev-darkgrey;
         font-weight: bold;
         border-bottom: 1px rgb(204, 204, 204) solid;
-        
+        display: none;
         @media (max-width: 768px) {
-            display: none;
+            display: block;
         }
     }
     .left-bottomNavbar {
@@ -35,7 +36,7 @@
         list-style: none;
         display:inline-block;
         margin: auto;
-
+        color: rgba(0, 0, 0, 0.5);
         a {
             text-decoration: none;
             @include animate-underline-left;
@@ -43,6 +44,11 @@
     }
 } 
 
+// onScroll animation
+.scroll-nav {
+    background: $nav-bar-color;
+    opacity: 100%;
+}
 
 // Navbar.jsx
 .nav-bar {

@@ -25,7 +25,13 @@ export default function CreateAccount() {
             if (amount < 100) {
                 setCurrType("CHECKING");
                 setRenderModal(true);
-                console.log("Checking requires $100 minimum to open");
+
+                // const popup = document.getElementById("AJvalidation");
+                // console.log(<ValidationPopUp />);
+                // document.getElementById("AJvalidation").append(<ValidationPopUp />); 
+                // document.getElementById("AJvalidation").append("Checking requires $100 minimum to open");
+                //console.log("Checking requires $100 minimum to open");
+
             } else {
                 isValid = true;
             }
@@ -34,7 +40,9 @@ export default function CreateAccount() {
             if (amount < 50) {
                 setCurrType("SAVINGS");
                 setRenderModal(true);
-                console.log("Saving requires $50 minimum to open");
+                //  document.getElementById("AJvalidation").append("Saving requires $50 minimum to open");
+                //console.log("Saving requires $50 minimum to open");
+
             } else {
                 isValid = true;
             }
@@ -46,12 +54,14 @@ export default function CreateAccount() {
                 accountType: accountType
             })
                 .then((response) => {
-                    console.log(response.data);
+
+                    //console.log(response.data);
+
                     setCurrType("SUCCESS"); // if account creation successful, render sucess page
                     setRenderModal(true);
                 })
                 .catch(function (error) {
-                    console.log(error);
+                    //console.log(error);
                 })
         }
 

@@ -5,9 +5,9 @@ import "./UserInformation.scss";
 
 export default function UserInformation(props) {
     const currUser = props.currentUser;
-    console.log(currUser)
+    // console.log(currUser)
     const { loginUsername } = useLogin();
-    console.log(loginUsername)
+    // console.log(loginUsername)
     return (
         <>
             <div className="outer-container">
