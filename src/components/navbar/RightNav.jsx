@@ -48,6 +48,11 @@ const RightNav = ({ open }) => {
             {rightNav.onIsLoggedIn ?
                 <Ul open={open}>
                     <li className="label">
+                        <p>
+                            {loginUsername}
+                        </p>
+                    </li>
+                    <li className="label">
                         <img src={Dashboard} className="navbar-icon" alt="dashboard" />
                         <Link to="/home" className={location.pathname === "/home" ? "active" : "non-active"}>
                             Dashboard

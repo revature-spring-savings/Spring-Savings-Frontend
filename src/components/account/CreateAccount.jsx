@@ -48,7 +48,8 @@ export default function CreateAccount() {
             }
         }
         if (isValid) {           
-            axios.post(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/accounts/createAccount/${loginUserID}`, {
+           axios.post(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/accounts/createAccount/${loginUserID}`, {
+            //axios.post(`http://localhost:9090/accounts/createAccount/${loginUserID}`, {
                 userID: loginUserID,
                 accountBalance: amount,
                 accountType: accountType
