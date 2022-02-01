@@ -3,11 +3,11 @@ import "./navbar.scss";
 import { Link } from 'react-router-dom';
 import Burger from "./Burger";
 import Logo from "../../assets/logo/logo.png"
-import {BankContext} from '../../context/bank-context'
+import {BankContext} from '../../Context/bank-context'
 
 //Renders the navbar in both mobile and desktop
 export default function Navbar() {
-    let rightNav = useContext(BankContext)
+    let rightNav = useContext(BankContext);
     console.log(rightNav);
     return (
         <div className="nav-bar">

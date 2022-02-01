@@ -1,5 +1,5 @@
 
-import './chat.css';
+import './chat.scss';
 import {MdTextsms} from 'react-icons/md'
 import {AiFillBank} from 'react-icons/ai'
 import {RiCloseCircleLine} from 'react-icons/ri'
@@ -10,7 +10,7 @@ import * as SockJS from "sockjs-client";
 import * as Stomp from "stompjs";
 import PulseLoader from "react-spinners/PulseLoader";
 import TransitionGroup from 'react-transition-group/TransitionGroup';
-import {BankContext} from '../../context/bank-context'
+import {BankContext} from '../../Context/bank-context'
 
 
 
@@ -225,7 +225,7 @@ function Chat() {
   }
 
   return (
-    <div style={{position: "sticky"}} >
+    <div className="mainCont">
         
       <div className='chatWrap' style={{height:chatWrapHeight, }}>
 

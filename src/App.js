@@ -11,8 +11,8 @@ import Logout from './pages/Logout';
 import { Landing } from './pages/Landing';
 import Login from "./pages/Login"
 import CreepyEasterEgg from "./components/video/CreepyEasterEgg";
-import LoginProvider from './context/LoginProvider';
-import { BankContext } from './context/bank-context'
+import LoginProvider from './Context/LoginProvider';
+import { BankContext } from './Context/bank-context'
 import { useContext } from 'react';
 
 
