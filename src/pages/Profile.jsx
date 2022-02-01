@@ -9,7 +9,7 @@ const Profile = (props) => {
     <>
       <div className="page-container">
         <div className="user-information">
-          <UserInformation currentUser={currentUser} />
+          <UserInformation currentUser={loginUsername} />
         </div>
       </div>
     </>

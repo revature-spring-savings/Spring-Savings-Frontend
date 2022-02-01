@@ -4,7 +4,6 @@ import ReactPaginate from "react-paginate";
 
 export default function ViewAllIncomingTransactionsByAccountID(props) {
     const [transactions, setTransactions] = useState([]);
-    const [userID, setUserID] = useState(2);
     const [accountID, setAccountID] = useState(props.accountID);
     const [pageNumber, setPageNumber] = useState(0);
 

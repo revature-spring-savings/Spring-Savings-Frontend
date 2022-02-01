@@ -4,7 +4,7 @@ const LoginContext = createContext();
 
 const LoginProvider = ({children}) => {
     const [loginUserID, setLoginUserID] = useState(0);
-    const [loginUsername, setLoginUsername] = useState("")
+    const [loginUsername, setLoginUsername] = useState("");
     
     return (
         <LoginContext.Provider value={{

@@ -1,10 +1,13 @@
 import React from "react";
+import { useLogin } from "../../context/LoginProvider";
 import UserCard from "./UserCard";
 import "./UserInformation.scss";
 
 export default function UserInformation(props) {
     const currUser = props.currentUser;
     console.log(currUser)
+    const {loginUsername} = useLogin();
+    console.log(loginUsername)
     return (
         <>
             <div className="outer-container">
@@ -13,7 +16,7 @@ export default function UserInformation(props) {
                         <div>
                             <div>
                                 {/* <h1 id="t2">Profile</h1> */}
-                                < UserCard currUser={currUser} />
+                                < UserCard currUser={loginUsername} />
                             </div>
 
                         </div>

@@ -4,16 +4,12 @@ import ReactDOM from 'react-dom';
 import ViewAllTransactionsByAccountID from '../transaction/ViewAllTransactionsByAccountID';
 import ViewAllIncomingTransactionsByAccountID from '../transaction/ViewAllIncomingTransactionsByAccountID';
 import ViewAllOutgoingTransactionsByAccountID from '../transaction/ViewAllOutgoingTransactionsByAccountID';
-
-
 import CreateSingleTransaction from '../transaction/CreateSingleTransaction';
 import CreateTransfer from '../transaction/CreateTransfer';
-import { User } from '@auth0/auth0-react';
+
 
 export const AccountByAcctID = (props) => {
     const [account, setAccount] = useState([]);
-
-
 
     useEffect(()=>{
         axios.get(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/accounts/${props.accountID}`).then(res =>{
@@ -63,8 +59,6 @@ export const AccountByAcctID = (props) => {
 
                 <button  className="gray-btn" onClick={(e)=>withDep(account.accountID, account.accountBalance)}>Withdraw/Deposit</button>
                 <button  className="gray-btn" onClick={(e)=>transfer(account.accountID, account.accountBalance)}>Transfer</button><br/>
-
-                
 
                 <h4 id="recent-trans">Recent Transactions</h4>
                 <button className="trans-btn"  onClick={(e)=>viewAll(account.accountID)}>View All</button>

@@ -12,12 +12,6 @@ export const AccountByUserID = () => {
   //const [userID, setUserID] = useState(2);
 
   useEffect(() => {
-
-    //setting values from session storage here but not working
-    console.log("on dashboard, userID is " + sessionStorage.getItem("userID")+" (hardcoded)");
-    //also not working. saves it as 0
-    //setUserID(parseInt(sessionStorage.getItem("userID")));
-
     axios
       .get(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/accounts/${loginUserID}/all-accounts`)
       .then((res) => {
