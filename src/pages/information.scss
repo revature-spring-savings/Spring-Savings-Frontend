@@ -49,7 +49,6 @@
         float: left;
         // overflow-y:auto;
         width: 100%;
-        
     }
 
     .content-spring-area{
@@ -60,7 +59,6 @@
         justify-items: center;
         // overflow: hidden;
         width: 100%;
-
     }
     
     .latestContent-spring{
@@ -70,14 +68,12 @@
         justify-content: center;
         padding: 0;
         width: 100%;
-
     }
 
     .more-content-spring-here{
         background-color: #FCB414;
         box-shadow: 0 0 9px 3px rgb(58, 58, 58);
         width: 100%;
-
     }
 }
 
@@ -100,7 +96,6 @@
         border-radius: 20px;
         min-width: 400px;
         width: 100%;
-
     }
 
     .contact-infoCards{
@@ -109,7 +104,6 @@
         float: left;
         // overflow-y:auto;
         width: 100%;
-
     }
 
     .contact-info-area{
@@ -120,21 +114,18 @@
         align-items: center;
         // overflow: hidden;
         width: 100%;
-
     }
     
     .latestContact-info{
         display: flex;
         flex-direction: row;
         width: 100%;
-
     }
 
     .more-contact-info-here{
         background-color: #FCB414;
         box-shadow: 0 0 9px 3px rgb(58, 58, 58);
         width: 100%;
-
     }
 }
 
@@ -156,14 +147,13 @@
         text-decoration: none;
         color: $rev-blue;
         width: 100%;
-
     }
+
     span{
         color: $rev-orange;
         font-size: large;
         padding: 10px;
         width: 100%;
-
     }
 
     .springinfoTitle{
@@ -174,7 +164,6 @@
         border-radius: 20px;
         // min-width: 400px;
         width: 100%;
-
     }
 
     .springinfoCards{
@@ -183,7 +172,6 @@
         float: left;
         // overflow-y:auto;
         width: 100%;
-
     }
 
     .springinfo-area{
@@ -194,15 +182,12 @@
         align-items: center;
         // overflow: hidden;
         width: 100%;
-
-
     }
     
     .latestSpringinfo{
         display: flex;
         flex-direction: row;
         width: 100%;
-
     }
 
     .more-springinfo-here{
