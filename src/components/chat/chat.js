@@ -212,8 +212,7 @@ function Chat() {
 
           <div className='chatBoxCont' style={{}}>
             <Fade top opposite when={showX}>
-          <div style={{position:'absolute', top:'-10%', right:'-20px', 
-            cursor:'pointer',   }} onClick={()=>setTimeout(() => {
+          <div className='chatHeader' onClick={()=>setTimeout(() => {
               setTranscript([])
 
               if(repUname){
@@ -224,7 +223,7 @@ function Chat() {
 
             }, 500)}>
                 <RiCloseCircleLine  size='30'
-                color={'salmon'}
+                color={'grey'}
                 onClick={()=>{
                   setShowX(false)
                   setTimeout(() => {
