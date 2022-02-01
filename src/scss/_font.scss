@@ -1,28 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Heebo&display=swap');
+@font-face{
+  font-family: "Future-Std-Bold";
+  src: url(../../public/assets/fonts/Futura-Std-Bold.otf);
+}
 
-$header-font: 'Heebo', sans-serif;
+@font-face{
+  font-family: "Future-Std-Book";
+  src: url(../../public/assets/fonts/Futura-Std-Book.otf);
+}
+
+@font-face{
+  font-family: "Future-Std-Heavy";
+  src: url(../../public/assets/fonts/Futura-Std-Heavy.otf);
+}
+
+@font-face{
+  font-family: "Future-Std-Medium";
+  src: url(../../public/assets/fonts/Futura-Std-Medium.otf);
+}
 
 $bold-font: 'Futura-Std-Bold', sans-serif;
 $heavy-font: 'Futura-Std-Heavy', sans-serif;
 $book-font: 'Futura-Std-Book', sans-serif;
 $medium-font: 'Futura-Std-Medium', sans-serif;
-
-@font-face{
-    font-family: "Future-Std-Bold";
-    src: url(../../public/assets/fonts/Futura-Std-Bold.otf);
-  }
-
-  @font-face{
-    font-family: "Future-Std-Book";
-    src: url(../../public/assets/fonts/Futura-Std-Book.otf);
-  }
-
-  @font-face{
-    font-family: "Future-Std-Heavy";
-    src: url(../../public/assets/fonts/Futura-Std-Heavy.otf);
-  }
-
-  @font-face{
-    font-family: "Future-Std-Medium";
-    src: url(../../public/assets/fonts/Futura-Std-Medium.otf);
-  }

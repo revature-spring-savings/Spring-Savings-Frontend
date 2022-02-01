@@ -8,7 +8,7 @@ function IdleTime() {
     const idleTimerRef = useRef(null)
         const onIdle = () => {
           navigate("/");
-            console.log("user was idle so is not being logged out")
+            // console.log("user was idle so is not being logged out")
         }
   return <div>
 <IdleTimer ref={idleTimerRef} timeout={15 * 60 * 1000} onIdle={onIdle} >

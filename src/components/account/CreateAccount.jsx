@@ -2,7 +2,9 @@ import axios from "axios";
 import { useState } from "react";
 import "./CreateAccount.scss"
 import Modal from "../modal/Modal";
+import { useLogin } from "../../Context/LoginProvider";
 import AccountNavbar from "../navbar/AccountNavBar";
+
 
 export default function CreateAccount() {
     const [accountType, setAccountType] = useState('');
@@ -10,13 +12,9 @@ export default function CreateAccount() {
     const [accountBtn, setAccountBtn] = useState(false);
     const [renderModal, setRenderModal] = useState(false);
     const [currType, setCurrType] = useState("");
+    const {loginUserID} = useLogin();
 
     let isValid = false;
-
-    var userID = 1;
-    // let newDate = new Date();
-    // let month = newDate.getMonth() + 1;
-    // let today = `${month < 10 ? `0${month}` : `${month}`}/${newDate.getDate()}/${newDate.getFullYear()}`;
 
     // validation
     const submit = (e) => {
@@ -27,11 +25,13 @@ export default function CreateAccount() {
             if (amount < 100) {
                 setCurrType("CHECKING");
                 setRenderModal(true);
+
                 // const popup = document.getElementById("AJvalidation");
                 // console.log(<ValidationPopUp />);
                 // document.getElementById("AJvalidation").append(<ValidationPopUp />); 
                 // document.getElementById("AJvalidation").append("Checking requires $100 minimum to open");
-                console.log("Checking requires $100 minimum to open");
+                //console.log("Checking requires $100 minimum to open");
+
             } else {
                 isValid = true;
             }
@@ -41,35 +41,32 @@ export default function CreateAccount() {
                 setCurrType("SAVINGS");
                 setRenderModal(true);
                 //  document.getElementById("AJvalidation").append("Saving requires $50 minimum to open");
-                console.log("Saving requires $50 minimum to open");
+                //console.log("Saving requires $50 minimum to open");
+
             } else {
                 isValid = true;
             }
         }
-        if (isValid) {
-            setCurrType("SUCCESS"); // if account creation successful, render sucess page
-            setRenderModal(true);
-            axios.post(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/accounts/createAccount/${userID}`, {
-                userID: sessionStorage.getItem("userID"),
+        if (isValid) {           
+           axios.post(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/accounts/createAccount/${loginUserID}`, {
+            //axios.post(`http://localhost:9090/accounts/createAccount/${loginUserID}`, {
+                userID: loginUserID,
                 accountBalance: amount,
                 accountType: accountType
             })
                 .then((response) => {
-                    console.log(response.data);
+
+                    //console.log(response.data);
+
+                    setCurrType("SUCCESS"); // if account creation successful, render sucess page
+                    setRenderModal(true);
                 })
                 .catch(function (error) {
-                    console.log(error);
+                    //console.log(error);
                 })
         }
 
-        // window.location.reload(true);
-
     }
-
-    //  const resetVal = (e) => {
-    //      e.preventDefault();
-    //      document.getElementById("AJvalidation").innerHTML = "";
-    //  }
 
 
     //get userID and accountID from useContext

@@ -5,10 +5,8 @@ import "../account/pagination.scss";
 
 export default function ViewAllTransactionsByAccountID(props) {
     const [transactions, setTransactions] = useState([]);
-    const [userID, setUserID] = useState(2);
     const [accountID, setAccountID] = useState(props.accountID);
     const [pageNumber, setPageNumber] = useState(0);
-    
 
     // change this to view more transactions per page
     const transactionsPerPage = 5;
@@ -23,7 +21,7 @@ export default function ViewAllTransactionsByAccountID(props) {
     useEffect(() => {
         axios.get(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/transactions/accountID/${accountID}`)
             .then((response) => {
-                console.log(response.data);
+                // console.log(response.data);
                 setTransactions(response.data);
             })
     }, []);
@@ -33,7 +31,7 @@ export default function ViewAllTransactionsByAccountID(props) {
             <table class="transactionsTable">
                 <thead>
                     <tr>
-                        <th id="tid">Transaction</th>
+                        <th id="tid">ID</th>
                         <th id="amt">Amount</th>
                         <th id="tdate">Date</th>
                         <th id="ttype">Type</th>
@@ -52,6 +50,7 @@ export default function ViewAllTransactionsByAccountID(props) {
                     )
                 })}
             </table>
+            {transactions.length <= 5 ? "" :  
             <div>
                 <center>
             <ReactPaginate
@@ -66,6 +65,7 @@ export default function ViewAllTransactionsByAccountID(props) {
             activeClassName={"paginationActive"}
         /></center>
             </div>
+            }
         </>
     )
 }

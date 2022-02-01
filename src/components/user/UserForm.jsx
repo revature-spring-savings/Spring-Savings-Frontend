@@ -24,40 +24,16 @@ export default function UserForm(props) {
 
     const editForm = props.formState;
 
-    const handleFirstName = (e) => {
-        setFirstName(e.target.value);
-    }
-
-    const handleLastName = (e) => {
-        setLastname(e.target.value);
-    }
-
-    const handleEmail = (e) => {
-        setEmail(e.target.value);
-    }
-
-    const handleUsername = (e) => {
-        setUsername(e.target.value);
-    }
-
-    const handlePassword = (e) => {
-        setPassword(e.target.value);
-    }
-
-    const handlePhoneNum = (e) => {
-        setPhoneNum(e.target.value);
-    }
-
-    const handleDob = (e) => {
-        setDob(e.target.value);
-    }
-
-    const handleClickShowPassword = (e) => {
-        setShowPassword(!showPassword);
-    }
+    const handleFirstName = (e) => setFirstName(e.target.value);
+    const handleLastName = (e) => setLastname(e.target.value);
+    const handleEmail = (e) => setEmail(e.target.value);
+    const handleUsername = (e) => setUsername(e.target.value);
+    const handlePassword = (e) => setPassword(e.target.value);
+    const handlePhoneNum = (e) => setPhoneNum(e.target.value);
+    const handleDob = (e) => setDob(e.target.value);
+    const handleClickShowPassword = (e) => setShowPassword(!showPassword);
 
     // update user information
-
     const updateUserInformation = () => {
         props.setCurrentUser({
             userID: currentUser.userID,
@@ -69,7 +45,13 @@ export default function UserForm(props) {
             phoneNumber: phoneNum,
             dob: dob
         });
-        axios.put(`http://localhost:8081/users/update/${currentUser.userID}`, {
+
+        let newDate = new Date();
+    let month = newDate.getMonth() + 1;
+    let today = `${month < 10 ? `0${month}` : `${month}`}/${newDate.getDate()}/${newDate.getFullYear()}`;
+
+        //http://localhost:8081/users/update
+        axios.put(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/users/update/${currentUser.userID}`, {
             userID: currentUser.userID,
             firstName: firstName,
             lastName: lastName,
@@ -79,7 +61,7 @@ export default function UserForm(props) {
             phoneNumber: phoneNum,
             dob: dob
         }).then(res => {
-            console.log(res.data)
+            // console.log(res.data)
         }).catch(err =>
             console.log(`Error occurred while updating ${err}`)
         )
@@ -121,7 +103,7 @@ export default function UserForm(props) {
                 </label>
             </form>
             <button id="submit-update-form" className="update-form-button" onClick={() => {updateUserInformation(); setRenderModal(!renderModal)}}>Update</button>
-            <button id="cancel-update-form" className="update-form-button" onClick={() => editForm(false)}>Cancel</button>
+            <button id="cancel-update-form" className="update-form-button" onClick={() => editForm(false)}>Go Back</button>
             {renderModal ? <UpdateAccountModal close={setRenderModal} /> : ""}
         </div>
 

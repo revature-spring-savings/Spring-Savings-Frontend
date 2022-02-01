@@ -6,8 +6,8 @@ import { AccountContext } from "./accountContext";
 import { SignupForm } from "./signupForm";
 
 const BoxContainer = styled.div`
-  width: 320px;
-  min-height: 568px;
+  width: 375px;
+  min-height: 600px;
   display: flex;
   flex-direction: column;
   /* justify-content: space-between; */
@@ -15,26 +15,13 @@ const BoxContainer = styled.div`
   box-shadow: 0 0 2px  rgba(136, 136, 136, 0.679);
   position: relative;
   overflow: hidden;
-  //Media Queries
-  //iphone 6
-  @media only screen and (min-width: 375px) {
-    width: 375px;
-    min-height: 667px;
-  }
-  //iphone 6 plus
-  @media only screen and (min-width: 375px) {
-    width: 375px;
-    min-height: 600px;
-  }
-  //iphone x
-  @media only screen and (min-width: 375px) {
-    width: 375px;
-  }
-  //ipad and above to Desktop
-  @media only screen and (min-width: 768px) {
-    width: 375px;
-    min-height: 600px;
-    border-radius: 19px;
+  border-radius: 19px;
+
+  @media only screen and (max-width: 768px) {  
+    width: 100vw;
+    min-height: 568px;
+    border-radius: 0px;
+    height: 100vh;
   }
 `;
 
