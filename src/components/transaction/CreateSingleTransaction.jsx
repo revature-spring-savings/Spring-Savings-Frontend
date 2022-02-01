@@ -10,7 +10,7 @@ import { useLogin } from "../../Context/LoginProvider";
 import ReactDOM from 'react-dom';
 
 export default function CreateNewTransaction(props) {
-    const { loginUserID } = useLogin;
+  //  const { loginUserID } = useLogin;
     const [transactionType, setTransactionType] = useState('');
     const [transactionNote, setTransactionNote] = useState('');
     const [accountID, setAccountID] = useState(props.accountID);
@@ -19,10 +19,11 @@ export default function CreateNewTransaction(props) {
     const [renderModal, setRenderModal] = useState(false);
     const [account, setAccount] = useState([]);
 
+
     // get account by accountID
     useEffect(()=>{
         axios.get(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/accounts/${props.accountID}`).then(res =>{
-            //console.log(res);
+            console.log(res);
             setAccount(res.data);
         });
     },[]);
@@ -37,36 +38,59 @@ export default function CreateNewTransaction(props) {
     }
 
     function createNewTransaction() {
-        if (transactionType === 'WITHDRAW' && amount > acctBalance) {
-            //modal popup saying you can't exceed balance
-            <TransactionModal setRenderModal={true} transactionType='OVERDRAFT' />
-            alert("Withdrawal cannot exceed balance!");
+        let isValid = true;
+        let alertMessage = "";
+        
+        if(transactionType === ""){
+            isValid = false;
+            alertMessage = alertMessage + "Please select a transaction type\n";
+        }
 
-        } else {
-            axios.post("http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/transactions", [{
-                accountID: accountID,
-                userID: loginUserID,
+        if(amount <= 0){
+            isValid = false;
+            alertMessage = alertMessage + "Please enter a valid amount\n";
+        }
+
+        if (transactionType == 'WITHDRAW' ) {
+            if( amount > account.accountBalance){
+                alertMessage = alertMessage + "Withdrawal cannot exceed balance!";
+                isValid = false;
+            }else{
+                console.log("else is reached");
+                isValid = true;
+            }
+        }
+      
+
+        if(isValid){
+            console.log("is valid");
+       //     axios.post("http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/transactions", [{
+        axios.post("http://localhost:9090/transactions", [{
+                accountID: props.accountID,
+                userID: account.userID,
                 amount: amount,
                 transactionDate: today,
                 transactionNote: transactionNote,
                 transactionType: transactionType
             }])
                 .then((response) => {
-                    //console.log(response.data);
-
+                    console.log(response.data);
+                    console.log("")
                     updateBalance();
                     setRenderModal(true); 
 
                 })
                 .catch(function (error) {
-                    //console.log(error);
+                    console.log(error.response.data.message);
                 })
+        }else{
+            alert(alertMessage);
         }
 
     }
 
     function updateBalance(){
-        if(transactionType==="WITHDRAW"){
+        if(transactionType=="WITHDRAW"){
             setAcctBalance(acctBalance - amount);
             let divid = `${accountID}b`;
             document.getElementById(divid).innerHTML = `Balance: $${acctBalance - amount}`;
@@ -97,12 +121,13 @@ export default function CreateNewTransaction(props) {
 
             {/* <form> */}
             <h3>Transaction </h3>
-            <input name="type" type="radio" id="withdraw" value="WITHDRAW" onClick={(e) => changeTheValue(e.target.value)} />
-            <label for="withdraw">Withdrawal</label>
 
+            <input name="type" type="radio" id="withdraw" value="WITHDRAW" onClick={(e) => changeTheValue(e.target.value)} />
+            <label htmlFor="withdraw">Withdrawal</label><br />
 
             <input name="type" type="radio" id="deposit" value="DEPOSIT" onClick={(e) => changeTheValue(e.target.value)} />
-            <label for="deposit">Deposit</label>
+            <label htmlFor="deposit">Deposit</label>
+
             {renderModal ? <TransactionModal setRenderModal={setRenderModal} transactionType={transactionType} /> : ""}
 
             <br /><br />
