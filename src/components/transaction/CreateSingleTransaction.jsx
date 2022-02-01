@@ -5,6 +5,7 @@ import { useState } from "react";
 import {AccountByAcctID} from '../account/AccountByAcctID';
 import CreateTransfer from '../transaction/CreateTransfer';
 import TransactionModal from "../modal/TransactionModal";
+import Modal from "../modal/Modal";
 
 import ReactDOM from 'react-dom';
 
@@ -82,7 +83,9 @@ export default function CreateNewTransaction(props) {
                 {/* <button  className="complete-btn" onClick={createNewTransaction}>Finalize {transactionType}</button> */}
 
             {/* </form> */}
-            {renderModal ? <TransactionModal setRenderModal={setRenderModal} transactionType={transactionType} /> : ""  }
+            {renderModal ? <TransactionModal setRenderModal={setRenderModal} transactionType={transactionType} setAmount={setAmount} /> : ""}
+            {/* {renderModal ? <Modal modalState={setRenderModal} accountType={transactionType} setAmount={setAmount} /> : ""} */}
+            {/* {renderModal ? <TransactionModal setRenderModal={setRenderModal} transactionType={transactionType} /> : ""  } */}
         </>
     )
 }

@@ -2,6 +2,7 @@ import { tab } from "@testing-library/user-event/dist/tab";
 import axios from "axios";
 import { useState } from "react";
 import ReactDOM from 'react-dom';
+import Modal from "../modal/Modal";
 
 import { AccountByAcctID } from '../account/AccountByAcctID';
 import CreateSingleTransaction from '../transaction/CreateSingleTransaction';
@@ -76,6 +77,8 @@ export default function CreateTransfer(props) {
             <p>Transfer from acct {acctSrc} to acct {acctDest}</p><br />
 
             <button className="complete-btn" onClick={createNewTransaction}>Complete Transfer</button>
+
+            {/* {acctDest ? <Modal modalState={setAcctDest} accountType={transactionType} setAmount={setAmount} /> : ""} */}
         </>
     )
 }

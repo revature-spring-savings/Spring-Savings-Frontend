@@ -25,7 +25,19 @@ export default function Modal(props) {
                         <p>Account created!</p>
                    </div>
                    
-                )    
+                )  
+                case 'DEPOSIT':
+                return (
+                    <div className="body">
+                        <p>Deposit has Been made</p>
+                   </div>
+                )
+                case 'WITHDRAW':
+                return (
+                    <div className="body">
+                        <p>Withdraw has been made</p>
+                   </div>
+                )  
                 default:
                     return null;
             }
