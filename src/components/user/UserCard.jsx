@@ -18,7 +18,7 @@ export default function UserCard() {
     axios
       .get(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/users/username/${loginUsername}`)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setCurrentUser(res.data);
       });
   }, []);

@@ -57,7 +57,7 @@ export default function UserForm(props) {
             phoneNumber: phoneNum,
             dob: dob
         }).then(res => {
-            console.log(res.data)
+            // console.log(res.data)
         }).catch(err =>
             console.log(`Error occurred while updating ${err}`)
         )

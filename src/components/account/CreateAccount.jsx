@@ -29,7 +29,7 @@ export default function CreateAccount() {
                 // console.log(<ValidationPopUp />);
                 // document.getElementById("AJvalidation").append(<ValidationPopUp />); 
                 // document.getElementById("AJvalidation").append("Checking requires $100 minimum to open");
-                console.log("Checking requires $100 minimum to open");
+                //console.log("Checking requires $100 minimum to open");
             } else {
                 isValid = true;
             }
@@ -39,7 +39,7 @@ export default function CreateAccount() {
                 setCurrType("SAVINGS");
                 setRenderModal(true);
                 //  document.getElementById("AJvalidation").append("Saving requires $50 minimum to open");
-                console.log("Saving requires $50 minimum to open");
+                //console.log("Saving requires $50 minimum to open");
             } else {
                 isValid = true;
             }
@@ -53,10 +53,10 @@ export default function CreateAccount() {
                 accountType: accountType
             })
                 .then((response) => {
-                    console.log(response.data);
+                    //console.log(response.data);
                 })
                 .catch(function (error) {
-                    console.log(error);
+                    //console.log(error);
                 })
         }
 

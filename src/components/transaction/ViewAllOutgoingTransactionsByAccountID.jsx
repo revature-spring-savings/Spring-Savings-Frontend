@@ -20,7 +20,7 @@ export default function ViewAllOutgoingTransactionsByAccountID(props) {
     useEffect(() => {
         axios.get(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/transactions/accountID/${accountID}`)
             .then((response) => {
-                console.log(response.data);
+                // console.log(response.data);
                 setTransactions(response.data);
             })
     }, []);

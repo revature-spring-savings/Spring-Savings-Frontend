@@ -37,6 +37,7 @@ import { BankContext } from '../../../Context/bank-context'
 */
 
 export function LoginForm() {
+  // useContext is used to store user info -> replaced SessionStorage
   const { setLoginUserID, setLoginUsername } = useLogin();
   const { switchToSignup } = useContext(AccountContext);
   const loginCTX = useContext(BankContext)
@@ -62,9 +63,9 @@ export function LoginForm() {
       username: values.username,
       pass: values.password
     }).then(res => {
-      //this prints correct userID
-      console.log(res.data)
-      console.log("userID from response body is " + res.data.userID);
+      // this prints correct userID
+      // console.log(res.data)
+      // console.log("userID from response body is " + res.data.userID);
       
       if(res.data) {
         setLoginUserID(res.data.userID);
