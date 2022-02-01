@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ReactDOM from 'react-dom';
 import { AccountByAcctID } from '../account/AccountByAcctID';
 import CreateSingleTransaction from '../transaction/CreateSingleTransaction';
@@ -12,16 +12,27 @@ export default function CreateTransfer(props) {
     const [acctBalance, setAcctBalance] = useState(props.accountBalance);
     const [acctDest, setAcctDest] = useState(0);
     const [amount, setAmount] = useState(0);
+
     const [renderModal, setRenderModal] = useState(false);
     // const [userID, setUserID] = sessionStorage.getItem("userID");
+
+    const [account, setAccount] = useState([]);
 
     let newDate = new Date();
     let month = newDate.getMonth() + 1;
     let today = `${month < 10 ? `0${month}` : `${month}`}/${newDate.getDate()}/${newDate.getFullYear()}`;
 
-    function createNewTransaction() {
-        console.log("userID is " + loginUserID);
+   // function createNewTransaction() {
+  
+    // get account by accountID
+    useEffect(()=>{
+        axios.get(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/accounts/${props.accountID}`).then(res =>{
+            console.log(res);
+            setAccount(res.data);
+        });
+    },[]);
 
+    function createNewTransaction() {
         axios.post('http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/transactions', [{
             accountID: acctSrc,
             userID: loginUserID,
@@ -39,10 +50,17 @@ export default function CreateTransfer(props) {
         }])
             .then((response) => {
                 console.log(response.data);
+                updateBalance();
             })
             .catch(function (error) {
                 console.log(error);
             })
+    }
+
+    function updateBalance(){
+            setAcctBalance(acctBalance - amount); 
+            let divid = `${acctSrc}b`;
+            document.getElementById(divid).innerHTML = `Balance: $${acctBalance - amount}`;  
     }
 
     function moreDetails(accountID) {

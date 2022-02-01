@@ -1,11 +1,12 @@
 import { tab } from "@testing-library/user-event/dist/tab";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { AccountByAcctID } from '../account/AccountByAcctID';
 import CreateTransfer from '../transaction/CreateTransfer';
 import TransactionModal from "../modal/TransactionModal";
 import { useLogin } from "../../Context/LoginProvider";
+
 import ReactDOM from 'react-dom';
 
 export default function CreateNewTransaction(props) {
@@ -15,9 +16,16 @@ export default function CreateNewTransaction(props) {
     const [accountID, setAccountID] = useState(props.accountID);
     const [acctBalance, setAcctBalance] = useState(props.accountBalance);
     const [amount, setAmount] = useState(0);
-    const [transactionBtn, setTransactionBtn] = useState(false);
     const [renderModal, setRenderModal] = useState(false);
-    // const [userID, setUserID] = sessionStorage.getItem("userID");
+    const [account, setAccount] = useState([]);
+
+    // get account by accountID
+    useEffect(()=>{
+        axios.get(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/accounts/${props.accountID}`).then(res =>{
+            console.log(res);
+            setAccount(res.data);
+        });
+    },[]);
 
     let newDate = new Date();
     let month = newDate.getMonth() + 1;
@@ -31,8 +39,9 @@ export default function CreateNewTransaction(props) {
     function createNewTransaction() {
         if (transactionType === 'WITHDRAW' && amount > acctBalance) {
             //modal popup saying you can't exceed balance
-            <TransactionModal setRenderModal={setRenderModal} transactionType={"WITHDRAW-OVERDRAFT"} />
-            console.log("cannot perform transaction because withdrawal cannot exceed balance");
+            <TransactionModal setRenderModal={true} transactionType='OVERDRAFT' />
+            alert("Withdrawal cannot exceed balance!");
+
         } else {
             axios.post("http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/transactions", [{
                 accountID: accountID,
@@ -44,11 +53,29 @@ export default function CreateNewTransaction(props) {
             }])
                 .then((response) => {
                     console.log(response.data);
+
+                    updateBalance();
+                    setRenderModal(true); 
+
                 })
                 .catch(function (error) {
                     console.log(error);
                 })
         }
+
+    }
+
+    function updateBalance(){
+        if(transactionType==="WITHDRAW"){
+            setAcctBalance(acctBalance - amount);
+            let divid = `${accountID}b`;
+            document.getElementById(divid).innerHTML = `Balance: $${acctBalance - amount}`;
+        } else{
+            setAcctBalance(parseFloat(acctBalance) + parseFloat(amount));
+            let divid = `${accountID}b`;
+            document.getElementById(divid).innerHTML = `Balance: $${parseFloat(acctBalance) + parseFloat(amount)}`;
+        }
+
     }
 
     function moreDetails(accountID) {
@@ -73,6 +100,7 @@ export default function CreateNewTransaction(props) {
             <input name="type" type="radio" id="withdraw" value="WITHDRAW" onClick={(e) => changeTheValue(e.target.value)} />
             <label for="withdraw">Withdrawal</label>
 
+
             <input name="type" type="radio" id="deposit" value="DEPOSIT" onClick={(e) => changeTheValue(e.target.value)} />
             <label for="deposit">Deposit</label>
             {renderModal ? <TransactionModal setRenderModal={setRenderModal} transactionType={transactionType} /> : ""}
@@ -84,9 +112,7 @@ export default function CreateNewTransaction(props) {
             Note:<br />
             <input type="text" value={transactionNote} onChange={(e) => setTransactionNote(e.target.value)} placeholder="Note" /><br /><br />
 
-            <button className="complete-btn" onClick={() => { createNewTransaction(); setRenderModal(true); }}>Finalize {transactionType}</button>
-            {/* <button  className="complete-btn" onClick={createNewTransaction}>Finalize {transactionType}</button> */}
-
+            <button className="complete-btn" onClick={() => { createNewTransaction()}}>Finalize {transactionType}</button>
             {/* </form> */}
         </>
     )

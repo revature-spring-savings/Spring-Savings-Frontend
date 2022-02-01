@@ -21,7 +21,7 @@ export default function TransactionModal(props) {
                         <p>Deposit Successful</p>
                    </div>
                 )
-                case 'WITHDRAW-OVERDRAFT':
+                case 'OVERDRAFT':
                 return (
                     <div className="body">
                          <p>Withdrawal Cannot Exceed Balance</p>
