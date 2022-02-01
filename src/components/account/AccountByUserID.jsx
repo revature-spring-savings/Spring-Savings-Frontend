@@ -37,7 +37,7 @@ export const AccountByUserID = () => {
         <div id="accountDeets">
           <p>Type: {accountType}</p>
           <br />
-          <p>Balance: ${accountBalance}</p>
+          <p id={accountID+"b"} >Balance: ${accountBalance}</p>
         </div>
 
         <div className="acctCardFooter">
@@ -57,6 +57,7 @@ export const AccountByUserID = () => {
   return (
     <>
       {accountMap}
+     
     </>
   );
 };
