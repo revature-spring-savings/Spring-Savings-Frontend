@@ -7,6 +7,7 @@ export default function AccountNavbar() {
 
     return (
         <ul className="bottom-navbar">
+            <div className="div-logo">Spring Savings</div>
             <li className="left-bottomNavbar">
                 <Link className={location.pathname === "/home" ? "active" : "non-active"} to="/home">Accounts</Link>
             </li>
