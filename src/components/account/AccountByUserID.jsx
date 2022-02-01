@@ -1,18 +1,18 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
+import { useLogin } from "../../context/LoginProvider";
 import { AccountByAcctID } from "./AccountByAcctID";
 
 // this page displays all of the user's accounts on the dashboard
 export const AccountByUserID = () => {
+  const {loginUserID} = useLogin();
   const [account, setAccount] = useState([]);
 
 // get accounts by userID
   useEffect(() => {
-    //change to useContext
-    let userNum = sessionStorage.getItem("userID");
     axios
-      .get(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/accounts/${userNum}/all-accounts`)
+      .get(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/accounts/${loginUserID}/all-accounts`)
       .then((res) => {
         setAccount(res.data);
       });

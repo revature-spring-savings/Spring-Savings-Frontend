@@ -22,7 +22,6 @@ export const Accounts = () => {
         <>
             <AccountNavbar />
             <div className='page-container'>
-
                 <ViewAllAccounts/>
             </div>
         </>

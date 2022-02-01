@@ -2,6 +2,7 @@
 @use "../../scss/font" as *;
 @use "../../scss/mixins" as *;
 
+// AccountNavBar.jsx
 .bottom-navbar {
     list-style-type: none;
     margin: 55px 0 0 0;
@@ -31,6 +32,8 @@
     }
 } 
 
+
+// Navbar.jsx
 .nav-bar {
     width: 100%;
     height: 55px;
@@ -45,54 +48,30 @@
         background-color: transparent;
     }
 
-    #link1{
-        margin: 1em;
-        justify-content: center;
-        align-items: center;
-        margin-left: 0;
-        
-        
-
-    }
-    #link2{
-        margin: 1em;
-        justify-content: center;
-        align-items: center;
-
-       
-        
-        
-
-    }
-
     #logo-bar {
         display: flex;
-        flex-direction: row;
         justify-content: center;
         align-items: center;
         
-        img {
-            width: 80px;
-            height: auto;
-            position: absolute;
-            justify-items: left;
-            margin-top: 5px;
-            margin-right: 9px;
-            margin-left: 0;
+        a {
+            text-decoration: none;
 
-        }
-        .logo {
-            font-size: 1.5em;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: rgb(53, 26, 8);
-            margin: 0;
-            margin-bottom: 20px;
-            margin-left: 10px;
-            @media (max-width: 768px) {
-                display: none;
+            img {
+                width: 80px;
+                height: auto;
+                justify-items: left;
+            }
+            .logo {
+                font-size: 1.5em;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin: 0;
+                color: rgb(53, 26, 8);
+                // @media (max-width: 768px) {
+                //     display: none;
+                // }
             }
         }
     }
@@ -125,6 +104,7 @@
         }
     }
 
+    //RightNav.jsx
     ul {
         list-style: none;
         text-decoration: none;
