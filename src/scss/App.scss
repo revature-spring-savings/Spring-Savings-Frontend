@@ -25,16 +25,12 @@ body{
   justify-content: center;
   overflow-y: visible;
  // height: 100vh;
- position: relative;
-}
-
-.pageTitle, .title{
-  color: white;
+  //  position: relative;
 }
 
 .page-container {
   margin-top: 120px !important;
-  margin-bottom: 50px;
+  height: 100%;
  // padding-top: 50px;
   @media (max-width: 768px) {
     margin-top: 0rem;

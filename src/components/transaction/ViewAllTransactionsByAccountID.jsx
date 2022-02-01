@@ -7,7 +7,6 @@ export default function ViewAllTransactionsByAccountID(props) {
     const [transactions, setTransactions] = useState([]);
     const [accountID, setAccountID] = useState(props.accountID);
     const [pageNumber, setPageNumber] = useState(0);
-    
 
     // change this to view more transactions per page
     const transactionsPerPage = 5;

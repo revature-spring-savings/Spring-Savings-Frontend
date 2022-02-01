@@ -2,8 +2,7 @@ import React from "react";
 import UserInformation from "../components/user/UserInformation";
 import { useLogin } from "../context/LoginProvider";
 
-const Profile = (props) => {
-  const currentUser = props.currentUser;
+const Profile = () => {
   const { loginUsername } = useLogin();
   return (
     <>

@@ -7,7 +7,7 @@ import axios from "axios";
 import { useLogin } from "../../context/LoginProvider"
 
 export default function UserCard() {
-  const { loginUserID } = useLogin();
+  const { loginUsername } = useLogin();
   const [editForm, setEditForm] = useState(false);
   const [currentUser, setCurrentUser] = useState([]);
   console.log(currentUser);
@@ -16,7 +16,7 @@ export default function UserCard() {
 
     //http://localhost:8081/users/id
     axios
-      .get(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/users/id/${loginUserID}`)
+      .get(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/users/username/${loginUsername}`)
       .then((res) => {
         console.log(res.data);
         setCurrentUser(res.data);
