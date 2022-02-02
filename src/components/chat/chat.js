@@ -1,5 +1,4 @@
-
-import './chat.css';
+import './chat.scss';
 import {MdTextsms} from 'react-icons/md'
 import {AiFillBank} from 'react-icons/ai'
 import {RiCloseCircleLine} from 'react-icons/ri'
@@ -12,11 +11,7 @@ import PulseLoader from "react-spinners/PulseLoader";
 import TransitionGroup from 'react-transition-group/TransitionGroup';
 import {BankContext} from '../../Context/bank-context'
 
-
-
-
 function Chat() {
-
   const [showTextBox, setShowTextBox] = useState(false)
   const [showX, setShowX] = useState(false)
   const [stompClient, setStompClient] = useState(null);
@@ -29,8 +24,6 @@ function Chat() {
   const [userName, setUserName] = useState(chatCTX.onUserData.firstName)
 
   let tranDiv = document.getElementById("trDiv");
-
- 
 
   let socket = useRef(null)//test
 
@@ -67,11 +60,7 @@ function Chat() {
         {who: from, message: newChat, time: getTime(), id:id}])
       }
      }, 500);
-
    }
-     
-   
-    
   }
 
   const requestSupport = () => {
@@ -139,8 +128,6 @@ function Chat() {
       setTimeout(() => {
         tranDiv.scrollTop = tranDiv.scrollHeight;
       }, 300);
-      
-      
     }
   },[transcript])
 
@@ -162,20 +149,15 @@ function Chat() {
           console.log("From: " + messageSender);
 
           updateChatArr(messageSender, messageReceived);
-
-
-
         });
       }
     )
 
-        return ()=> stompClient.disconnect()
+    return ()=> stompClient.disconnect()
 
   },[chatCTX.onUserData])
 
   const submitMessage = (e) => {
-    
-    
     if(e.key==="Enter") {
       e.preventDefault();
       setSendText(false);
@@ -189,10 +171,7 @@ function Chat() {
 
       sendMessage();
     } 
-
   }
-
-
 
   const getTime = () => {
     let today = new Date();
@@ -203,10 +182,8 @@ function Chat() {
     let suffix = today.getHours()<12 ? " AM" : " PM"
     let time = hour + ":" + minute + suffix;
 
-    
     return time;
   }
-
 
   function sendMessage() {
     let id = new Date().getTime();
@@ -221,11 +198,10 @@ function Chat() {
       {who: 'bank', message: 'You are not connected to anyone yet',
        time: '', id:id}])
    }
-    
   }
 
   return (
-    <div  >
+    <div className="mainCont">
         
       <div className='chatWrap' style={{height:chatWrapHeight, }}>
 
@@ -236,8 +212,7 @@ function Chat() {
 
           <div className='chatBoxCont' style={{}}>
             <Fade top opposite when={showX}>
-          <div style={{position:'absolute', top:'-10%', right:'-20px', 
-            cursor:'pointer',   }} onClick={()=>setTimeout(() => {
+          <div className='chatHeader' onClick={()=>setTimeout(() => {
               setTranscript([])
 
               if(repUname){
@@ -248,7 +223,7 @@ function Chat() {
 
             }, 500)}>
                 <RiCloseCircleLine  size='30'
-                color={'salmon'}
+                color={'grey'}
                 onClick={()=>{
                   setShowX(false)
                   setTimeout(() => {

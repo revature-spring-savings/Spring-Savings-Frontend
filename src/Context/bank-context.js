@@ -3,13 +3,8 @@ import React, { useState } from "react";
 export const BankContext = React.createContext();
 
 const BankContextProvider = (props) => {
-
-
-
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   const [userData, setUserData] = useState()
-
 
   return (
     <BankContext.Provider

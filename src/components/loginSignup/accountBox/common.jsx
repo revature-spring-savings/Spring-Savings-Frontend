@@ -7,7 +7,6 @@ They are being imported into loginForm.jsx and signupForm.jsx.
 You can utilized regular CSS or even SASS syntax within the backticks.
 */
 
-
 export const BoxContainer = styled.div`
   width: 100%;
   display: flex;

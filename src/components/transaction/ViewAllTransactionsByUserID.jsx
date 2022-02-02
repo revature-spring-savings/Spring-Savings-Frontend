@@ -8,7 +8,7 @@ export default function ViewAllTransactionsByUserID() {
     useEffect(() => {
         axios.get(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/transactions/userID/${userID}`)
             .then((response) => {
-                console.log(response.data);
+                // console.log(response.data);
                 setTransactions(response.data);
             })
     }, []);

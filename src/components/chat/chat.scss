@@ -7,6 +7,21 @@
     src: url(../../../public/assets/fonts/Futura-Std-Bold.otf);
 }
 
+  // Scrollbar customization
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #a5a2a2;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #fcfcfc;
+  border-radius: 10px;
+  border: 3px solid #ffffff;
+}
+
 .mainCont {
   /* background-color: #282c34; */
   min-height: 100%;
@@ -14,8 +29,12 @@
   // overflow: hidden;
   position: fixed;
   bottom: 0%;
-  right: 2em;
+  right: 5em;
   z-index: 99;
+
+  @media only screen and (max-width: 768px) {
+    right: -11em;
+  }
 }
 
 .chatWrap {
@@ -26,7 +45,7 @@
   right: 200px;
   transition: all 1s;
   font-family: "Future-Std-Bold";
-
+  
   .chatBoxCont {
     width: 100%;
     height: 100%;
@@ -36,19 +55,19 @@
     flex-direction: column;
     border-radius: 20px;
     padding: 15px 20px;
+    border: 2px $rev-lightgrey solid;
+
+    @media only screen and (max-width: 768px) {
+      font-size: smaller;
+      width: 300px;
+    }
 
     .chatHeader {
       display: flex;
-      flex-direction: row-reverse;
-      justify-content: space-between;
-      
-      border-bottom: 1px rgba(151, 151, 151, 0.645) solid;
-      padding-bottom: 2px;
-      
-      h1 {
-        color: rgb(53, 26, 8);
-        font-size: medium;
-      }
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: flex-end;
+
       svg {
         cursor: pointer;
       }
@@ -90,7 +109,7 @@
 .transcriptArea{
   // width: 100%;
   height: 75%;
-  overflow-y: hidden;
+  overflow-y: auto;
   scroll-behavior: smooth;
   padding: 10px;
 
@@ -104,9 +123,10 @@
   height: 50px;
   transform: rotateY(180deg);
   position: absolute;
-  bottom: 10px;
+  bottom: 0px;
   left: 165px;
   transition: all 0.5;
+  color: $rev-lightgrey;
 }
 
 .chatTranscript {
@@ -146,4 +166,16 @@
 #support-tagline{
   color: rgb(53, 26, 8);;
   padding: 0px;
+}
+
+#tArea{
+  background-color: transparent ;
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+
+.react-reveal-chatBoxCont{
+  border: 1px solid black;
 }

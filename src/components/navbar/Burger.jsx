@@ -4,7 +4,6 @@ import RightNav from "./RightNav";
 
 //Animation for the hamburger switching between the menus
 const BurgerStyle = styled.div`
-
     .lines {
         background-color: ${({ open }) => open ? "#ccc" : "#333"};
         
@@ -27,11 +26,11 @@ export default function Burger() {
     return (
         <>
             <BurgerStyle className="burger" open={open} onClick={() => setOpen(!open)}>
-                <div className="lines"/>
-                <div className="lines"/>
-                <div className="lines"/> 
+                <div className="lines" />
+                <div className="lines" />
+                <div className="lines" />
             </BurgerStyle>
-            <RightNav open={open}/>
+            <RightNav open={open} />
         </>
     )
 }
