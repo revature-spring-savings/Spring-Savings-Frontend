@@ -1,0 +1,315 @@
+@use "../../scss/colors" as *;
+@use "../../scss/font" as *;
+@use "../../scss/mixins" as *;
+
+@font-face{
+    font-family: "Future-Std-Bold";
+    src: url(../../../public/assets/fonts/Futura-Std-Bold.otf);
+}
+
+#dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 25px;
+    height: 100%;
+    width: 100%;
+    max-width: 500px;
+
+    @media only screen and (max-width: 768px) {
+        margin-top: 100px;
+        width: 100vw;
+        overflow-x: hidden;
+    }
+
+    #dashTitle{
+        background-color: $rev-orange;
+        opacity: 85%;
+        box-shadow: 0 0 9px 3px rgb(58, 58, 58);
+        margin-bottom: 20px;
+        border-radius: 20px;
+        min-width: 250px;
+        width: 100%;
+
+        @media only screen and (max-width: 768px) {
+            min-width: 200px;
+            width: 100%;
+            margin: 0 auto;
+            border-radius: 0;
+        }
+
+        .pageTitle, .title{
+            color: white;
+          }
+          
+    }
+
+    #acctCards{
+        display: flex;
+        flex-direction: column;
+        float: left;
+        overflow-y:auto;
+
+        @media only screen and (max-width: 768px) {
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    
+    #latestTransactions{
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+.acctCard{
+    border-radius: 20px;
+    background-color: beige;
+    color: rgb(53, 26, 8);
+    margin: 20px;
+    overflow: hidden;
+    // align-items: center;
+    // justify-content: center;
+    // width: 350px;
+    // border: $rev-orange 3px solid;
+    // box-shadow: 0 0 6px 3px rgb(65, 64, 64);
+    width: fit-content;
+   // max-width: 100vh;
+   // overflow: scroll;
+    min-width: 350px;
+    box-shadow: 0 0 9px 3px rgb(58, 58, 58);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: no-wrap;
+
+    @media only screen and (max-width: 768px) {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        // max-width: 100vh !important;
+    }
+
+    #accountDeets{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding: 10px;
+        justify-content: center;
+        min-width: 150px;
+    }
+
+    p {
+        font-size: medium;
+        margin: 5px;
+    }
+
+    #recent-trans{
+        margin: 2px;
+        margin-top: 35px;
+    }
+
+
+}
+
+.acctCardHeader{
+    background-color: #F26925;
+    color: white;
+    padding: 0px 20px; 
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    min-width: 150px;
+
+    h3{
+        font-size: large;
+        color: beige;
+    }
+}
+
+.acctCardFooter{
+    background-color: #FCB414;
+    color: rgb(53, 26, 8);  
+    padding: 0.25px 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    min-width: 190px;
+    
+    .more-details-click{
+        cursor: pointer !important;
+        padding: 10px 0px;
+        width: 130px;
+        background-color: $rev-orange;
+        color: white;
+        border: 2px solid $rev-orange;
+        border-radius: 20px;
+        margin: 5px 0px;
+    }
+
+    .more-details-click:hover{
+        background-color: transparent;
+        color:$rev-orange;
+        transition: all 0.3s ease-out;
+    }
+
+    .footer-header{
+        background-color: $rev-orange;
+        width:fit-content;
+        padding: 10px 20px;
+        margin: 20px 0px 5px 0px;
+        border-radius: 15px;
+
+        h3, h2{
+            padding: 0px;
+            margin: 4px;
+        }
+    }
+}
+
+.viewMore{
+    background-color: #72A4C2;
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 17px;
+}
+
+table.transactionsTable{
+    background-color: beige;
+    border: $rev-orange 5px solid;
+    margin: 10px auto;
+    text-align: center;
+    width: 500px;
+    font-size: small;
+
+    @media only screen and (max-width: 768px) {
+        margin: 0;
+        font-size: smaller;
+        border-collapse: collapse;
+        table-layout: fixed;
+        width: 350px;
+
+        thead > tr {
+            margin: 0;
+            padding: 0;
+        }
+
+        thead > th {
+            padding: 0;
+            font-size: smaller;
+        }
+        tr > td {
+            padding: 5px 0 5px 0;
+        }
+        td {
+            padding: 0px;
+            word-wrap: break-word;
+            font-size: 10px;
+        }
+
+        #tid,#amt,#tdate,#ttype,#tnote {
+            min-width: 0;
+            font-size: smaller;
+        }
+    }
+
+    th{
+        background-color: $rev-blue;
+        padding: 5px 10px;
+        color: black;
+    }
+
+    td{
+        border: none;
+        padding: 0px 4px;
+        margin: 0px !important;
+    }
+
+    #tid{
+        min-width: 30px;
+    }
+
+    #amt{
+        min-width: 65px;
+    }
+
+    #tdate{
+        min-width: 74px;
+    }
+
+    #ttype{
+        min-width: 75px;
+    }
+
+    #tnote{
+        min-width: 100px;
+    }
+}
+
+.complete-btn{
+    background-color: transparent;
+    border: 1px solid #b84e19;
+    padding: 12px 15px;
+    border-radius: 24px;
+    margin: 10px;
+    font-weight: bold;    
+}
+
+.complete-btn:hover{
+    background-color: $rev-orange;
+    cursor:pointer;
+}
+
+.gray-btn {
+    background-color: $rev-lightgrey;
+    border: 1px solid #888;
+    padding: 4px 8px;
+    border-radius: 15px;
+    margin: 5px;
+    //margin-bottom: 20px;
+    color: black;
+}
+
+.gray-btn:hover {
+    background-color: $rev-darkgrey;
+    transition: all 0.3s ease-out;
+    color: white;
+}
+
+.trans-btn {
+    background-color: $rev-yellow;
+    border: 1px solid $rev-orange;
+    padding: 4px 8px;
+    border-radius: 15px;
+    margin: 5px;
+    color: #cb561c;
+}
+
+.trans-btn:hover {
+    background-color: $rev-orange;
+    border: 1px solid $rev-orange;
+    color: white;
+    transition: all 0.3s ease-out;
+}
+
+.close-btn {
+    background-color: beige;
+    border: 1px solid #888;
+    padding: 3px 6px;
+    border-radius: 12px;
+    margin: 5px;
+    color: black;
+}
+
+.close-btn:hover {
+    background-color: $rev-lightgrey;
+   // color: white;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}

@@ -1,0 +1,38 @@
+@use "./colors" as *;
+@use "./font" as *;
+@use "./mixins" as *;
+
+// Anything Global goes here
+
+body{
+  // background-color: $backgroundcolor;
+  background-image: url("../../public/assets/images/jellyfish.jpg");
+  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.App {
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  overflow-y: visible;
+ // height: 100vh;
+  //  position: relative;
+}
+
+.page-container {
+  margin-top: 120px;
+  height: 100%;
+ // padding-top: 50px;
+  @media (max-width: 768px) {
+    margin-top: 0rem;
+  }
+}
