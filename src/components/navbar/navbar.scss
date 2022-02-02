@@ -180,3 +180,10 @@
     text-decoration: none;
     color: #8d8d8d;
 }
+
+#logged-in-username{
+    color:rgb(53, 26, 8);
+    @media (max-width: 768px){
+        margin-bottom: 0px;
+    }
+}
