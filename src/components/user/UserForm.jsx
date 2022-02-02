@@ -47,8 +47,8 @@ export default function UserForm(props) {
         });
 
         let newDate = new Date();
-    let month = newDate.getMonth() + 1;
-    let today = `${month < 10 ? `0${month}` : `${month}`}/${newDate.getDate()}/${newDate.getFullYear()}`;
+        let month = newDate.getMonth() + 1;
+        let today = `${month < 10 ? `0${month}` : `${month}`}/${newDate.getDate()}/${newDate.getFullYear()}`;
 
         //http://localhost:8081/users/update
         axios.put(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/users/update/${currentUser.userID}`, {
@@ -90,22 +90,26 @@ export default function UserForm(props) {
                     Password:
                     <input className="update-form-input" placeholder={currentUser.password} value={password} onChange={handlePassword} type={showPassword ? "password" : "text"} name="name" />
                     <div className="visibility-image-container">
-                        <img onClick={()=> handleClickShowPassword()} className="visibility-image" src={showPassword ? notVisible: visible} alt="visible-icon"/>
+                        <img onClick={() => handleClickShowPassword()} className="visibility-image" src={showPassword ? notVisible : visible} alt="visible-icon" />
                     </div>
                 </label>
                 <label>
                     Phone number:
                     <input className="update-form-input" placeholder={currentUser.phone_number} value={phoneNum} onChange={handlePhoneNum} type="text" name="name" />
                 </label>
-                <label>
-                    Date of Birth:
-                    <input className="update-form-input" placeholder={currentUser.dob} value={dob} onChange={handleDob} type="date" name="name" />
-                </label>
             </form>
-            <button id="submit-update-form" className="update-form-button" onClick={() => {updateUserInformation(); setRenderModal(!renderModal)}}>Update</button>
+            <button id="submit-update-form" className="update-form-button" onClick={() => { updateUserInformation(); setRenderModal(!renderModal) }}>Update</button>
             <button id="cancel-update-form" className="update-form-button" onClick={() => editForm(false)}>Go Back</button>
             {renderModal ? <UpdateAccountModal close={setRenderModal} /> : ""}
         </div>
 
     )
 }
+
+
+/*
+<label>
+    Date of Birth:
+    <input className="update-form-input" placeholder={currentUser.dob} value={dob} onChange={handleDob} type="date" name="name" />
+</label>
+*/
