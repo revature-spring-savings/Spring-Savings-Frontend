@@ -64,8 +64,8 @@ export default function CreateNewTransaction(props) {
 
         if(isValid){
             console.log("is valid");
-       //     axios.post("http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/transactions", [{
-        axios.post("http://localhost:9090/transactions", [{
+            axios.post("http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/transactions", [{
+       // axios.post("http://localhost:9090/transactions", [{
                 accountID: props.accountID,
                 userID: account.userID,
                 amount: amount,
