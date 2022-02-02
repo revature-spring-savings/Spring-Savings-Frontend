@@ -3,60 +3,56 @@ import { useState } from "react";
 import axios from "axios";
 import "./userForm.scss"
 import UpdateAccountModal from "../modal/UpdateAccountModal";
-import notVisible from "./user-images/visible.png";
-import visible from "./user-images/not-visible.png";
+import visible from "./user-images/visible.png";
+import notVisible from "./user-images/not-visible.png";
 
 export default function UserForm(props) {
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastname] = useState('');
-    const [email, setEmail] = useState('');
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [phoneNum, setPhoneNum] = useState('');
-    const [dob, setDob] = useState('');
+    const currentUser = props.currentUser;
+    console.log(currentUser)
+    console.log(props)
+    const [firstName, setFirstName] = useState(currentUser.firstName);
+    const [lastName, setLastname] = useState(currentUser.lastName);
+    const [email, setEmail] = useState(currentUser.email);
+    const [username, setUsername] = useState(currentUser.username);
+    const [password, setPassword] = useState(currentUser.pass);
+    const [phoneNum, setPhoneNum] = useState(currentUser.phoneNumber);
+    const [dob, setDob] = useState(currentUser.dob);
     const [showPassword, setShowPassword] = useState("false");
     const [renderModal, setRenderModal] = useState(false);
 
+    console.log(props.currentUser);
+
     const editForm = props.formState;
-    const currentUser = props.currentUser;
 
-    const handleFirstName = (e) => {
-        setFirstName(e.target.value);
-    }
-
-    const handleLastName = (e) => {
-        setLastname(e.target.value);
-    }
-
-    const handleEmail = (e) => {
-        setEmail(e.target.value);
-    }
-
-    const handleUsername = (e) => {
-        setUsername(e.target.value);
-    }
-
-    const handlePassword = (e) => {
-        setPassword(e.target.value);
-    }
-
-    const handlePhoneNum = (e) => {
-        setPhoneNum(e.target.value);
-    }
-
-    const handleDob = (e) => {
-        setDob(e.target.value);
-    }
-
-    const handleClickShowPassword = (e) => {
-        setShowPassword(!showPassword);
-    }
+    const handleFirstName = (e) => setFirstName(e.target.value);
+    const handleLastName = (e) => setLastname(e.target.value);
+    const handleEmail = (e) => setEmail(e.target.value);
+    const handleUsername = (e) => setUsername(e.target.value);
+    const handlePassword = (e) => setPassword(e.target.value);
+    const handlePhoneNum = (e) => setPhoneNum(e.target.value);
+    const handleDob = (e) => setDob(e.target.value);
+    const handleClickShowPassword = (e) => setShowPassword(!showPassword);
 
     // update user information
-
     const updateUserInformation = () => {
-        axios.put(`http://localhost:8081/users/update/1`, {
-            userID: 1,
+        props.setCurrentUser({
+            userID: currentUser.userID,
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            username: username,
+            pass: password,
+            phoneNumber: phoneNum,
+            dob: dob
+        });
+
+        let newDate = new Date();
+    let month = newDate.getMonth() + 1;
+    let today = `${month < 10 ? `0${month}` : `${month}`}/${newDate.getDate()}/${newDate.getFullYear()}`;
+
+        //http://localhost:8081/users/update
+        axios.put(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/users/update/${currentUser.userID}`, {
+            userID: currentUser.userID,
             firstName: firstName,
             lastName: lastName,
             email: email,
@@ -65,7 +61,7 @@ export default function UserForm(props) {
             phoneNumber: phoneNum,
             dob: dob
         }).then(res => {
-            console.log(res.data)
+            // console.log(res.data)
         }).catch(err =>
             console.log(`Error occurred while updating ${err}`)
         )
@@ -92,9 +88,9 @@ export default function UserForm(props) {
                 </label>
                 <label>
                     Password:
-                    <input className="update-form-input" placeholder={currentUser.password} value={password} onChange={handlePassword} type={showPassword ? "text" : "password"} name="name" />
+                    <input className="update-form-input" placeholder={currentUser.password} value={password} onChange={handlePassword} type={showPassword ? "password" : "text"} name="name" />
                     <div className="visibility-image-container">
-                        <img onClick={()=> handleClickShowPassword()} className="visibility-image" src={showPassword ? visible: notVisible} alt="visible-icon"/>
+                        <img onClick={()=> handleClickShowPassword()} className="visibility-image" src={showPassword ? notVisible: visible} alt="visible-icon"/>
                     </div>
                 </label>
                 <label>
@@ -103,11 +99,11 @@ export default function UserForm(props) {
                 </label>
                 <label>
                     Date of Birth:
-                    <input className="update-form-input" placeholder={currentUser.dob} value={dob} onChange={handleDob} type="text" name="name" />
+                    <input className="update-form-input" placeholder={currentUser.dob} value={dob} onChange={handleDob} type="date" name="name" />
                 </label>
             </form>
-            <button className="update-form-button" onClick={() => {updateUserInformation(); setRenderModal(!renderModal)}}>Update</button>
-            <button className="update-form-button" onClick={() => editForm(false)}>Cancel</button>
+            <button id="submit-update-form" className="update-form-button" onClick={() => {updateUserInformation(); setRenderModal(!renderModal)}}>Update</button>
+            <button id="cancel-update-form" className="update-form-button" onClick={() => editForm(false)}>Go Back</button>
             {renderModal ? <UpdateAccountModal close={setRenderModal} /> : ""}
         </div>
 

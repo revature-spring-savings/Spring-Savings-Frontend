@@ -1,21 +1,23 @@
-import ViewAllTransactions from '../transaction/ViewAllTransactionsByUserID'
 import { AccountByUserID } from "../account/AccountByUserID"
 import './dashboard.scss'
 import IdleTime from '../IdleTime'
-import AccountNavbar from '../navbar/AccountNavBar';
-import { useAuth0 } from '@auth0/auth0-react';
+import { useLogin } from '../../Context/LoginProvider';
+import ReactDOM from 'react-dom';
 
 export default function Dashboard() {
+    const {loginUsername} = useLogin();
+
     return (
         <div id="dashboard-container">
             <div id="dashTitle">
-                <h1 class="pageTitle">Dashboard</h1>
-                <h3 class="title">Hello, User 2!</h3>
+                <h1 className="pageTitle">Dashboard</h1>
+                <h3 className="title">Hello, {loginUsername}</h3>
             </div>
                 <IdleTime/>
             <div id="acctCards">
                 <AccountByUserID />
-            </div>
+                
+            </div>      
         </div>
     )
-    }
+}

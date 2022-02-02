@@ -2,33 +2,55 @@
 @use "../../scss/font" as *;
 @use "../../scss/mixins" as *;
 
+// AccountNavBar.jsx -> we were too lazy to change the name (Sorry)
 .bottom-navbar {
     list-style-type: none;
     margin: 55px 0 0 0;
     padding: 0;
-    background: $nav-bar-color;
     width: 100%;
     position: fixed;
     z-index: 990;
     top: 0%;
+    transition: all .5s ease-in-out;
+    background: transparent;
+    opacity: 0;
     border-top: 1px $rev-lightgrey solid;
 
     @media (max-width: 768px) {
         margin: 0;
     }
-
+    
+    .div-logo {
+        padding: 12px 10px;
+        font-size: larger;
+        color: $rev-darkgrey;
+        font-weight: bold;
+        border-bottom: 1px rgb(204, 204, 204) solid;
+        display: none;
+        @media (max-width: 768px) {
+            display: block;
+        }
+    }
     .left-bottomNavbar {
         padding: 14px;
         list-style: none;
         display:inline-block;
         margin: auto;
-
+        color: rgba(0, 0, 0, 0.5);
         a {
             text-decoration: none;
+            @include animate-underline-left;
         }
     }
+} 
+
+// onScroll animation
+.scroll-nav {
+    background: $nav-bar-color;
+    opacity: 100%;
 }
 
+// Navbar.jsx
 .nav-bar {
     width: 100%;
     height: 55px;
@@ -41,26 +63,34 @@
 
     @media (max-width: 768px) {
         background-color: transparent;
+        
     }
 
     #logo-bar {
         display: flex;
-        flex-direction: row;
         justify-content: center;
         align-items: center;
         
-        img {
-            width: 80px;
-            height: auto;
+        @media only screen and (max-width: 768px) {
+            visibility: hidden;        
         }
-        .logo {
-            font-size: 1.5em;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            @media (max-width: 768px) {
-                display: none;
+        
+        a {
+            text-decoration: none;
+
+            img {
+                width: 80px;
+                height: auto;
+                justify-items: left;
+            }
+            h1.logo {
+                font-size: 1.5em;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin: 0;
+                color: rgb(53, 26, 8);
             }
         }
     }
@@ -93,6 +123,7 @@
         }
     }
 
+    //RightNav.jsx
     ul {
         list-style: none;
         text-decoration: none;
@@ -134,7 +165,7 @@
             right: -10%;
             height: 100vh;
             width: 150px;
-            padding: 3.5rem 0rem 0rem 2rem;
+            padding: 3.5rem 2rem 0rem 2rem;
             // transform is used in the RightNav.jsx file
         }
     }
@@ -147,5 +178,5 @@
 }
 .non-active {
     text-decoration: none;
-    color: $rev-lightgrey;
+    color: #8d8d8d;
 }

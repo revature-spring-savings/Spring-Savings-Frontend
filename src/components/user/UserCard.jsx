@@ -1,33 +1,53 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./userCard.scss";
-import icon from "./user-images/icon.png";
 import UserForm from "./UserForm";
+<<<<<<< HEAD
 import { filterProps } from "framer-motion";
 import anonpig from "./user-images/anonymous-pig.png";
 import { useAuth0 } from '@auth0/auth0-react';
 export default function UserCard(props) {
   const currentUser = props.currUser;
+=======
+import anonpig from "./user-images/pigsavings.png";
+import axios from "axios";
+import { useLogin } from "../../Context/LoginProvider"
+>>>>>>> 3ebde1649c1ab43be77335b1fba80d4e7acec4fb
 
+export default function UserCard() {
+  const { loginUsername } = useLogin();
   const [editForm, setEditForm] = useState(false);
+  const [currentUser, setCurrentUser] = useState([]);
+  console.log(currentUser);
+  
+  useEffect(() => {
+
+    //http://localhost:8081/users/id
+    axios
+      .get(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/users/username/${loginUsername}`)
+      .then((res) => {
+        // console.log(res.data);
+        setCurrentUser(res.data);
+      });
+  }, []);
 
   return (
     <div className="c-container">
       <div className="img-container">
         <img className ="usercard-img" src={anonpig} alt="person-icon" />
-        {editForm ? <div className="card-name">{currentUser.first_name} {currentUser.last_name}</div> : ""}
+        {editForm ? <div className="card-name">{currentUser.firstName} {currentUser.lastName}</div> : ""}
       </div>
       {editForm ? (
-        <UserForm currentUser={currentUser} formState = {setEditForm} />
+        <UserForm currentUser={currentUser} formState = {setEditForm} setCurrentUser = {setCurrentUser} />
       ) : (
         <>
           <div className="c-name">
             <ul>
-              <li id="list-name">{`${currentUser.first_name} ${currentUser.last_name}`}</li>
+              <li id="list-name">{`${currentUser.firstName} ${currentUser.lastName}`}</li>
               <li>Username: {currentUser.username}</li>
               <li>Date of Birth: {currentUser.dob}</li>
               <li>Email: {currentUser.email}</li>
-              <li>Phone: {currentUser.phone_number}</li>
+              <li>Phone: {currentUser.phoneNumber}</li>
             </ul>
           </div>
           <div>

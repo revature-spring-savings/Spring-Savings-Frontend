@@ -2,8 +2,10 @@ import axios from "axios";
 import { useState } from "react";
 import "./CreateAccount.scss"
 import Modal from "../modal/Modal";
+import { useLogin } from "../../Context/LoginProvider";
 import AccountNavbar from "../navbar/AccountNavBar";
 import { useAuth0 } from '@auth0/auth0-react';
+
 
 export default function CreateAccount() {
     const [accountType, setAccountType] = useState('');
@@ -11,13 +13,9 @@ export default function CreateAccount() {
     const [accountBtn, setAccountBtn] = useState(false);
     const [renderModal, setRenderModal] = useState(false);
     const [currType, setCurrType] = useState("");
+    const {loginUserID} = useLogin();
 
     let isValid = false;
-
-    var userID = 1;
-    // let newDate = new Date();
-    // let month = newDate.getMonth() + 1;
-    // let today = `${month < 10 ? `0${month}` : `${month}`}/${newDate.getDate()}/${newDate.getFullYear()}`;
 
     // validation
     const submit = (e) => {
@@ -28,11 +26,13 @@ export default function CreateAccount() {
             if (amount < 100) {
                 setCurrType("CHECKING");
                 setRenderModal(true);
+
                 // const popup = document.getElementById("AJvalidation");
                 // console.log(<ValidationPopUp />);
                 // document.getElementById("AJvalidation").append(<ValidationPopUp />); 
                 // document.getElementById("AJvalidation").append("Checking requires $100 minimum to open");
-                console.log("Checking requires $100 minimum to open");
+                //console.log("Checking requires $100 minimum to open");
+
             } else {
                 isValid = true;
             }
@@ -42,35 +42,32 @@ export default function CreateAccount() {
                 setCurrType("SAVINGS");
                 setRenderModal(true);
                 //  document.getElementById("AJvalidation").append("Saving requires $50 minimum to open");
-                console.log("Saving requires $50 minimum to open");
+                //console.log("Saving requires $50 minimum to open");
+
             } else {
                 isValid = true;
             }
         }
-        if (isValid) {
-            setCurrType("SUCCESS"); // if account creation successful, render sucess page
-            setRenderModal(true);
-            axios.post(`http://localhost:8081/accounts/createAccount/${userID}`, {
-                userID: 1,
+        if (isValid) {           
+           axios.post(`http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/accounts/createAccount/${loginUserID}`, {
+            //axios.post(`http://localhost:9090/accounts/createAccount/${loginUserID}`, {
+                userID: loginUserID,
                 accountBalance: amount,
                 accountType: accountType
             })
                 .then((response) => {
-                    console.log(response.data);
+
+                    //console.log(response.data);
+
+                    setCurrType("SUCCESS"); // if account creation successful, render sucess page
+                    setRenderModal(true);
                 })
                 .catch(function (error) {
-                    console.log(error);
+                    //console.log(error);
                 })
         }
 
-        // window.location.reload(true);
-
     }
-
-    //  const resetVal = (e) => {
-    //      e.preventDefault();
-    //      document.getElementById("AJvalidation").innerHTML = "";
-    //  }
 
 
     //get userID and accountID from useContext
@@ -86,7 +83,8 @@ export default function CreateAccount() {
             <div className="page-container">
                 <form className="create-account-form">
                     <div className="create-account-header">
-                    <h2>Create a new Banking Account </h2>
+                    <h2>Create a New Banking Account </h2>
+                    <h4>(because a bank is better than a cookie jar)</h4>
                     </div>
                     <input name="type" type="radio" id="checking" value="CHECKING" onClick={(e) => changeTheValue(e.target.value)} />
                     <label htmlFor="checking" defaultChecked>Checking</label>
@@ -111,5 +109,6 @@ export default function CreateAccount() {
             </div>
                 {renderModal ? <Modal modalState={setRenderModal} accountType={currType} setAmount={setAmount} /> : ""}
         </>
+      
     )
 }
