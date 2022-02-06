@@ -13,13 +13,13 @@ import CreepyEasterEgg from "./components/video/CreepyEasterEgg";
 import LoginProvider from './Context/LoginProvider';
 import { BankContext } from './Context/bank-context'
 import { useContext } from 'react';
-
+import React, { Component }  from 'react';
 // PLEASE READ
 // base url for backend is
 // http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/
 // be sure to change it on any page that is still using localhost
 const App = () => {
-  const { isLoading } = useAuth0();
+  // const { isLoading } = useAuth0();
 
   let newDate = new Date()
   let month = newDate.getMonth() + 1;
@@ -59,7 +59,7 @@ const App = () => {
               <Route path="/information" element={<Information />} />
               <Route path="/login" element={<Login />} />
               <Route path="/logout" element={<Logout />} />
-              <Route path="/profile" element={<Profile currentUser={currentUser} />} />
+              {/* <Route path="/profile" element={<Profile currentUser={currentUser} />} /> */}
               <Route path="/create" element={<CreateAccount />} />
               <Route path="/creepy" element={<CreepyEasterEgg />} />
             </Routes>

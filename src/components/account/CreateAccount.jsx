@@ -5,7 +5,7 @@ import Modal from "../modal/Modal";
 import { useLogin } from "../../Context/LoginProvider";
 import AccountNavbar from "../navbar/AccountNavBar";
 import { useAuth0 } from '@auth0/auth0-react';
-
+import React, { Component }  from 'react';
 
 export default function CreateAccount() {
     const [accountType, setAccountType] = useState('');

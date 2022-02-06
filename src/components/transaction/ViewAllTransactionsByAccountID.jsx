@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import "../account/pagination.scss";
-
+import React, { Component }  from 'react';
 export default function ViewAllTransactionsByAccountID(props) {
     const [transactions, setTransactions] = useState([]);
     const [accountID, setAccountID] = useState(props.accountID);

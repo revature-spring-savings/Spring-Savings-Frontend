@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useAuth0 } from '@auth0/auth0-react';
+import React, { Component }  from 'react';
 export default function ViewAllTransactionsByUserID() {
     const [transactions, setTransactions] = useState([]);
     const [userID, setUserID] = useState(2);

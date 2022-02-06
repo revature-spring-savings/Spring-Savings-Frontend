@@ -5,7 +5,7 @@ import { AccountByAcctID } from '../account/AccountByAcctID';
 import CreateSingleTransaction from '../transaction/CreateSingleTransaction';
 import TransferModal from "../modal/TransferModal";
 import { useLogin } from "../../Context/LoginProvider";
-
+import React, { Component }  from 'react';
 export default function CreateTransfer(props) {
     const { loginUserID } = useLogin;
     const [acctSrc, setAcctSrc] = useState(props.accountID);

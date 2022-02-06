@@ -6,7 +6,7 @@ import { AccountByAcctID } from '../account/AccountByAcctID';
 import CreateTransfer from '../transaction/CreateTransfer';
 import TransactionModal from "../modal/TransactionModal";
 import { useLogin } from "../../Context/LoginProvider";
-
+import React, { Component }  from 'react';
 import ReactDOM from 'react-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 

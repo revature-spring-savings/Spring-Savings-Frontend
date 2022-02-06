@@ -7,13 +7,9 @@ import Slide from 'react-reveal/Slide';
 import React,{useState, useRef, useEffect, useContext} from 'react';
 import * as SockJS from "sockjs-client";
 import * as Stomp from "stompjs";
-<<<<<<< HEAD
-import { useAuth0 } from '@auth0/auth0-react';
-=======
 import PulseLoader from "react-spinners/PulseLoader";
 import TransitionGroup from 'react-transition-group/TransitionGroup';
 import {BankContext} from '../../Context/bank-context'
->>>>>>> 3ebde1649c1ab43be77335b1fba80d4e7acec4fb
 
 function Chat() {
   const [showTextBox, setShowTextBox] = useState(false)

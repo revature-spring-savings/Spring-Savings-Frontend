@@ -3,6 +3,7 @@ import './dashboard.scss'
 import IdleTime from '../IdleTime'
 import { useLogin } from '../../Context/LoginProvider';
 import ReactDOM from 'react-dom';
+import React, { Component }  from 'react';
 
 export default function Dashboard() {
     const {loginUsername} = useLogin();
