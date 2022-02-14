@@ -48,7 +48,7 @@ const RightNav = ({ open }) => {
             {rightNav.onIsLoggedIn ?
                 <Ul open={open}>
                     <li className="label">
-                        <p>
+                        <p id="logged-in-username">
                             {loginUsername}
                         </p>
                     </li>

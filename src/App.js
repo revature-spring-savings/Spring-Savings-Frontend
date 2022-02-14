@@ -1,7 +1,7 @@
 import './scss/App.scss';
 import Chat from './components/chat/chat.js';
 import Navbar from "./components/navbar/Navbar";
-import { Auth0Provider } from "@auth0/auth0-react";
+//import { Auth0Provider } from "@auth0/auth0-react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home, Accounts } from "./pages/Home";
 import CreateAccount from './components/account/CreateAccount';
@@ -44,12 +44,7 @@ const App = () => {
   console.log(today);
   return (
     <LoginProvider>
-      <Auth0Provider
-        domain="dev-wjx29g94.us.auth0.com"
-        clientId="zlyKi8BrV6Ii0AqjzGIWUap3TOgnwuu1"
-        redirectUri={window.location.origin}>
-
-        <div className="App">
+       <div className="App">
           <Router>
             <Navbar />
             <Routes>
@@ -68,10 +63,14 @@ const App = () => {
         {
           appCTX.onIsLoggedIn ? <Chat /> : ''
         }
-
-      </Auth0Provider>
-    </LoginProvider>
+   </LoginProvider>
   )
 }
 
 export default App;
+
+/* <Auth0Provider
+domain="dev-wjx29g94.us.auth0.com"
+clientId="zlyKi8BrV6Ii0AqjzGIWUap3TOgnwuu1"
+redirectUri={window.location.origin}>
+  </Auth0Provider>*/

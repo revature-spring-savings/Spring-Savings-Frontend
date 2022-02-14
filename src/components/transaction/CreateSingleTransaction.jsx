@@ -1,14 +1,15 @@
-import { tab } from "@testing-library/user-event/dist/tab";
+//import { tab } from "@testing-library/user-event/dist/tab";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
 import { AccountByAcctID } from '../account/AccountByAcctID';
 import CreateTransfer from '../transaction/CreateTransfer';
 import TransactionModal from "../modal/TransactionModal";
-import { useLogin } from "../../Context/LoginProvider";
-import React, { Component }  from 'react';
+//import { useLogin } from "../../Context/LoginProvider";
+
 import ReactDOM from 'react-dom';
-import { useAuth0 } from '@auth0/auth0-react';
+import React from 'react';
+
 
 export default function CreateNewTransaction(props) {
   //  const { loginUserID } = useLogin;
@@ -65,8 +66,8 @@ export default function CreateNewTransaction(props) {
 
         if(isValid){
             console.log("is valid");
-       //     axios.post("http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/transactions", [{
-        axios.post("http://localhost:9090/transactions", [{
+            axios.post("http://ec2-54-211-135-196.compute-1.amazonaws.com:9090/transactions", [{
+       // axios.post("http://localhost:9090/transactions", [{
                 accountID: props.accountID,
                 userID: account.userID,
                 amount: amount,
